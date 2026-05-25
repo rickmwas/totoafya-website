@@ -192,10 +192,14 @@ export default function Hero() {
             animate="visible"
             className="lg:col-span-5 order-1 lg:order-2 relative flex justify-center lg:justify-start py-12 lg:py-0"
           >
-            <div className="relative w-full max-w-[360px] sm:max-w-[420px] lg:max-w-none lg:w-[130%] lg:-mr-24 xl:-mr-36 aspect-[10/9] lg:aspect-square group select-none">
+            <div className="relative w-full max-w-[360px] sm:max-w-[420px] lg:max-w-none lg:w-[135%] lg:-mr-28 xl:-mr-40 aspect-[10/9] lg:aspect-square group select-none">
               
-              {/* ── Mockup-style Organic Leaf & Line Swirls ─────── */}
-              <div className="absolute inset-0 -z-10 pointer-events-none select-none flex items-center justify-center">
+              {/* ── Layer 1: Cinematic Atmospheric Radial Glows ─────── */}
+              <div className="absolute top-[10%] left-[10%] w-[350px] h-[350px] bg-earth-200/20 rounded-full blur-[100px] pointer-events-none z-0" />
+              <div className="absolute bottom-[10%] right-[10%] w-[400px] h-[400px] bg-forest-200/25 rounded-full blur-[120px] pointer-events-none z-0" />
+
+              {/* ── Layer 2: Mockup-style Organic Leaf & Line Swirls ── */}
+              <div className="absolute inset-0 z-0 pointer-events-none select-none flex items-center justify-center">
                 <svg
                   viewBox="0 0 500 500"
                   className="w-[125%] h-[125%] translate-y-[-5%] opacity-95"
@@ -230,7 +234,21 @@ export default function Hero() {
                     opacity="0.5"
                   />
 
-                  {/* Leaf shape path (drawn with bezier curves to match mockup leaf shape) */}
+                  {/* Dual-Layer leaf: Layer A (Semi-transparent background leaf) */}
+                  <path
+                    d="M 230,170 
+                       C 270,120 350,140 380,180 
+                       C 410,220 440,300 380,360 
+                       C 330,420 280,440 220,450 
+                       C 160,460 110,420 80,360 
+                       C 50,300 40,240 95,180 
+                       C 140,130 190,190 230,170 Z"
+                    fill="#1A6B45"
+                    fillOpacity="0.06"
+                    className="rotate-6 origin-center"
+                  />
+
+                  {/* Dual-Layer leaf: Layer B (Main Organic Stage Shape) */}
                   <path
                     d="M 250,150 
                        C 300,100 370,120 405,170 
@@ -252,22 +270,70 @@ export default function Hero() {
                 </svg>
               </div>
 
-              {/* ── Cutout Image of Mother & Child (Free-floating) ── */}
-              <div className="absolute inset-0 z-10 flex items-center justify-center pointer-events-none">
+              {/* ── Layer 3: Atmospheric Floating Particle details ───── */}
+              <div className="absolute inset-0 z-0 pointer-events-none select-none">
+                <div className="absolute left-[15%] top-[15%] w-3 h-3 rounded-full bg-earth-300/40 blur-xs animate-float" />
+                <div className="absolute left-[5%] top-[45%] w-4.5 h-4.5 rounded-full bg-forest-300/30 blur-xs animate-float-slow" />
+                <div className="absolute right-[10%] bottom-[20%] w-2 h-2 rounded-full bg-forest-400/50 blur-2xs animate-float" />
+                <div className="absolute right-[25%] top-[12%] w-3.5 h-3.5 rounded-full bg-earth-400/35 blur-xs animate-float-slow" />
+              </div>
+
+              {/* ── Layer 4: Cutout Image of Mother & Child (Emerging/Confident) ── */}
+              <div className="absolute inset-0 z-10 flex items-end justify-center pointer-events-none">
                 <img
                   src="/motherchildprofile.png"
                   alt="Mother and Child"
-                  className="w-full h-full object-contain filter drop-shadow-[0_20px_35px_rgba(8,45,27,0.15)] group-hover:scale-102 transition-transform duration-700 ease-out"
+                  className="w-[125%] h-auto max-h-[110%] object-contain filter drop-shadow-[0_24px_48px_rgba(8,45,27,0.16)] group-hover:scale-[1.03] group-hover:-translate-y-2 transition-all duration-700 ease-out"
                   loading="eager"
                 />
               </div>
 
-              {/* ── Mockup Card 1: Immunization Rate (Top-Right) ── */}
+              {/* ── Layer 4.5: Bottom Gradient Mask (Seamless Crop Fade) ── */}
+              <div
+                className="absolute bottom-0 left-0 right-0 h-48 z-12 pointer-events-none"
+                style={{
+                  background: 'linear-gradient(to top, #FDFBF5 0%, rgba(253, 251, 245, 0.98) 35%, rgba(253, 251, 245, 0.7) 70%, rgba(253, 251, 245, 0) 100%)'
+                }}
+              />
+
+              {/* ── Layer 4.6: Bottom Glowing Vector Wave Sweep ── */}
+              <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[140%] h-20 pointer-events-none z-13 opacity-90 select-none">
+                <svg viewBox="0 0 600 80" fill="none" className="w-full h-full">
+                  <path
+                    d="M0,60 Q150,15 300,55 T600,35"
+                    stroke="url(#bottomGlowGrad)"
+                    strokeWidth="3.5"
+                    strokeLinecap="round"
+                    className="opacity-75"
+                  />
+                  <path
+                    d="M0,60 Q150,15 300,55 T600,35 L600,80 L0,80 Z"
+                    fill="url(#bottomGlowFill)"
+                    opacity="0.12"
+                  />
+                  <defs>
+                    <linearGradient id="bottomGlowGrad" x1="0" y1="0" x2="1" y2="0">
+                      <stop offset="0%" stopColor="#3fa577" stopOpacity="0" />
+                      <stop offset="35%" stopColor="#3fa577" />
+                      <stop offset="65%" stopColor="#fbca4c" />
+                      <stop offset="100%" stopColor="#fbca4c" stopOpacity="0" />
+                    </linearGradient>
+                    <linearGradient id="bottomGlowFill" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0%" stopColor="#3fa577" />
+                      <stop offset="100%" stopColor="#FDFBF5" stopOpacity="0" />
+                    </linearGradient>
+                  </defs>
+                </svg>
+              </div>
+
+              {/* ── Layer 5: Floating Stat Cards (Staggered Orbit) ───── */}
+              
+              {/* Card 1: Immunization Rate (Top-Right) */}
               <motion.div
                 initial={{ opacity: 0, scale: 0.85, y: 15 }}
                 animate={{ opacity: 1, scale: 1, y: 0 }}
                 transition={{ delay: 0.8, duration: 0.6, ease: easeExpo }}
-                className="absolute -right-6 top-8 sm:-right-8 sm:top-10 w-[230px] bg-white/95 backdrop-blur-md rounded-2xl p-4 shadow-card border border-white/50 z-20 flex flex-col gap-2 transition-all duration-300 hover:scale-105 hover:shadow-warm animate-float"
+                className="absolute -right-6 top-8 sm:-right-8 sm:top-10 w-[235px] bg-white/80 backdrop-blur-xl rounded-2xl p-4 shadow-[0_25px_50px_rgba(8,45,27,0.12)] border border-white/40 z-20 flex flex-col gap-2 transition-all duration-300 hover:scale-105 hover:shadow-[0_30px_60px_rgba(8,45,27,0.16)] animate-float"
               >
                 <div className="flex items-center gap-3">
                   <div className="w-9 h-9 rounded-full flex items-center justify-center bg-forest-50 text-forest-600 shadow-inner">
@@ -278,7 +344,7 @@ export default function Hero() {
                     <div className="font-sans text-[9px] font-semibold text-gray-500 mt-0.5">Immunization rate across facilities</div>
                   </div>
                 </div>
-                {/* Custom Sparkline */}
+                {/* Sparkline */}
                 <svg className="w-full h-6 mt-0.5" viewBox="0 0 100 30" fill="none">
                   <path
                     d="M0,25 Q15,5 30,20 T60,10 T90,15 L100,5"
@@ -301,12 +367,12 @@ export default function Hero() {
                 </svg>
               </motion.div>
 
-              {/* ── Mockup Card 2: Registered Mothers (Middle-Right) ── */}
+              {/* Card 2: Registered Mothers (Middle-Right) */}
               <motion.div
                 initial={{ opacity: 0, scale: 0.85, y: 15 }}
                 animate={{ opacity: 1, scale: 1, y: 0 }}
                 transition={{ delay: 0.95, duration: 0.6, ease: easeExpo }}
-                className="absolute -right-12 top-[38%] sm:-right-14 sm:top-[38%] w-[190px] bg-white/95 backdrop-blur-md rounded-2xl p-3.5 shadow-card border border-white/50 z-20 flex items-center gap-3 transition-all duration-300 hover:scale-105 hover:shadow-warm animate-float-slow"
+                className="absolute -right-12 top-[38%] sm:-right-14 sm:top-[38%] w-[190px] bg-white/80 backdrop-blur-xl rounded-2xl p-3.5 shadow-[0_25px_50px_rgba(8,45,27,0.12)] border border-white/40 z-20 flex items-center gap-3 transition-all duration-300 hover:scale-105 hover:shadow-[0_30px_60px_rgba(8,45,27,0.16)] animate-float-slow"
               >
                 <div className="w-9 h-9 rounded-full flex items-center justify-center bg-amber-50 text-amber-500 shadow-inner">
                   <UserCheck className="w-4.5 h-4.5" />
@@ -317,12 +383,12 @@ export default function Hero() {
                 </div>
               </motion.div>
 
-              {/* ── Mockup Card 3: 24/7 AI Companion (Bottom-Right) ── */}
+              {/* Card 3: 24/7 AI Companion (Bottom-Right) */}
               <motion.div
                 initial={{ opacity: 0, scale: 0.85, y: 15 }}
                 animate={{ opacity: 1, scale: 1, y: 0 }}
                 transition={{ delay: 1.1, duration: 0.6, ease: easeExpo }}
-                className="absolute -right-8 bottom-[12%] sm:-right-10 sm:bottom-[12%] w-[230px] bg-white/95 backdrop-blur-md rounded-2xl p-4 shadow-card border border-white/50 z-20 flex gap-3 transition-all duration-300 hover:scale-105 hover:shadow-warm animate-float"
+                className="absolute -right-8 bottom-[12%] sm:-right-10 sm:bottom-[12%] w-[235px] bg-white/80 backdrop-blur-xl rounded-2xl p-4 shadow-[0_25px_50px_rgba(8,45,27,0.12)] border border-white/40 z-20 flex gap-3 transition-all duration-300 hover:scale-105 hover:shadow-[0_30px_60px_rgba(8,45,27,0.16)] animate-float"
               >
                 <div className="w-9 h-9 rounded-xl bg-forest-50 text-forest-600 flex items-center justify-center flex-shrink-0 shadow-inner">
                   <MessageSquare className="w-4.5 h-4.5" />
@@ -335,12 +401,12 @@ export default function Hero() {
                 </div>
               </motion.div>
 
-              {/* ── Mockup Card 4: Clinical Satisfaction (Bottom-Left / Overlapping) ── */}
+              {/* Card 4: Clinical Satisfaction (Bottom-Left / Intersecting Shoulder) */}
               <motion.div
                 initial={{ opacity: 0, scale: 0.85, y: 15 }}
                 animate={{ opacity: 1, scale: 1, y: 0 }}
                 transition={{ delay: 1.25, duration: 0.6, ease: easeExpo }}
-                className="absolute -left-10 bottom-6 sm:-left-12 sm:bottom-8 w-[200px] bg-white/95 backdrop-blur-md rounded-2xl p-3.5 shadow-card border border-white/50 z-20 flex gap-3 transition-all duration-300 hover:scale-105 hover:shadow-warm animate-float-slow"
+                className="absolute -left-12 bottom-6 sm:-left-16 sm:bottom-8 w-[205px] bg-white/80 backdrop-blur-xl rounded-2xl p-3.5 shadow-[0_25px_50px_rgba(8,45,27,0.12)] border border-white/40 z-20 flex gap-3 transition-all duration-300 hover:scale-105 hover:shadow-[0_30px_60px_rgba(8,45,27,0.16)] animate-float-slow"
               >
                 <div className="w-9 h-9 rounded-full flex items-center justify-center bg-coral-50 text-coral-500 shadow-inner flex-shrink-0">
                   <Heart className="w-4.5 h-4.5 fill-coral-500 text-coral-500" />
