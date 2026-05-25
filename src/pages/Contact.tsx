@@ -48,7 +48,7 @@ function Field({
       {error && (
         <p className="mt-2 font-sans text-xs text-coral-500 flex items-center gap-1.5 font-semibold">
           <svg viewBox="0 0 12 12" fill="currentColor" className="w-3.5 h-3.5 flex-shrink-0">
-            <path d="M6 2a4 4 0 100 8A4 4 0 006 2zM5.5 4.5h1v2h-1V4.5zm0 3h1v1h-1v-1z"/>
+            <path d="M6 2a4 4 0 100 8A4 4 0 006 2zM5.5 4.5h1v2h-1V4.5zm0 3h1v1h-1v-1z" />
           </svg>
           {error}
         </p>
@@ -59,10 +59,10 @@ function Field({
 
 // ── Contact info items ───────────────────────────────────────────
 const contactInfo = [
-  { icon: <MapPin className="w-5 h-5 text-forest-600" />, label: 'Address',    value: 'Kisii Town, Kisii County, Kenya' },
-  { icon: <Mail className="w-5 h-5 text-forest-600" />, label: 'Email',      value: 'hello@totoafya.co.ke'            },
-  { icon: <Phone className="w-5 h-5 text-forest-600" />, label: 'Phone',      value: '+254 700 000 000'                },
-  { icon: <Clock className="w-5 h-5 text-forest-600" />, label: 'Hours',      value: 'Mon – Fri, 8 AM – 6 PM EAT'     },
+  { icon: <MapPin className="w-5 h-5 text-forest-600" />, label: 'Address', value: 'Kisii Town, Kisii County, Kenya' },
+  { icon: <Mail className="w-5 h-5 text-forest-600" />, label: 'Email', value: 'hello@totoafya.co.ke' },
+  { icon: <Phone className="w-5 h-5 text-forest-600" />, label: 'Phone', value: '+254 700 000 000' },
+  { icon: <Clock className="w-5 h-5 text-forest-600" />, label: 'Hours', value: 'Mon – Fri, 8 AM – 6 PM EAT' },
 ]
 
 // ── Main Component ───────────────────────────────────────────────
@@ -72,7 +72,7 @@ export default function Contact() {
   const [serverError, setServerError] = useState<string | null>(null)
 
   const formRef = useRef(null)
-  const inView  = useInView(formRef, { once: true, margin: '-80px' })
+  const inView = useInView(formRef, { once: true, margin: '-80px' })
 
   const {
     register,
@@ -163,7 +163,7 @@ export default function Contact() {
                   Facility Partnerships
                 </h3>
                 <p className="font-sans text-sm text-forest-700 leading-relaxed">
-                  Looking to integrate TotoAfya with your clinic or county health system?
+                  Looking to integrate TotoAfya Digital with your clinic or county health system?
                   We offer custom deployment and training for facilities of all sizes.
                 </p>
                 <a
