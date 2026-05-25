@@ -164,7 +164,7 @@ export default function About() {
               </div>
 
               {/* Award badge overlay matching Hero StatBadge style */}
-              <div className="absolute -bottom-4 -right-4 bg-white/95 backdrop-blur-xs rounded-2xl
+              <div className="absolute bottom-2 right-2 sm:-bottom-4 sm:-right-4 bg-white/95 backdrop-blur-xs rounded-2xl
                               p-4 shadow-card-lg border border-gray-100 max-w-[210px] flex items-center gap-3">
                 <div className="w-9 h-9 rounded-full bg-amber-50 border border-amber-100 flex items-center justify-center text-amber-600 flex-shrink-0">
                   <Award className="w-4.5 h-4.5 stroke-[2]" />

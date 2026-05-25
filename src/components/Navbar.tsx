@@ -12,7 +12,7 @@ function Logo() {
       <img
         src="/logo.png"
         alt="TotoAfya Digital Logo"
-        className="h-18 sm:h-24 lg:h-[140px] w-auto object-contain transform translate-y-1 lg:translate-y-6 group-hover:scale-[1.03] transition-transform duration-200"
+        className="h-14 sm:h-20 lg:h-[140px] w-auto object-contain transform translate-y-1 lg:translate-y-6 group-hover:scale-[1.03] transition-transform duration-200"
       />
     </Link>
   )
@@ -121,7 +121,7 @@ export default function Navbar() {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.25, ease: 'easeInOut' }}
-            className="md:hidden border-t border-gray-100 bg-white overflow-hidden"
+            className="md:hidden border-t border-gray-100 bg-white max-h-[calc(100vh-5rem)] overflow-y-auto"
           >
             <nav className="px-4 pt-4 pb-6 flex flex-col gap-1" aria-label="Mobile navigation">
               {navItems.map((item, i) => (

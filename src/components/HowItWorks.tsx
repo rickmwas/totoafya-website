@@ -187,7 +187,7 @@ function PhoneMockup() {
       <motion.div
         animate={{ y: [0, -10, 0] }}
         transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
-        className="absolute -right-6 top-16 bg-white/95 backdrop-blur-xs rounded-2xl shadow-card-lg
+        className="hidden sm:flex absolute -right-6 top-16 bg-white/95 backdrop-blur-xs rounded-2xl shadow-card-lg
                    border border-gray-100 px-4 py-3 min-w-max z-20"
       >
         <div className="flex items-center gap-3">

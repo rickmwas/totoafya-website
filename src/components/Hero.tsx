@@ -333,19 +333,19 @@ export default function Hero() {
                 initial={{ opacity: 0, scale: 0.85, y: 15 }}
                 animate={{ opacity: 1, scale: 1, y: 0 }}
                 transition={{ delay: 0.8, duration: 0.6, ease: easeExpo }}
-                className="absolute -right-6 top-8 sm:-right-8 sm:top-10 w-[235px] bg-white/80 backdrop-blur-xl rounded-2xl p-4 shadow-[0_25px_50px_rgba(8,45,27,0.12)] border border-white/40 z-20 flex flex-col gap-2 transition-all duration-300 hover:scale-105 hover:shadow-[0_30px_60px_rgba(8,45,27,0.16)] animate-float"
+                className="hidden lg:flex absolute lg:-right-6 lg:top-8 xl:-right-8 xl:top-10 w-[235px] bg-white/80 backdrop-blur-xl rounded-2xl p-4 shadow-[0_25px_50px_rgba(8,45,27,0.12)] border border-white/40 z-20 flex-col gap-2 transition-all duration-300 hover:scale-105 hover:shadow-[0_30px_60px_rgba(8,45,27,0.16)] animate-float"
               >
-                <div className="flex items-center gap-3">
-                  <div className="w-9 h-9 rounded-full flex items-center justify-center bg-forest-50 text-forest-600 shadow-inner">
-                    <TrendingUp className="w-4.5 h-4.5" />
+                <div className="flex items-center gap-2 sm:gap-3">
+                  <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-full flex items-center justify-center bg-forest-50 text-forest-600 shadow-inner flex-shrink-0">
+                    <TrendingUp className="w-4 sm:w-4.5 h-4 sm:h-4.5" />
                   </div>
                   <div className="leading-tight">
-                    <div className="font-sans font-extrabold text-base text-gray-900">98%</div>
-                    <div className="font-sans text-[9px] font-semibold text-gray-500 mt-0.5">Immunization rate across facilities</div>
+                    <div className="font-sans font-extrabold text-sm sm:text-base text-gray-900">98%</div>
+                    <div className="font-sans text-[8px] sm:text-[9px] font-semibold text-gray-500 mt-0.5">Immunization rate across facilities</div>
                   </div>
                 </div>
                 {/* Sparkline */}
-                <svg className="w-full h-6 mt-0.5" viewBox="0 0 100 30" fill="none">
+                <svg className="w-full h-5 sm:h-6 mt-0.5" viewBox="0 0 100 30" fill="none">
                   <path
                     d="M0,25 Q15,5 30,20 T60,10 T90,15 L100,5"
                     stroke="#1A6B45"
@@ -372,14 +372,14 @@ export default function Hero() {
                 initial={{ opacity: 0, scale: 0.85, y: 15 }}
                 animate={{ opacity: 1, scale: 1, y: 0 }}
                 transition={{ delay: 0.95, duration: 0.6, ease: easeExpo }}
-                className="absolute -right-12 top-[38%] sm:-right-14 sm:top-[38%] w-[190px] bg-white/80 backdrop-blur-xl rounded-2xl p-3.5 shadow-[0_25px_50px_rgba(8,45,27,0.12)] border border-white/40 z-20 flex items-center gap-3 transition-all duration-300 hover:scale-105 hover:shadow-[0_30px_60px_rgba(8,45,27,0.16)] animate-float-slow"
+                className="hidden lg:flex absolute lg:-right-12 lg:top-[38%] xl:-right-14 w-[190px] bg-white/80 backdrop-blur-xl rounded-2xl p-3.5 shadow-[0_25px_50px_rgba(8,45,27,0.12)] border border-white/40 z-20 items-center gap-3 transition-all duration-300 hover:scale-105 hover:shadow-[0_30px_60px_rgba(8,45,27,0.16)] animate-float-slow"
               >
-                <div className="w-9 h-9 rounded-full flex items-center justify-center bg-amber-50 text-amber-500 shadow-inner">
-                  <UserCheck className="w-4.5 h-4.5" />
+                <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-full flex items-center justify-center bg-amber-50 text-amber-500 shadow-inner flex-shrink-0">
+                  <UserCheck className="w-4 sm:w-4.5 h-4 sm:h-4.5" />
                 </div>
                 <div className="leading-tight">
-                  <div className="font-sans font-extrabold text-base text-gray-900">12K+</div>
-                  <div className="font-sans text-[9px] font-semibold text-gray-500 mt-0.5">Registered mothers</div>
+                  <div className="font-sans font-extrabold text-sm sm:text-base text-gray-900">12K+</div>
+                  <div className="font-sans text-[8px] sm:text-[9px] font-semibold text-gray-500 mt-0.5">Registered mothers</div>
                 </div>
               </motion.div>
 
@@ -388,14 +388,14 @@ export default function Hero() {
                 initial={{ opacity: 0, scale: 0.85, y: 15 }}
                 animate={{ opacity: 1, scale: 1, y: 0 }}
                 transition={{ delay: 1.1, duration: 0.6, ease: easeExpo }}
-                className="absolute -right-8 bottom-[12%] sm:-right-10 sm:bottom-[12%] w-[235px] bg-white/80 backdrop-blur-xl rounded-2xl p-4 shadow-[0_25px_50px_rgba(8,45,27,0.12)] border border-white/40 z-20 flex gap-3 transition-all duration-300 hover:scale-105 hover:shadow-[0_30px_60px_rgba(8,45,27,0.16)] animate-float"
+                className="hidden lg:flex absolute lg:-right-8 lg:bottom-[12%] xl:-right-10 w-[235px] bg-white/80 backdrop-blur-xl rounded-2xl p-4 shadow-[0_25px_50px_rgba(8,45,27,0.12)] border border-white/40 z-20 gap-3 transition-all duration-300 hover:scale-105 hover:shadow-[0_30px_60px_rgba(8,45,27,0.16)] animate-float"
               >
-                <div className="w-9 h-9 rounded-xl bg-forest-50 text-forest-600 flex items-center justify-center flex-shrink-0 shadow-inner">
-                  <MessageSquare className="w-4.5 h-4.5" />
+                <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-forest-50 text-forest-600 flex items-center justify-center flex-shrink-0 shadow-inner">
+                  <MessageSquare className="w-4 sm:w-4.5 h-4 sm:h-4.5" />
                 </div>
                 <div className="leading-tight">
-                  <div className="font-sans font-extrabold text-xs text-gray-900">24/7 AI Companion</div>
-                  <div className="font-sans text-[9px] text-gray-500 mt-1 leading-relaxed">
+                  <div className="font-sans font-extrabold text-[10px] sm:text-xs text-gray-900">24/7 AI Companion</div>
+                  <div className="font-sans text-[8px] sm:text-[9px] text-gray-500 mt-0.5 sm:mt-1 leading-normal sm:leading-relaxed">
                     Guidance. Reminders. Support in local languages.
                   </div>
                 </div>
@@ -406,17 +406,17 @@ export default function Hero() {
                 initial={{ opacity: 0, scale: 0.85, y: 15 }}
                 animate={{ opacity: 1, scale: 1, y: 0 }}
                 transition={{ delay: 1.25, duration: 0.6, ease: easeExpo }}
-                className="absolute -left-12 bottom-6 sm:-left-16 sm:bottom-8 w-[205px] bg-white/80 backdrop-blur-xl rounded-2xl p-3.5 shadow-[0_25px_50px_rgba(8,45,27,0.12)] border border-white/40 z-20 flex gap-3 transition-all duration-300 hover:scale-105 hover:shadow-[0_30px_60px_rgba(8,45,27,0.16)] animate-float-slow"
+                className="hidden lg:flex absolute lg:-left-12 lg:bottom-6 xl:-left-16 xl:bottom-8 w-[205px] bg-white/80 backdrop-blur-xl rounded-2xl p-3.5 shadow-[0_25px_50px_rgba(8,45,27,0.12)] border border-white/40 z-20 gap-3 transition-all duration-300 hover:scale-105 hover:shadow-[0_30px_60px_rgba(8,45,27,0.16)] animate-float-slow"
               >
-                <div className="w-9 h-9 rounded-full flex items-center justify-center bg-coral-50 text-coral-500 shadow-inner flex-shrink-0">
-                  <Heart className="w-4.5 h-4.5 fill-coral-500 text-coral-500" />
+                <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-full flex items-center justify-center bg-coral-50 text-coral-500 shadow-inner flex-shrink-0">
+                  <Heart className="w-4 sm:w-4.5 h-4 sm:h-4.5 fill-coral-500 text-coral-500" />
                 </div>
                 <div className="leading-tight flex-1">
-                  <div className="font-sans font-extrabold text-base text-gray-900">4.9 / 5</div>
-                  <div className="font-sans text-[9px] font-semibold text-gray-500 mt-0.5">Clinical satisfaction</div>
-                  <div className="flex gap-0.5 mt-1">
+                  <div className="font-sans font-extrabold text-sm sm:text-base text-gray-900">4.9 / 5</div>
+                  <div className="font-sans text-[8px] sm:text-[9px] font-semibold text-gray-500 mt-0.5">Clinical satisfaction</div>
+                  <div className="flex gap-0.5 mt-0.5 sm:mt-1">
                     {[1, 2, 3, 4, 5].map((star) => (
-                      <Star key={star} className="w-2.5 h-2.5 fill-amber-400 text-amber-400" />
+                      <Star key={star} className="w-2 sm:w-2.5 h-2 sm:h-2.5 fill-amber-400 text-amber-400" />
                     ))}
                   </div>
                 </div>
