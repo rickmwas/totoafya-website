@@ -13,18 +13,29 @@ interface StatBadgeProps {
   iconBgClass: string
   iconColorClass: string
   delay?: number
+  animateClass?: string
 }
 
-function StatBadge({ icon, value, label, className = '', iconBgClass, iconColorClass, delay = 0 }: StatBadgeProps) {
+function StatBadge({
+  icon,
+  value,
+  label,
+  className = '',
+  iconBgClass,
+  iconColorClass,
+  delay = 0,
+  animateClass = 'animate-float'
+}: StatBadgeProps) {
   return (
     <motion.div
       initial={{ opacity: 0, scale: 0.85, y: 15 }}
       animate={{ opacity: 1, scale: 1, y: 0 }}
       transition={{ delay: delay + 0.8, duration: 0.6, ease: easeExpo }}
-      className={`absolute flex items-center gap-3 bg-white/95 backdrop-blur-xs rounded-2xl px-4 py-3
-                  shadow-card-lg border border-gray-100 min-w-max z-20 ${className}`}
+      className={`absolute flex items-center gap-3 bg-white/80 backdrop-blur-md rounded-2xl px-4 py-3
+                  shadow-card-lg border border-white/40 min-w-max z-20 transition-all duration-300
+                  hover:scale-105 active:scale-95 ${animateClass} ${className}`}
     >
-      <div className={`w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0 ${iconBgClass} ${iconColorClass}`}>
+      <div className={`w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0 ${iconBgClass} ${iconColorClass} shadow-inner`}>
         {icon}
       </div>
       <div className="leading-tight">
@@ -179,22 +190,39 @@ export default function Hero() {
             variants={slideRight}
             initial="hidden"
             animate="visible"
-            className="lg:col-span-5 order-1 lg:order-2 relative flex justify-center py-6"
+            className="lg:col-span-5 order-1 lg:order-2 relative flex justify-center py-12"
           >
-            <div className="relative w-full max-w-[340px] sm:max-w-[380px] lg:max-w-none aspect-[11/12]">
-              {/* Asymmetric leaf container */}
-              <div className="w-full h-full rounded-[30px_220px_30px_220px] overflow-hidden border-4 border-forest-600 shadow-warm-lg relative bg-white">
-                <img
-                  src="/baby.jpg"
-                  alt="Smiling baby"
-                  className="w-full h-full object-cover object-center scale-105"
-                  loading="eager"
-                />
-                {/* Soft gradient overlay at bottom of image */}
-                <div className="absolute inset-0 bg-gradient-to-t from-forest-900/10 via-transparent to-transparent" />
+            <div className="relative w-full max-w-[340px] sm:max-w-[400px] lg:max-w-none aspect-[4/5]">
+              {/* ── Broken Grid Background Layers ──────────────── */}
+              
+              {/* Layer 1: Soft backdrop decorative card */}
+              <div className="absolute -left-6 -top-6 w-[90%] h-[90%] rounded-[2rem] bg-gradient-to-tr from-earth-50 to-forest-50/50 border border-forest-100/30 -rotate-3 z-0" />
+              
+              {/* Layer 2: Gold dashed outline frame */}
+              <div className="absolute -right-4 -bottom-4 w-[95%] h-[95%] border-2 border-dashed border-earth-300 rounded-[2.5rem_2.5rem_2.5rem_8rem] z-0 translate-x-2 translate-y-2 pointer-events-none opacity-50" />
+              
+              {/* Layer 3: Tech Grid Overlay Accent */}
+              <div className="absolute -right-8 top-[10%] w-24 h-24 text-forest-100/60 opacity-30 z-0 pointer-events-none hidden sm:block">
+                <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="2" className="w-full h-full">
+                  <circle cx="50" cy="50" r="40" strokeDasharray="4 4" />
+                  <line x1="50" y1="10" x2="50" y2="90" />
+                  <line x1="10" y1="50" x2="90" y2="50" />
+                </svg>
               </div>
 
-              {/* ── Floating status cards ─────────────────────── */}
+              {/* ── Layer 4: Main Image Container ──────────────── */}
+              <div className="w-full h-full rounded-[2.5rem_2.5rem_2.5rem_8rem] overflow-hidden border-[6px] border-white shadow-warm-lg relative bg-white z-10 select-none group">
+                <img
+                  src="/motherchildprofile.png"
+                  alt="Mother and Child"
+                  className="w-full h-full object-cover object-center scale-102 group-hover:scale-105 transition-transform duration-700 ease-out"
+                  loading="eager"
+                />
+                {/* Elegant dark green-tinted shadow overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-forest-950/20 via-transparent to-transparent z-15" />
+              </div>
+
+              {/* ── Floating status cards (Layer 5) ───────────── */}
               
               {/* Top-Left Card: Immunization Rate */}
               <StatBadge
@@ -203,7 +231,8 @@ export default function Hero() {
                 label="Immunization rate"
                 iconBgClass="bg-forest-50"
                 iconColorClass="text-forest-600"
-                className="-left-6 top-8 sm:-left-10 sm:top-10"
+                className="-left-8 top-10 sm:-left-12 sm:top-14"
+                animateClass="animate-float"
                 delay={0.1}
               />
 
@@ -214,7 +243,8 @@ export default function Hero() {
                 label="Registered mothers"
                 iconBgClass="bg-amber-50"
                 iconColorClass="text-amber-500"
-                className="-right-6 top-[38%] sm:-right-8 sm:top-[38%]"
+                className="-right-8 top-[32%] sm:-right-10 sm:top-[32%]"
+                animateClass="animate-float-slow"
                 delay={0.25}
               />
 
@@ -225,7 +255,8 @@ export default function Hero() {
                 label="Clinical satisfaction"
                 iconBgClass="bg-coral-50"
                 iconColorClass="text-coral-500"
-                className="-left-4 bottom-20 sm:-left-6 sm:bottom-24"
+                className="-left-6 bottom-20 sm:-left-8 sm:bottom-24"
+                animateClass="animate-float"
                 delay={0.4}
               />
 
@@ -234,11 +265,11 @@ export default function Hero() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 1.2, duration: 0.6, ease: easeExpo }}
-                className="absolute -bottom-8 -right-4 sm:-right-8 w-[320px] sm:w-[350px]
-                           flex items-center gap-3 bg-white/95 backdrop-blur-xs rounded-2xl
-                           p-3.5 shadow-card-lg border border-gray-100/80 z-20"
+                className="absolute -bottom-8 -right-4 sm:-right-8 w-[320px] sm:w-[360px]
+                           flex items-center gap-3 bg-white/90 backdrop-blur-md rounded-2xl
+                           p-4 shadow-card-lg border border-white/40 z-20 transition-all duration-300 hover:scale-102"
               >
-                <div className="w-9 h-9 rounded-xl bg-forest-600 flex items-center
+                <div className="w-10 h-10 rounded-xl bg-forest-600 flex items-center
                                 justify-center flex-shrink-0 shadow-sm">
                   <Activity className="text-white w-4.5 h-4.5 stroke-[2.5]" />
                 </div>
@@ -246,11 +277,12 @@ export default function Hero() {
                   <div className="font-sans font-bold text-xs text-gray-900 leading-none">
                     Patient Onboarded
                   </div>
-                  <div className="font-sans text-[10px] text-forest-700 font-semibold mt-1.5 truncate">
+                  <div className="font-sans text-[10px] text-forest-700 font-semibold mt-2 truncate">
                     Amina Hassan <span className="text-gray-400 font-normal mx-0.5">•</span> Registered at Nyamira Hospital
                   </div>
                 </div>
-                <span className="bg-forest-50 text-forest-700 font-bold px-2 py-0.5 rounded-full text-[9px] uppercase tracking-wider border border-forest-100 ml-auto flex-shrink-0">
+                <span className="bg-forest-50 text-forest-700 font-bold px-2 py-0.5 rounded-full text-[9px] uppercase tracking-wider border border-forest-100 ml-auto flex-shrink-0 flex items-center gap-1.5">
+                  <span className="w-1.5 h-1.5 rounded-full bg-forest-500 animate-pulse" />
                   Active
                 </span>
               </motion.div>
