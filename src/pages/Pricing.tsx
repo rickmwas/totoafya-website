@@ -233,7 +233,7 @@ export default function Pricing() {
             initial="hidden"
             animate="visible"
             key={billingType}
-            className={`grid gap-8 items-stretch ${
+            className={`flex overflow-x-auto snap-x snap-mandatory gap-8 no-scrollbar -mx-4 px-4 sm:mx-0 sm:px-0 sm:grid items-stretch ${
               billingType === 'b2b' ? 'sm:grid-cols-2 lg:grid-cols-4' : 'max-w-2xl mx-auto sm:grid-cols-2'
             }`}
           >
@@ -243,7 +243,7 @@ export default function Pricing() {
                 variants={fadeUp}
                 custom={index}
                 {...hoverScale}
-                className={`card relative flex flex-col justify-between overflow-hidden border-2 bg-white ${plan.accent}`}
+                className={`card relative flex flex-col justify-between overflow-hidden border-2 bg-white ${plan.accent} snap-start shrink-0 w-[290px] sm:w-auto`}
               >
                 {/* Popular Badge */}
                 {plan.popular && (

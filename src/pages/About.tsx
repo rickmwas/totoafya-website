@@ -206,14 +206,14 @@ export default function About() {
             variants={staggerContainer}
             initial="hidden"
             animate={teamInView ? 'visible' : 'hidden'}
-            className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto"
+            className="flex overflow-x-auto snap-x snap-mandatory gap-8 no-scrollbar -mx-4 px-4 sm:mx-0 sm:px-0 sm:grid sm:grid-cols-2 lg:grid-cols-3 max-w-5xl mx-auto"
           >
             {team.map((member) => (
               <motion.div
                 key={member.name}
                 variants={fadeUp}
                 {...hoverScale}
-                className="card text-center group border border-gray-100 hover:border-forest-300/80 transition-all duration-300"
+                className="card text-center group border border-gray-100 hover:border-forest-300/80 transition-all duration-300 snap-start shrink-0 w-[280px] sm:w-auto"
               >
                 <img
                   src={member.avatar}
@@ -263,10 +263,10 @@ export default function About() {
             variants={staggerContainer}
             initial="hidden"
             animate={valuesInView ? 'visible' : 'hidden'}
-            className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6"
+            className="flex overflow-x-auto snap-x snap-mandatory gap-6 no-scrollbar -mx-4 px-4 sm:mx-0 sm:px-0 sm:grid sm:grid-cols-2 lg:grid-cols-4"
           >
             {values.map((v) => (
-              <motion.div key={v.title} variants={fadeUp} {...hoverScale} className="card group cursor-default text-center flex flex-col items-center border border-gray-100 hover:border-forest-300/80 transition-all duration-300">
+              <motion.div key={v.title} variants={fadeUp} {...hoverScale} className="card group cursor-default text-center flex flex-col items-center border border-gray-100 hover:border-forest-300/80 transition-all duration-300 snap-start shrink-0 w-[260px] sm:w-auto">
                 <div className="w-14 h-14 rounded-[8px_20px_8px_20px] bg-forest-50 border border-forest-100 flex items-center justify-center text-forest-600 mb-5 group-hover:scale-105 transition-transform duration-300 shadow-sm">
                   {v.icon}
                 </div>

@@ -72,7 +72,7 @@ function FeatureCard({ feature, index }: FeatureCardProps) {
       custom={index}
       {...hoverScale}
       className={`card group cursor-default border-2 border-transparent
-                  ${feature.border} transition-all duration-300 flex flex-col`}
+                  ${feature.border} transition-all duration-300 flex flex-col snap-start shrink-0 w-[290px] sm:w-auto`}
     >
       {/* Icon with asymmetric leaf curves */}
       <div className={`w-14 h-14 mb-5 rounded-[8px_20px_8px_20px] ${feature.color} 
@@ -152,7 +152,7 @@ export default function Features() {
           variants={staggerContainer}
           initial="hidden"
           animate={inView ? 'visible' : 'hidden'}
-          className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6"
+          className="flex overflow-x-auto snap-x snap-mandatory gap-6 no-scrollbar -mx-4 px-4 sm:mx-0 sm:px-0 sm:grid sm:grid-cols-2 lg:grid-cols-3"
         >
           {features.map((feature, i) => (
             <FeatureCard key={feature.title} feature={feature} index={i} />
@@ -163,7 +163,7 @@ export default function Features() {
             variants={fadeUp}
             {...hoverScale}
             className="card bg-gradient-to-br from-forest-600 to-forest-800 text-white
-                       border border-forest-500/20 rounded-[20px_100px_20px_100px] flex flex-col justify-between shadow-warm-lg"
+                       border border-forest-500/20 rounded-[20px_100px_20px_100px] flex flex-col justify-between shadow-warm-lg snap-start shrink-0 w-[290px] sm:w-auto"
           >
             <div>
               <span className="font-sans text-[10px] font-bold text-forest-200

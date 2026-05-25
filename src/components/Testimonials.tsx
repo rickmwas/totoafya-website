@@ -87,7 +87,7 @@ function TestimonialCard({ t }: { t: typeof testimonials[0] }) {
     <motion.article
       variants={fadeUp}
       {...hoverScale}
-      className="card group cursor-default flex flex-col gap-4 h-full border border-gray-100 hover:border-forest-300/80 transition-all duration-300"
+      className="card group cursor-default flex flex-col gap-4 h-full border border-gray-100 hover:border-forest-300/80 transition-all duration-300 snap-start shrink-0 w-[290px] sm:w-auto"
     >
       {/* Rating */}
       <Stars rating={t.rating} />
@@ -178,7 +178,7 @@ export default function Testimonials() {
           variants={staggerContainer}
           initial="hidden"
           animate={inView ? 'visible' : 'hidden'}
-          className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6"
+          className="flex overflow-x-auto snap-x snap-mandatory gap-6 no-scrollbar -mx-4 px-4 sm:mx-0 sm:px-0 sm:grid sm:grid-cols-2 lg:grid-cols-4"
         >
           {testimonials.map((t) => (
             <TestimonialCard key={t.id} t={t} />
