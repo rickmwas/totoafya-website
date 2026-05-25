@@ -190,9 +190,9 @@ export default function Hero() {
             variants={slideRight}
             initial="hidden"
             animate="visible"
-            className="lg:col-span-5 order-1 lg:order-2 relative flex justify-center py-12"
+            className="lg:col-span-5 order-1 lg:order-2 relative flex justify-center lg:justify-start py-12 lg:py-0"
           >
-            <div className="relative w-full max-w-[340px] sm:max-w-[400px] lg:max-w-none aspect-[4/5]">
+            <div className="relative w-full max-w-[340px] sm:max-w-[400px] lg:max-w-none lg:w-[125%] lg:-mr-20 xl:-mr-32 aspect-[4/5]">
               {/* ── Broken Grid Background Layers ──────────────── */}
               
               {/* Layer 1: Soft backdrop decorative card */}
