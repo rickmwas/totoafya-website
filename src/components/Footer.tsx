@@ -4,20 +4,20 @@ import { Activity, MapPin, Mail, Phone, Building2 } from 'lucide-react'
 
 // ── Column data ──────────────────────────────────────────────────
 const quickLinks = [
-  { label: 'Features',     href: '/#features'     },
-  { label: 'How It Works', href: '/#how-it-works'  },
-  { label: 'Pricing',      href: '/pricing'        },
-  { label: 'Download',     href: '/download'       },
-  { label: 'About Us',     href: '/about'          },
-  { label: 'Contact',      href: '/contact'        },
+  { label: 'Features', href: '/#features' },
+  { label: 'How It Works', href: '/#how-it-works' },
+  { label: 'Pricing', href: '/pricing' },
+  { label: 'Download', href: '/download' },
+  { label: 'About Us', href: '/about' },
+  { label: 'Contact', href: '/contact' },
 ]
 
 const resourceLinks = [
-  { label: 'User Guide',           href: '#' },
-  { label: 'Nurse Portal',         href: '#' },
-  { label: 'Admin Dashboard',      href: '#' },
-  { label: 'API Documentation',    href: '#' },
-  { label: 'Privacy Policy',       href: '#' },
+  { label: 'User Guide', href: '#' },
+  { label: 'Nurse Portal', href: '#' },
+  { label: 'Admin Dashboard', href: '#' },
+  { label: 'API Documentation', href: '#' },
+  { label: 'Privacy Policy', href: '/privacy' },
 ]
 
 const socialLinks = [
@@ -115,19 +115,35 @@ export default function Footer() {
             <ul className="space-y-3">
               {quickLinks.map((l) => (
                 <li key={l.href}>
-                  <a
-                    href={l.href}
-                    className="font-sans text-sm text-gray-400 hover:text-forest-400
-                               transition-colors duration-150 flex items-center gap-1.5 group"
-                  >
-                    <svg className="w-3 h-3 opacity-0 group-hover:opacity-100 -ml-4
-                                    group-hover:ml-0 transition-all duration-200"
-                      viewBox="0 0 12 12" fill="currentColor" aria-hidden="true">
-                      <path d="M4 2l4 4-4 4" stroke="currentColor" strokeWidth="1.5"
-                        strokeLinecap="round" fill="none" />
-                    </svg>
-                    {l.label}
-                  </a>
+                  {l.href.startsWith('/') && !l.href.includes('#') ? (
+                    <Link
+                      to={l.href}
+                      className="font-sans text-sm text-gray-400 hover:text-forest-400
+                                 transition-colors duration-150 flex items-center gap-1.5 group"
+                    >
+                      <svg className="w-3 h-3 opacity-0 group-hover:opacity-100 -ml-4
+                                      group-hover:ml-0 transition-all duration-200"
+                        viewBox="0 0 12 12" fill="currentColor" aria-hidden="true">
+                        <path d="M4 2l4 4-4 4" stroke="currentColor" strokeWidth="1.5"
+                          strokeLinecap="round" fill="none" />
+                      </svg>
+                      {l.label}
+                    </Link>
+                  ) : (
+                    <a
+                      href={l.href}
+                      className="font-sans text-sm text-gray-400 hover:text-forest-400
+                                 transition-colors duration-150 flex items-center gap-1.5 group"
+                    >
+                      <svg className="w-3 h-3 opacity-0 group-hover:opacity-100 -ml-4
+                                      group-hover:ml-0 transition-all duration-200"
+                        viewBox="0 0 12 12" fill="currentColor" aria-hidden="true">
+                        <path d="M4 2l4 4-4 4" stroke="currentColor" strokeWidth="1.5"
+                          strokeLinecap="round" fill="none" />
+                      </svg>
+                      {l.label}
+                    </a>
+                  )}
                 </li>
               ))}
             </ul>
@@ -142,19 +158,35 @@ export default function Footer() {
             <ul className="space-y-3">
               {resourceLinks.map((l) => (
                 <li key={l.label}>
-                  <a
-                    href={l.href}
-                    className="font-sans text-sm text-gray-400 hover:text-forest-400
-                               transition-colors duration-150 flex items-center gap-1.5 group"
-                  >
-                    <svg className="w-3 h-3 opacity-0 group-hover:opacity-100 -ml-4
-                                    group-hover:ml-0 transition-all duration-200"
-                      viewBox="0 0 12 12" fill="currentColor" aria-hidden="true">
-                      <path d="M4 2l4 4-4 4" stroke="currentColor" strokeWidth="1.5"
-                        strokeLinecap="round" fill="none" />
-                    </svg>
-                    {l.label}
-                  </a>
+                  {l.href.startsWith('/') && !l.href.includes('#') ? (
+                    <Link
+                      to={l.href}
+                      className="font-sans text-sm text-gray-400 hover:text-forest-400
+                                 transition-colors duration-150 flex items-center gap-1.5 group"
+                    >
+                      <svg className="w-3 h-3 opacity-0 group-hover:opacity-100 -ml-4
+                                      group-hover:ml-0 transition-all duration-200"
+                        viewBox="0 0 12 12" fill="currentColor" aria-hidden="true">
+                        <path d="M4 2l4 4-4 4" stroke="currentColor" strokeWidth="1.5"
+                          strokeLinecap="round" fill="none" />
+                      </svg>
+                      {l.label}
+                    </Link>
+                  ) : (
+                    <a
+                      href={l.href}
+                      className="font-sans text-sm text-gray-400 hover:text-forest-400
+                                 transition-colors duration-150 flex items-center gap-1.5 group"
+                    >
+                      <svg className="w-3 h-3 opacity-0 group-hover:opacity-100 -ml-4
+                                      group-hover:ml-0 transition-all duration-200"
+                        viewBox="0 0 12 12" fill="currentColor" aria-hidden="true">
+                        <path d="M4 2l4 4-4 4" stroke="currentColor" strokeWidth="1.5"
+                          strokeLinecap="round" fill="none" />
+                      </svg>
+                      {l.label}
+                    </a>
+                  )}
                 </li>
               ))}
             </ul>
@@ -169,9 +201,9 @@ export default function Footer() {
             <ul className="space-y-3">
               {[
                 { icon: <MapPin className="w-4 h-4 text-forest-400" />, text: 'Kisii Town, Kisii County, Kenya' },
-                { icon: <Mail className="w-4 h-4 text-forest-400" />, text: 'hello@totoafya.co.ke'             },
-                { icon: <Phone className="w-4 h-4 text-forest-400" />, text: '+254 700 000 000'                  },
-                { icon: <Building2 className="w-4 h-4 text-forest-400" />, text: 'TerraSept Solutions Ltd'           },
+                { icon: <Mail className="w-4 h-4 text-forest-400" />, text: 'cto@terraseptsolutions.com' },
+                { icon: <Phone className="w-4 h-4 text-forest-400" />, text: '+254 113 242 983' },
+                { icon: <Building2 className="w-4 h-4 text-forest-400" />, text: 'TerraSept Solutions Ltd' },
               ].map((c) => (
                 <li key={c.text} className="flex items-start gap-2.5">
                   <span className="flex-shrink-0 mt-1">{c.icon}</span>
@@ -216,12 +248,16 @@ export default function Footer() {
             TotoAfya Digital is a registered product of TerraSept Solutions Ltd, Kenya.
           </p>
           <div className="flex items-center gap-4">
-            {['Privacy Policy', 'Terms of Use', 'Disclaimer'].map((l) => (
-              <a key={l} href="#"
+            {[
+              { label: 'Privacy Policy', href: '/privacy' },
+              { label: 'Terms of Use', href: '/terms' },
+              { label: 'Disclaimer', href: '/disclaimer' },
+            ].map((l) => (
+              <Link key={l.label} to={l.href}
                 className="font-sans text-xs text-gray-500 hover:text-forest-400
                            transition-colors">
-                {l}
-              </a>
+                {l.label}
+              </Link>
             ))}
           </div>
         </div>

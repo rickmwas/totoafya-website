@@ -12,50 +12,50 @@ const features = [
     title: 'Clinical Growth Monitoring',
     description:
       'Digitize growth tracking. Log weight, height, and MUAC, and auto-evaluate against WHO standards with instant indicators to flag malnourished cases early.',
-    color:    'bg-forest-100/70 border border-forest-200/50',
-    border:   'hover:border-forest-300/80',
-    accent:   'text-forest-700',
-    stat:     'Standardized WHO charts',
+    color: 'bg-forest-100/70 border border-forest-200/50',
+    border: 'hover:border-forest-300/80',
+    accent: 'text-forest-700',
+    stat: 'Standardized WHO charts',
   },
   {
     icon: <Syringe className="w-6 h-6 text-earth-700" />,
     title: 'Immunization Tracker',
     description:
       'Aligned with Kenya\'s KEPI schedule. Automatically calculates vaccine due dates for registered children and triggers automated SMS notifications to caregivers.',
-    color:    'bg-earth-100/70 border border-earth-200/50',
-    border:   'hover:border-earth-300/80',
-    accent:   'text-earth-700',
-    stat:     'KEPI Schedule Engine',
+    color: 'bg-earth-100/70 border border-earth-200/50',
+    border: 'hover:border-earth-300/80',
+    accent: 'text-earth-700',
+    stat: 'KEPI Schedule Engine',
   },
   {
     icon: <FileText className="w-6 h-6 text-coral-600" />,
     title: 'Digital ANC Registers',
     description:
       'Digitize antenatal care records. Log patient vitals, blood pressure, fundal height, and danger signs, replacing slow paper booklets.',
-    color:    'bg-coral-50 border border-coral-100/80',
-    border:   'hover:border-coral-300/80',
-    accent:   'text-coral-600',
-    stat:     'Structured ANC logs',
+    color: 'bg-coral-50 border border-coral-100/80',
+    border: 'hover:border-coral-300/80',
+    accent: 'text-coral-600',
+    stat: 'Structured ANC logs',
   },
   {
     icon: <Sparkles className="w-6 h-6 text-forest-700" />,
     title: 'AI Patient Companion',
     description:
       'Offer mothers 24/7 access to trusted, MoH-compliant maternal advice in English and Kiswahili, pre-linked to your facility for clinical escalation.',
-    color:    'bg-forest-50 border border-forest-100/80',
-    border:   'hover:border-forest-300/80',
-    accent:   'text-forest-700',
-    stat:     '24/7 automated companion',
+    color: 'bg-forest-50 border border-forest-100/80',
+    border: 'hover:border-forest-300/80',
+    accent: 'text-forest-700',
+    stat: '24/7 automated companion',
   },
   {
     icon: <WifiOff className="w-6 h-6 text-earth-700" />,
     title: 'Robust Offline Sync',
     description:
       'Built for connectivity realities. Clinicians can manage patient records fully offline; data automatically synchronizes once connection is restored.',
-    color:    'bg-earth-50 border border-earth-100/80',
-    border:   'hover:border-earth-300/80',
-    accent:   'text-earth-700',
-    stat:     'Works without internet',
+    color: 'bg-earth-50 border border-earth-100/80',
+    border: 'hover:border-earth-300/80',
+    accent: 'text-earth-700',
+    stat: 'Works without internet',
   },
 ]
 
@@ -172,15 +172,15 @@ export default function Features() {
               </span>
               <h3 className="font-display font-bold text-2xl mt-2.5 leading-snug">
                 Available in{' '}
-                <span className="text-earth-300 italic">3 languages</span>
+                <span className="text-earth-300 italic">2+ languages</span>
               </h3>
               <p className="font-sans text-sm text-forest-100 mt-3 leading-relaxed">
-                English, Kiswahili, and Ekegusii — ensuring clinics can deliver
+                English, Kiswahili, local languagees— ensuring clinics can deliver
                 accessible, local language health education to mothers.
               </p>
             </div>
             <div className="mt-8 flex gap-2 flex-wrap">
-              {['English', 'Kiswahili', 'Ekegusii'].map((lang) => (
+              {['English', 'Kiswahili', 'Local Languages'].map((lang) => (
                 <span key={lang}
                   className="px-3.5 py-1 rounded-full bg-white/10 text-white
                              text-[11px] font-sans font-semibold border border-white/20">

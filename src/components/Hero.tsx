@@ -58,7 +58,7 @@ export default function Hero() {
         {/* Soft waves in the background mirroring the leaf shapes */}
         <div className="absolute -top-40 -left-40 w-[600px] h-[600px] rounded-full bg-forest-100/30 blur-3xl" />
         <div className="absolute top-[20%] right-[-10%] w-[500px] h-[700px] rounded-[220px_30px_220px_30px] bg-forest-50/40 rotate-[12deg] blur-2xl" />
-        
+
         {/* Subtle dot pattern */}
         <svg className="absolute inset-0 w-full h-full opacity-[0.02]" aria-hidden="true">
           <defs>
@@ -166,10 +166,10 @@ export default function Hero() {
             <motion.div variants={fadeUp} className="mt-8 flex items-center gap-3">
               <div className="flex -space-x-2">
                 {[
-                  'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=80&h=80&fit=crop&q=80',
-                  'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&h=80&fit=crop&q=80',
-                  'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=80&h=80&fit=crop&q=80',
-                  'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=80&h=80&fit=crop&q=80',
+                  '/Header-2.png',
+                  '/kisii_teaching_and_referral_hospital_logo.jpg',
+                  '/kisii_university_logo_clean-removebg-preview.png',
+                  '/NAKURU_LOGO-removebg-preview.png',
                 ].map((src, i) => (
                   <img
                     key={i}
@@ -193,7 +193,7 @@ export default function Hero() {
             className="lg:col-span-5 order-1 lg:order-2 relative flex justify-center lg:justify-start py-12 lg:py-0"
           >
             <div className="relative w-full max-w-[360px] sm:max-w-[420px] lg:max-w-none lg:w-[135%] lg:-mr-28 xl:-mr-40 aspect-[10/9] lg:aspect-square group select-none">
-              
+
               {/* ── Layer 1: Cinematic Atmospheric Radial Glows ─────── */}
               <div className="absolute top-[10%] left-[10%] w-[350px] h-[350px] bg-earth-200/20 rounded-full blur-[100px] pointer-events-none z-0" />
               <div className="absolute bottom-[10%] right-[10%] w-[400px] h-[400px] bg-forest-200/25 rounded-full blur-[120px] pointer-events-none z-0" />
@@ -216,7 +216,7 @@ export default function Hero() {
                       <feDropShadow dx="0" dy="16" stdDeviation="20" floodColor="#082d1b" floodOpacity="0.18" />
                     </filter>
                   </defs>
-                  
+
                   {/* Swirling Line 1 (Gold/Amber) */}
                   <path
                     d="M 60,390 C 130,480 390,460 420,310 C 450,160 330,60 210,120 C 120,160 60,270 150,360"
@@ -225,7 +225,7 @@ export default function Hero() {
                     strokeDasharray="4 4"
                     opacity="0.6"
                   />
-                  
+
                   {/* Swirling Line 2 (Green) */}
                   <path
                     d="M 10,330 C 70,430 310,460 400,330 C 490,200 430,60 280,120 C 160,180 100,270 190,370"
@@ -261,7 +261,7 @@ export default function Hero() {
                     filter="url(#shadow)"
                     className="animate-pulse-soft"
                   />
-                  
+
                   {/* Floating accent circles */}
                   <circle cx="160" cy="130" r="5" stroke="#3fa577" strokeWidth="1.5" />
                   <circle cx="410" cy="190" r="7" stroke="#fbca4c" strokeWidth="2" strokeDasharray="3 3" />
@@ -327,7 +327,7 @@ export default function Hero() {
               </div>
 
               {/* ── Layer 5: Floating Stat Cards (Staggered Orbit) ───── */}
-              
+
               {/* Card 1: Immunization Rate (Top-Right) */}
               <motion.div
                 initial={{ opacity: 0, scale: 0.85, y: 15 }}

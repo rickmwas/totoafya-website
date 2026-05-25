@@ -7,25 +7,25 @@ import { Globe, Shield, Users, Award, CheckCircle } from 'lucide-react'
 // ── Team members ─────────────────────────────────────────────────
 const team = [
   {
-    name:   'Michael Onyango',
-    role:   'CEO, TerraSept Solutions',
-    bio:    'Directs corporate strategy, partnerships, and operations for digital healthcare expansion in East Africa.',
-    avatar: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=350&q=80',
-    tag:    'Executive Leadership',
+    name: 'Michael Onyango',
+    role: 'CEO, TerraSept Solutions',
+    bio: 'Directs corporate strategy, partnerships, and operations for digital healthcare expansion in East Africa.',
+    avatar: '/public/mikaells.png',
+    tag: 'Executive Leadership',
   },
   {
-    name:   'Hyacinth Onchangu',
-    role:   'CMO, TerraSept Solutions',
-    bio:    'Leads community health outreach programs, stakeholder engagement, and adoption strategies across clinics.',
-    avatar: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=350&q=80',
-    tag:    'Marketing & Growth',
+    name: 'Hyacinth Onchangu',
+    role: 'CMO, TerraSept Solutions',
+    bio: 'Leads community health outreach programs, stakeholder engagement, and adoption strategies across clinics.',
+    avatar: '/public/hyacinth onchangu.png',
+    tag: 'Marketing & Growth',
   },
   {
-    name:   'Erick Mwangi',
-    role:   'CTO & Project Lead',
-    bio:    'Lead architect and developer of TotoAfya Digital. Directs engineering of robust, offline-first health registry infrastructure at TerraSept Solutions Ltd.',
-    avatar: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=350&q=80',
-    tag:    'Technology & Product',
+    name: 'Erick Mwangi',
+    role: 'CTO & Project Lead',
+    bio: 'Lead architect and developer of TotoAfya Digital. Directs engineering of robust, offline-first health registry infrastructure at TerraSept Solutions Ltd.',
+    avatar: '/public/erickmangicto.png',
+    tag: 'Technology & Product',
   }
 ]
 
@@ -54,17 +54,17 @@ const values = [
 ]
 
 export default function About() {
-  const heroRef  = useRef(null)
+  const heroRef = useRef(null)
   const missionRef = useRef(null)
-  const teamRef  = useRef(null)
+  const teamRef = useRef(null)
   const valuesRef = useRef(null)
   const awardRef = useRef(null)
 
-  const heroInView    = useInView(heroRef,    { once: true })
+  const heroInView = useInView(heroRef, { once: true })
   const missionInView = useInView(missionRef, { once: true, margin: '-80px' })
-  const teamInView    = useInView(teamRef,    { once: true, margin: '-80px' })
-  const valuesInView  = useInView(valuesRef,  { once: true, margin: '-80px' })
-  const awardInView   = useInView(awardRef,   { once: true, margin: '-80px' })
+  const teamInView = useInView(teamRef, { once: true, margin: '-80px' })
+  const valuesInView = useInView(valuesRef, { once: true, margin: '-80px' })
+  const awardInView = useInView(awardRef, { once: true, margin: '-80px' })
 
   return (
     <div className="pt-16">

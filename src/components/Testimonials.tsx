@@ -11,7 +11,7 @@ const testimonials = [
     name: 'Grace Otieno',
     role: 'Mother of two',
     location: 'Kisii Town, Kisii County',
-    avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop&q=80',
+    avatar: '/gettyimages-622448996-612x612.jpg',
     rating: 5,
     quote:
       'TotoAfya has changed everything. Since my local clinic registered me, I receive SMS reminders for all vaccinations. Amina\'s health card is fully digital, meaning doctors can access it instantly.',
@@ -22,7 +22,7 @@ const testimonials = [
     name: 'Nurse Beatrice Moraa',
     role: 'Community Health Nurse',
     location: 'Nyamira County Referral Hospital',
-    avatar: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&q=80',
+    avatar: '/chhww.webp',
     rating: 5,
     quote:
       'Managing hundreds of records was a major bottleneck. TotoAfya saves our clinic hours weekly. Growth charts auto-calculate, ANC logs are clear, and maternal follow-ups are automated.',
@@ -33,7 +33,7 @@ const testimonials = [
     name: 'Dr. Emmanuel Kiprop',
     role: 'Director of Maternal Services',
     location: 'Kericho County Health Dept',
-    avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&q=80',
+    avatar: '/healthdirector.webp',
     rating: 5,
     quote:
       'Integrating TotoAfya across our county clinics has reduced immunization drop-off rates by 40%. The central facility dashboard gives us real-time, actionable public health coverage metrics.',
@@ -44,7 +44,7 @@ const testimonials = [
     name: 'Dr. Josephine Kemunto',
     role: 'Medical Officer',
     location: 'Kisii Teaching & Referral Hospital',
-    avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&q=80',
+    avatar: '/drjosephine.jpg',
     rating: 5,
     quote:
       'The data TotoAfya collects is clinically meaningful. The offline-first design is critical in our setting. This is the kind of health tech Kenya needs — built here, for here.',
@@ -76,7 +76,7 @@ function Stars({ rating }: { rating: number }) {
 // ── Tag color map ────────────────────────────────────────────────
 const tagColors: Record<string, string> = {
   Mother: 'badge-green',
-  Nurse:  'badge-amber',
+  Nurse: 'badge-amber',
   'Health Director': 'bg-blue-50 text-blue-700 border border-blue-100 badge',
   Doctor: 'bg-forest-50 text-forest-700 border border-forest-100 badge',
 }
@@ -126,10 +126,10 @@ function TestimonialCard({ t }: { t: typeof testimonials[0] }) {
 
 // ── Stats strip ──────────────────────────────────────────────────
 const stats = [
-  { value: '10,000+', label: 'Registered mothers',     icon: <Users className="w-5 h-5" /> },
-  { value: '98%',     label: 'Vaccine compliance',     icon: <ShieldCheck className="w-5 h-5" /> },
-  { value: '4.9 / 5',   label: 'Average satisfaction',   icon: <Star className="w-5 h-5" /> },
-  { value: '50+',     label: 'Partner facilities',     icon: <Building2 className="w-5 h-5" /> },
+  { value: '10,000+', label: 'Registered mothers', icon: <Users className="w-5 h-5" /> },
+  { value: '98%', label: 'Vaccine compliance', icon: <ShieldCheck className="w-5 h-5" /> },
+  { value: '4.9 / 5', label: 'Average satisfaction', icon: <Star className="w-5 h-5" /> },
+  { value: '50+', label: 'Partner facilities', icon: <Building2 className="w-5 h-5" /> },
 ]
 
 // ── Main Component ───────────────────────────────────────────────
