@@ -2,7 +2,7 @@
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { fadeUp, slideRight, staggerContainer, easeExpo } from '@/lib/animations'
-import { TrendingUp, Shield, Trophy, Database, Star, Activity, ArrowRight, UserCheck } from 'lucide-react'
+import { TrendingUp, Shield, Trophy, Database, Star, Activity, ArrowRight, UserCheck, Heart, MessageSquare } from 'lucide-react'
 
 // ── Stat badge props ─────────────────────────────────────────
 interface StatBadgeProps {
@@ -192,100 +192,170 @@ export default function Hero() {
             animate="visible"
             className="lg:col-span-5 order-1 lg:order-2 relative flex justify-center lg:justify-start py-12 lg:py-0"
           >
-            <div className="relative w-full max-w-[340px] sm:max-w-[400px] lg:max-w-none lg:w-[125%] lg:-mr-20 xl:-mr-32 aspect-[4/5]">
-              {/* ── Broken Grid Background Layers ──────────────── */}
+            <div className="relative w-full max-w-[360px] sm:max-w-[420px] lg:max-w-none lg:w-[130%] lg:-mr-24 xl:-mr-36 aspect-[10/9] lg:aspect-square group select-none">
               
-              {/* Layer 1: Soft backdrop decorative card */}
-              <div className="absolute -left-6 -top-6 w-[90%] h-[90%] rounded-[2rem] bg-gradient-to-tr from-earth-50 to-forest-50/50 border border-forest-100/30 -rotate-3 z-0" />
-              
-              {/* Layer 2: Gold dashed outline frame */}
-              <div className="absolute -right-4 -bottom-4 w-[95%] h-[95%] border-2 border-dashed border-earth-300 rounded-[2.5rem_2.5rem_2.5rem_8rem] z-0 translate-x-2 translate-y-2 pointer-events-none opacity-50" />
-              
-              {/* Layer 3: Tech Grid Overlay Accent */}
-              <div className="absolute -right-8 top-[10%] w-24 h-24 text-forest-100/60 opacity-30 z-0 pointer-events-none hidden sm:block">
-                <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="2" className="w-full h-full">
-                  <circle cx="50" cy="50" r="40" strokeDasharray="4 4" />
-                  <line x1="50" y1="10" x2="50" y2="90" />
-                  <line x1="10" y1="50" x2="90" y2="50" />
+              {/* ── Mockup-style Organic Leaf & Line Swirls ─────── */}
+              <div className="absolute inset-0 -z-10 pointer-events-none select-none flex items-center justify-center">
+                <svg
+                  viewBox="0 0 500 500"
+                  className="w-[125%] h-[125%] translate-y-[-5%] opacity-95"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <defs>
+                    <linearGradient id="leafGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stopColor="#155736" stopOpacity="0.95" />
+                      <stop offset="60%" stopColor="#1A6B45" stopOpacity="0.9" />
+                      <stop offset="100%" stopColor="#3fa577" stopOpacity="0.85" />
+                    </linearGradient>
+                    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+                      <feDropShadow dx="0" dy="16" stdDeviation="20" floodColor="#082d1b" floodOpacity="0.18" />
+                    </filter>
+                  </defs>
+                  
+                  {/* Swirling Line 1 (Gold/Amber) */}
+                  <path
+                    d="M 60,390 C 130,480 390,460 420,310 C 450,160 330,60 210,120 C 120,160 60,270 150,360"
+                    stroke="#fbca4c"
+                    strokeWidth="1.5"
+                    strokeDasharray="4 4"
+                    opacity="0.6"
+                  />
+                  
+                  {/* Swirling Line 2 (Green) */}
+                  <path
+                    d="M 10,330 C 70,430 310,460 400,330 C 490,200 430,60 280,120 C 160,180 100,270 190,370"
+                    stroke="#a3d9bc"
+                    strokeWidth="2"
+                    opacity="0.5"
+                  />
+
+                  {/* Leaf shape path (drawn with bezier curves to match mockup leaf shape) */}
+                  <path
+                    d="M 250,150 
+                       C 300,100 370,120 405,170 
+                       C 440,220 460,290 405,360 
+                       C 355,420 300,440 240,450 
+                       C 180,460 120,430 90,370 
+                       C 60,310 50,250 105,190 
+                       C 150,140 200,190 250,150 Z"
+                    fill="url(#leafGrad)"
+                    filter="url(#shadow)"
+                    className="animate-pulse-soft"
+                  />
+                  
+                  {/* Floating accent circles */}
+                  <circle cx="160" cy="130" r="5" stroke="#3fa577" strokeWidth="1.5" />
+                  <circle cx="410" cy="190" r="7" stroke="#fbca4c" strokeWidth="2" strokeDasharray="3 3" />
+                  <circle cx="430" cy="330" r="4" fill="#3fa577" opacity="0.6" />
+                  <circle cx="110" cy="390" r="6" stroke="#a3d9bc" strokeWidth="1.5" />
                 </svg>
               </div>
 
-              {/* ── Layer 4: Main Image Container ──────────────── */}
-              <div className="w-full h-full rounded-[2.5rem_2.5rem_2.5rem_8rem] overflow-hidden border-[6px] border-white shadow-warm-lg relative bg-white z-10 select-none group">
+              {/* ── Cutout Image of Mother & Child (Free-floating) ── */}
+              <div className="absolute inset-0 z-10 flex items-center justify-center pointer-events-none">
                 <img
                   src="/motherchildprofile.png"
                   alt="Mother and Child"
-                  className="w-full h-full object-cover object-center scale-102 group-hover:scale-105 transition-transform duration-700 ease-out"
+                  className="w-full h-full object-contain filter drop-shadow-[0_20px_35px_rgba(8,45,27,0.15)] group-hover:scale-102 transition-transform duration-700 ease-out"
                   loading="eager"
                 />
-                {/* Elegant dark green-tinted shadow overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-forest-950/20 via-transparent to-transparent z-15" />
               </div>
 
-              {/* ── Floating status cards (Layer 5) ───────────── */}
-              
-              {/* Top-Left Card: Immunization Rate */}
-              <StatBadge
-                icon={<TrendingUp className="w-4 h-4" />}
-                value="98%"
-                label="Immunization rate"
-                iconBgClass="bg-forest-50"
-                iconColorClass="text-forest-600"
-                className="-left-8 top-10 sm:-left-12 sm:top-14"
-                animateClass="animate-float"
-                delay={0.1}
-              />
-
-              {/* Middle-Right Card: Registered Mothers */}
-              <StatBadge
-                icon={<UserCheck className="w-4 h-4" />}
-                value="12K+"
-                label="Registered mothers"
-                iconBgClass="bg-amber-50"
-                iconColorClass="text-amber-500"
-                className="-right-8 top-[32%] sm:-right-10 sm:top-[32%]"
-                animateClass="animate-float-slow"
-                delay={0.25}
-              />
-
-              {/* Bottom-Left Card: Clinical Satisfaction */}
-              <StatBadge
-                icon={<Star className="w-4 h-4 text-coral-500 fill-coral-500/15" />}
-                value="4.9 / 5"
-                label="Clinical satisfaction"
-                iconBgClass="bg-coral-50"
-                iconColorClass="text-coral-500"
-                className="-left-6 bottom-20 sm:-left-8 sm:bottom-24"
-                animateClass="animate-float"
-                delay={0.4}
-              />
-
-              {/* Bottom-Right Card (Wide): Patient Onboarded Notification */}
+              {/* ── Mockup Card 1: Immunization Rate (Top-Right) ── */}
               <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 1.2, duration: 0.6, ease: easeExpo }}
-                className="absolute -bottom-8 -right-4 sm:-right-8 w-[320px] sm:w-[360px]
-                           flex items-center gap-3 bg-white/90 backdrop-blur-md rounded-2xl
-                           p-4 shadow-card-lg border border-white/40 z-20 transition-all duration-300 hover:scale-102"
+                initial={{ opacity: 0, scale: 0.85, y: 15 }}
+                animate={{ opacity: 1, scale: 1, y: 0 }}
+                transition={{ delay: 0.8, duration: 0.6, ease: easeExpo }}
+                className="absolute -right-6 top-8 sm:-right-8 sm:top-10 w-[230px] bg-white/95 backdrop-blur-md rounded-2xl p-4 shadow-card border border-white/50 z-20 flex flex-col gap-2 transition-all duration-300 hover:scale-105 hover:shadow-warm animate-float"
               >
-                <div className="w-10 h-10 rounded-xl bg-forest-600 flex items-center
-                                justify-center flex-shrink-0 shadow-sm">
-                  <Activity className="text-white w-4.5 h-4.5 stroke-[2.5]" />
-                </div>
-                <div className="min-w-0 flex-1">
-                  <div className="font-sans font-bold text-xs text-gray-900 leading-none">
-                    Patient Onboarded
+                <div className="flex items-center gap-3">
+                  <div className="w-9 h-9 rounded-full flex items-center justify-center bg-forest-50 text-forest-600 shadow-inner">
+                    <TrendingUp className="w-4.5 h-4.5" />
                   </div>
-                  <div className="font-sans text-[10px] text-forest-700 font-semibold mt-2 truncate">
-                    Amina Hassan <span className="text-gray-400 font-normal mx-0.5">•</span> Registered at Nyamira Hospital
+                  <div className="leading-tight">
+                    <div className="font-sans font-extrabold text-base text-gray-900">98%</div>
+                    <div className="font-sans text-[9px] font-semibold text-gray-500 mt-0.5">Immunization rate across facilities</div>
                   </div>
                 </div>
-                <span className="bg-forest-50 text-forest-700 font-bold px-2 py-0.5 rounded-full text-[9px] uppercase tracking-wider border border-forest-100 ml-auto flex-shrink-0 flex items-center gap-1.5">
-                  <span className="w-1.5 h-1.5 rounded-full bg-forest-500 animate-pulse" />
-                  Active
-                </span>
+                {/* Custom Sparkline */}
+                <svg className="w-full h-6 mt-0.5" viewBox="0 0 100 30" fill="none">
+                  <path
+                    d="M0,25 Q15,5 30,20 T60,10 T90,15 L100,5"
+                    stroke="#1A6B45"
+                    strokeWidth="2.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                  <path
+                    d="M0,25 Q15,5 30,20 T60,10 T90,15 L100,5 L100,30 L0,30 Z"
+                    fill="url(#sparkGrad)"
+                    opacity="0.1"
+                  />
+                  <defs>
+                    <linearGradient id="sparkGrad" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0%" stopColor="#1A6B45" />
+                      <stop offset="100%" stopColor="#1A6B45" stopOpacity="0" />
+                    </linearGradient>
+                  </defs>
+                </svg>
               </motion.div>
+
+              {/* ── Mockup Card 2: Registered Mothers (Middle-Right) ── */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.85, y: 15 }}
+                animate={{ opacity: 1, scale: 1, y: 0 }}
+                transition={{ delay: 0.95, duration: 0.6, ease: easeExpo }}
+                className="absolute -right-12 top-[38%] sm:-right-14 sm:top-[38%] w-[190px] bg-white/95 backdrop-blur-md rounded-2xl p-3.5 shadow-card border border-white/50 z-20 flex items-center gap-3 transition-all duration-300 hover:scale-105 hover:shadow-warm animate-float-slow"
+              >
+                <div className="w-9 h-9 rounded-full flex items-center justify-center bg-amber-50 text-amber-500 shadow-inner">
+                  <UserCheck className="w-4.5 h-4.5" />
+                </div>
+                <div className="leading-tight">
+                  <div className="font-sans font-extrabold text-base text-gray-900">12K+</div>
+                  <div className="font-sans text-[9px] font-semibold text-gray-500 mt-0.5">Registered mothers</div>
+                </div>
+              </motion.div>
+
+              {/* ── Mockup Card 3: 24/7 AI Companion (Bottom-Right) ── */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.85, y: 15 }}
+                animate={{ opacity: 1, scale: 1, y: 0 }}
+                transition={{ delay: 1.1, duration: 0.6, ease: easeExpo }}
+                className="absolute -right-8 bottom-[12%] sm:-right-10 sm:bottom-[12%] w-[230px] bg-white/95 backdrop-blur-md rounded-2xl p-4 shadow-card border border-white/50 z-20 flex gap-3 transition-all duration-300 hover:scale-105 hover:shadow-warm animate-float"
+              >
+                <div className="w-9 h-9 rounded-xl bg-forest-50 text-forest-600 flex items-center justify-center flex-shrink-0 shadow-inner">
+                  <MessageSquare className="w-4.5 h-4.5" />
+                </div>
+                <div className="leading-tight">
+                  <div className="font-sans font-extrabold text-xs text-gray-900">24/7 AI Companion</div>
+                  <div className="font-sans text-[9px] text-gray-500 mt-1 leading-relaxed">
+                    Guidance. Reminders. Support in local languages.
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* ── Mockup Card 4: Clinical Satisfaction (Bottom-Left / Overlapping) ── */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.85, y: 15 }}
+                animate={{ opacity: 1, scale: 1, y: 0 }}
+                transition={{ delay: 1.25, duration: 0.6, ease: easeExpo }}
+                className="absolute -left-10 bottom-6 sm:-left-12 sm:bottom-8 w-[200px] bg-white/95 backdrop-blur-md rounded-2xl p-3.5 shadow-card border border-white/50 z-20 flex gap-3 transition-all duration-300 hover:scale-105 hover:shadow-warm animate-float-slow"
+              >
+                <div className="w-9 h-9 rounded-full flex items-center justify-center bg-coral-50 text-coral-500 shadow-inner flex-shrink-0">
+                  <Heart className="w-4.5 h-4.5 fill-coral-500 text-coral-500" />
+                </div>
+                <div className="leading-tight flex-1">
+                  <div className="font-sans font-extrabold text-base text-gray-900">4.9 / 5</div>
+                  <div className="font-sans text-[9px] font-semibold text-gray-500 mt-0.5">Clinical satisfaction</div>
+                  <div className="flex gap-0.5 mt-1">
+                    {[1, 2, 3, 4, 5].map((star) => (
+                      <Star key={star} className="w-2.5 h-2.5 fill-amber-400 text-amber-400" />
+                    ))}
+                  </div>
+                </div>
+              </motion.div>
+
             </div>
           </motion.div>
 
