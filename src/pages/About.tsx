@@ -7,11 +7,25 @@ import { Globe, Shield, Users, Award, CheckCircle } from 'lucide-react'
 // ── Team members ─────────────────────────────────────────────────
 const team = [
   {
+    name:   'Michael Onyango',
+    role:   'CEO, TerraSept Solutions',
+    bio:    'Directs corporate strategy, partnerships, and operations for digital healthcare expansion in East Africa.',
+    avatar: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=350&q=80',
+    tag:    'Executive Leadership',
+  },
+  {
+    name:   'Hyacinth Onchangu',
+    role:   'CMO, TerraSept Solutions',
+    bio:    'Leads community health outreach programs, stakeholder engagement, and adoption strategies across clinics.',
+    avatar: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=350&q=80',
+    tag:    'Marketing & Growth',
+  },
+  {
     name:   'Erick Mwangi',
-    role:   'Founder & CTO',
+    role:   'CTO & Project Lead',
     bio:    'Lead architect and developer of TotoAfya Digital. Directs engineering of robust, offline-first health registry infrastructure at TerraSept Solutions Ltd.',
     avatar: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=350&q=80',
-    tag:    'Engineering & Product',
+    tag:    'Technology & Product',
   }
 ]
 
@@ -178,13 +192,13 @@ export default function About() {
             animate={teamInView ? 'visible' : 'hidden'}
             className="text-center mb-14"
           >
-            <motion.span variants={fadeUp} className="section-label">Leadership</motion.span>
+            <motion.span variants={fadeUp} className="section-label">Our Team</motion.span>
             <motion.h2
               variants={fadeUp}
               id="team-heading"
               className="section-heading mt-4"
             >
-              The force behind TotoAfya.
+              The team behind TotoAfya Digital.
             </motion.h2>
           </motion.div>
 
@@ -192,7 +206,7 @@ export default function About() {
             variants={staggerContainer}
             initial="hidden"
             animate={teamInView ? 'visible' : 'hidden'}
-            className="max-w-md mx-auto"
+            className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto"
           >
             {team.map((member) => (
               <motion.div

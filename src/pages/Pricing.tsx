@@ -305,7 +305,7 @@ export default function Pricing() {
                   Large-Scale Deployments
                 </h3>
                 <p className="font-sans text-sm text-gray-600 leading-relaxed">
-                  We coordinate with county directors of health and maternal program heads to implement centralized dashboards, customize clinic portals, and set up native PC Tauri apps. Contact founder & CTO Erick Mwangi for technical scheduling and pilot project alignments.
+                  We coordinate with county directors of health and maternal program heads to implement centralized dashboards, customize clinic portals, and set up native PC Tauri apps. Contact CTO & Project Lead Erick Mwangi for technical scheduling and pilot project alignments.
                 </p>
               </div>
               <Link
