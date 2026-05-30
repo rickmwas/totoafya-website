@@ -61,7 +61,7 @@ function Field({
 const contactInfo = [
   { icon: <MapPin className="w-5 h-5 text-forest-600" />, label: 'Address', value: 'Kisii Town, Kisii County, Kenya' },
   { icon: <Mail className="w-5 h-5 text-forest-600" />, label: 'Email', value: 'hello@totoafya.co.ke' },
-  { icon: <Phone className="w-5 h-5 text-forest-600" />, label: 'Phone', value: '+254 700 000 000' },
+  { icon: <Phone className="w-5 h-5 text-forest-600" />, label: 'Phone', value: '+254 113 242 983' },
   { icon: <Clock className="w-5 h-5 text-forest-600" />, label: 'Hours', value: 'Mon – Fri, 8 AM – 6 PM EAT' },
 ]
 

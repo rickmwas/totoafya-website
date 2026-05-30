@@ -8,6 +8,7 @@ import Pricing       from '@/pages/Pricing'
 import PrivacyPolicy from '@/pages/PrivacyPolicy'
 import TermsOfUse    from '@/pages/TermsOfUse'
 import Disclaimer    from '@/pages/Disclaimer'
+import Promo         from '@/pages/Promo'
 import Navbar        from '@/components/Navbar'
 import Footer        from '@/components/Footer'
 
@@ -21,6 +22,7 @@ export default function App() {
         <Routes>
           <Route path="/"           element={<Home />}     />
           <Route path="/about"      element={<About />}    />
+          <Route path="/promo"      element={<Promo />}    />
           <Route path="/contact"    element={<Contact />}  />
           <Route path="/download"   element={<Download />} />
           <Route path="/pricing"    element={<Pricing />}  />

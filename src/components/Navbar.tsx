@@ -24,6 +24,7 @@ const navItems = [
   { label: 'How It Works', href: '/#how-it-works'   },
   { label: 'About Us',     href: '/about'            },
   { label: 'Pricing',      href: '/pricing'          },
+  { label: 'Showroom',     href: '/promo'            },
 ]
 
 // ── Component ───────────────────────────────────────────────────

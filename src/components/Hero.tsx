@@ -180,19 +180,41 @@ export default function Hero() {
                 ))}
               </div>
               <div className="font-sans text-[11px] text-gray-500">
-                <span className="font-bold text-gray-900">50+ partner facilities</span> trust us to manage patient care
+                <span className="font-bold text-gray-900">10+ partner facilities</span> trust us to manage patient care
               </div>
             </motion.div>
           </motion.div>
 
-          {/* ── Right: Hero image (col-span-5 for perfect framing) ─── */}
+          {/* ── Right (Mobile/Tablet): Simple design ─── */}
           <motion.div
             variants={slideRight}
             initial="hidden"
             animate="visible"
-            className="lg:col-span-5 order-1 lg:order-2 relative flex justify-center lg:justify-start py-12 lg:py-0"
+            className="lg:hidden order-1 relative flex justify-center py-6"
           >
-            <div className="relative w-full max-w-[360px] sm:max-w-[420px] lg:max-w-none lg:w-[135%] lg:-mr-28 xl:-mr-40 aspect-[10/9] lg:aspect-square group select-none">
+            <div className="relative w-full max-w-[340px] sm:max-w-[380px] aspect-[11/12]">
+              {/* Asymmetric leaf container */}
+              <div className="w-full h-full rounded-[30px_220px_30px_220px] overflow-hidden border-4 border-forest-600 shadow-warm-lg relative bg-white">
+                <img
+                  src="/motherchildprofile.png"
+                  alt="Mother and Child"
+                  className="w-full h-full object-cover object-center scale-105"
+                  loading="eager"
+                />
+                {/* Soft gradient overlay at bottom of image */}
+                <div className="absolute inset-0 bg-gradient-to-t from-forest-900/10 via-transparent to-transparent" />
+              </div>
+            </div>
+          </motion.div>
+
+          {/* ── Right (Desktop): Premium Cinematic Breakout design ─── */}
+          <motion.div
+            variants={slideRight}
+            initial="hidden"
+            animate="visible"
+            className="hidden lg:flex lg:col-span-5 order-1 lg:order-2 relative justify-start py-0"
+          >
+            <div className="relative w-full max-w-none lg:w-[135%] lg:-mr-28 xl:-mr-40 aspect-square group select-none">
 
               {/* ── Layer 1: Cinematic Atmospheric Radial Glows ─────── */}
               <div className="absolute top-[10%] left-[10%] w-[350px] h-[350px] bg-earth-200/20 rounded-full blur-[100px] pointer-events-none z-0" />
@@ -333,7 +355,7 @@ export default function Hero() {
                 initial={{ opacity: 0, scale: 0.85, y: 15 }}
                 animate={{ opacity: 1, scale: 1, y: 0 }}
                 transition={{ delay: 0.8, duration: 0.6, ease: easeExpo }}
-                className="hidden lg:flex absolute lg:-right-6 lg:top-8 xl:-right-8 xl:top-10 w-[235px] bg-white/80 backdrop-blur-xl rounded-2xl p-4 shadow-[0_25px_50px_rgba(8,45,27,0.12)] border border-white/40 z-20 flex-col gap-2 transition-all duration-300 hover:scale-105 hover:shadow-[0_30px_60px_rgba(8,45,27,0.16)] animate-float"
+                className="absolute right-2 top-8 sm:right-4 sm:top-10 lg:-right-6 lg:top-8 xl:-right-8 xl:top-10 w-[185px] sm:w-[210px] lg:w-[235px] bg-white/80 backdrop-blur-xl rounded-2xl p-3 sm:p-4 shadow-[0_25px_50px_rgba(8,45,27,0.12)] border border-white/40 z-20 flex flex-col gap-2 transition-all duration-300 hover:scale-105 hover:shadow-[0_30px_60px_rgba(8,45,27,0.16)] animate-float"
               >
                 <div className="flex items-center gap-2 sm:gap-3">
                   <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-full flex items-center justify-center bg-forest-50 text-forest-600 shadow-inner flex-shrink-0">
@@ -372,13 +394,13 @@ export default function Hero() {
                 initial={{ opacity: 0, scale: 0.85, y: 15 }}
                 animate={{ opacity: 1, scale: 1, y: 0 }}
                 transition={{ delay: 0.95, duration: 0.6, ease: easeExpo }}
-                className="hidden lg:flex absolute lg:-right-12 lg:top-[38%] xl:-right-14 w-[190px] bg-white/80 backdrop-blur-xl rounded-2xl p-3.5 shadow-[0_25px_50px_rgba(8,45,27,0.12)] border border-white/40 z-20 items-center gap-3 transition-all duration-300 hover:scale-105 hover:shadow-[0_30px_60px_rgba(8,45,27,0.16)] animate-float-slow"
+                className="absolute right-2 top-[34%] sm:right-4 sm:top-[38%] lg:-right-12 lg:top-[38%] xl:-right-14 w-[155px] sm:w-[175px] lg:w-[190px] bg-white/80 backdrop-blur-xl rounded-2xl p-2.5 sm:p-3.5 shadow-[0_25px_50px_rgba(8,45,27,0.12)] border border-white/40 z-20 flex items-center gap-2 sm:gap-3 transition-all duration-300 hover:scale-105 hover:shadow-[0_30px_60px_rgba(8,45,27,0.16)] animate-float-slow"
               >
                 <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-full flex items-center justify-center bg-amber-50 text-amber-500 shadow-inner flex-shrink-0">
                   <UserCheck className="w-4 sm:w-4.5 h-4 sm:h-4.5" />
                 </div>
                 <div className="leading-tight">
-                  <div className="font-sans font-extrabold text-sm sm:text-base text-gray-900">12K+</div>
+                  <div className="font-sans font-extrabold text-sm sm:text-base text-gray-900">100+</div>
                   <div className="font-sans text-[8px] sm:text-[9px] font-semibold text-gray-500 mt-0.5">Registered mothers</div>
                 </div>
               </motion.div>
@@ -388,7 +410,7 @@ export default function Hero() {
                 initial={{ opacity: 0, scale: 0.85, y: 15 }}
                 animate={{ opacity: 1, scale: 1, y: 0 }}
                 transition={{ delay: 1.1, duration: 0.6, ease: easeExpo }}
-                className="hidden lg:flex absolute lg:-right-8 lg:bottom-[12%] xl:-right-10 w-[235px] bg-white/80 backdrop-blur-xl rounded-2xl p-4 shadow-[0_25px_50px_rgba(8,45,27,0.12)] border border-white/40 z-20 gap-3 transition-all duration-300 hover:scale-105 hover:shadow-[0_30px_60px_rgba(8,45,27,0.16)] animate-float"
+                className="absolute right-2 bottom-[12%] sm:right-4 sm:bottom-[12%] lg:-right-8 lg:bottom-[12%] xl:-right-10 w-[180px] sm:w-[210px] lg:w-[235px] bg-white/80 backdrop-blur-xl rounded-2xl p-3 sm:p-4 shadow-[0_25px_50px_rgba(8,45,27,0.12)] border border-white/40 z-20 flex gap-2 sm:gap-3 transition-all duration-300 hover:scale-105 hover:shadow-[0_30px_60px_rgba(8,45,27,0.16)] animate-float"
               >
                 <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-forest-50 text-forest-600 flex items-center justify-center flex-shrink-0 shadow-inner">
                   <MessageSquare className="w-4 sm:w-4.5 h-4 sm:h-4.5" />
@@ -406,7 +428,7 @@ export default function Hero() {
                 initial={{ opacity: 0, scale: 0.85, y: 15 }}
                 animate={{ opacity: 1, scale: 1, y: 0 }}
                 transition={{ delay: 1.25, duration: 0.6, ease: easeExpo }}
-                className="hidden lg:flex absolute lg:-left-12 lg:bottom-6 xl:-left-16 xl:bottom-8 w-[205px] bg-white/80 backdrop-blur-xl rounded-2xl p-3.5 shadow-[0_25px_50px_rgba(8,45,27,0.12)] border border-white/40 z-20 gap-3 transition-all duration-300 hover:scale-105 hover:shadow-[0_30px_60px_rgba(8,45,27,0.16)] animate-float-slow"
+                className="absolute left-2 bottom-6 sm:left-4 sm:bottom-8 lg:-left-12 lg:bottom-6 xl:-left-16 xl:bottom-8 w-[170px] sm:w-[190px] lg:w-[205px] bg-white/80 backdrop-blur-xl rounded-2xl p-2.5 sm:p-3.5 shadow-[0_25px_50px_rgba(8,45,27,0.12)] border border-white/40 z-20 flex gap-2 sm:gap-3 transition-all duration-300 hover:scale-105 hover:shadow-[0_30px_60px_rgba(8,45,27,0.16)] animate-float-slow"
               >
                 <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-full flex items-center justify-center bg-coral-50 text-coral-500 shadow-inner flex-shrink-0">
                   <Heart className="w-4 sm:w-4.5 h-4 sm:h-4.5 fill-coral-500 text-coral-500" />
