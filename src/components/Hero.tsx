@@ -4,36 +4,21 @@ import { Link } from 'react-router-dom'
 import { fadeUp, staggerContainer, easeExpo } from '@/lib/animations'
 import { Shield, ArrowRight, Play } from 'lucide-react'
 
-// ── Trust logos ──────────────────────────────────────────────────
-const trustLogos = [
-  { src: '/Header-2.png',                                        alt: 'Ministry of Health' },
-  { src: '/kisii_teaching_and_referral_hospital_logo.jpg',       alt: 'Kisii Teaching & Referral Hospital' },
-  { src: '/kisii_university_logo_clean-removebg-preview.png',   alt: 'Kisii University' },
-  { src: '/NAKURU_LOGO-removebg-preview.png',                    alt: 'Nakuru County' },
-]
-
 export default function Hero() {
   return (
     <section
-      className="relative min-h-screen bg-white overflow-hidden flex items-center pt-28 pb-16 md:pt-36 md:pb-24"
+      className="relative bg-white overflow-hidden pt-24 pb-0 md:pt-28"
       aria-label="Hero section"
     >
-      {/* Very subtle ambient glow — top left only */}
-      <div
-        className="absolute -top-40 -left-40 w-[560px] h-[560px] rounded-full pointer-events-none"
-        style={{ background: 'radial-gradient(circle, rgba(26,107,69,0.06) 0%, transparent 70%)' }}
-        aria-hidden="true"
-      />
-
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-        <div className="grid lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid lg:grid-cols-12 gap-8 items-end">
 
           {/* ── Left: Copy ────────────────────────────────────── */}
           <motion.div
             variants={staggerContainer}
             initial="hidden"
             animate="visible"
-            className="lg:col-span-5 flex flex-col justify-center order-2 lg:order-1"
+            className="lg:col-span-5 pb-12 flex flex-col justify-center"
           >
             {/* Label */}
             <motion.div variants={fadeUp}>
@@ -43,117 +28,142 @@ export default function Hero() {
               </span>
             </motion.div>
 
-            {/* Headline */}
+            {/* Headline — exact copy from reference */}
             <motion.h1
               variants={fadeUp}
-              className="mt-5 font-sans font-extrabold text-[2.75rem] sm:text-5xl lg:text-[3.25rem] leading-[1.08] tracking-tight text-gray-900"
+              className="mt-5 font-sans font-extrabold text-[2.6rem] sm:text-5xl lg:text-[3.1rem] leading-[1.1] tracking-tight text-gray-900"
             >
-              The operating system{' '}
-              <span className="text-forest-600">for maternal healthcare.</span>
+              The operating system<br />
+              for{' '}
+              <span className="text-forest-600">maternal healthcare.</span>
             </motion.h1>
 
             {/* Sub */}
             <motion.p
               variants={fadeUp}
-              className="mt-5 font-sans text-base sm:text-lg text-gray-500 leading-relaxed max-w-lg"
+              className="mt-5 font-sans text-base text-gray-500 leading-relaxed max-w-md"
             >
-              From ANC appointments to immunization, AI support, reporting and
-              compliance — TotoAfya gives hospitals and county health systems one
-              intelligent platform.
+              From ANC appointments to immunization, AI support, reporting and compliance—TotoAfya gives hospitals
+              and county health systems one intelligent platform.
             </motion.p>
 
             {/* CTAs */}
             <motion.div variants={fadeUp} className="mt-8 flex flex-wrap gap-3 items-center">
               <Link
                 to="/contact"
-                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-lg bg-forest-600 text-white font-sans font-bold text-sm shadow-warm hover:bg-forest-700 active:scale-95 transition-all duration-200 group"
+                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-lg bg-forest-700 text-white font-sans font-bold text-sm hover:bg-forest-800 active:scale-95 transition-all duration-200 group"
               >
                 Partner With Us
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform stroke-[2.5]" />
               </Link>
               <a
                 href="#how-it-works"
-                className="inline-flex items-center gap-2.5 px-5 py-3.5 rounded-lg border border-gray-200 text-gray-700 font-sans font-semibold text-sm hover:border-gray-300 hover:bg-gray-50 active:scale-95 transition-all duration-200"
+                className="inline-flex items-center gap-2.5 px-5 py-3.5 rounded-lg border border-gray-200 text-gray-700 font-sans font-semibold text-sm hover:bg-gray-50 active:scale-95 transition-all duration-200"
               >
-                <span className="w-7 h-7 rounded-full bg-forest-50 border border-forest-100 flex items-center justify-center text-forest-600 flex-shrink-0">
+                <span className="w-7 h-7 rounded-full border border-forest-200 bg-forest-50 flex items-center justify-center text-forest-600 flex-shrink-0">
                   <Play className="w-3 h-3 fill-forest-600 ml-0.5" />
                 </span>
                 Watch 90 sec demo
               </a>
             </motion.div>
 
-            {/* Trust strip */}
+            {/* Trust logos — exact same layout as reference */}
             <motion.div variants={fadeUp} className="mt-10">
-              <p className="font-sans text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4">
+              <p className="font-sans text-xs font-medium text-gray-400 mb-4">
                 Trusted by leading healthcare organizations
               </p>
               <div className="flex flex-wrap items-center gap-5">
-                {trustLogos.map((logo) => (
-                  <img
-                    key={logo.alt}
-                    src={logo.src}
-                    alt={logo.alt}
-                    className="h-7 w-auto object-contain opacity-70 hover:opacity-100 transition-opacity duration-200"
-                  />
-                ))}
-                <span className="font-sans text-xs font-semibold text-gray-500 border border-gray-200 rounded-full px-3 py-1">
+                <img src="/Header-2.png"           alt="Ministry of Health"  className="h-8 w-auto object-contain" />
+                <img src="/kisii_teaching_and_referral_hospital_logo.jpg" alt="Kisii Teaching & Referral" className="h-7 w-auto object-contain" />
+                <img src="/kisii_university_logo_clean-removebg-preview.png" alt="Kisii University" className="h-7 w-auto object-contain" />
+                <img src="/NAKURU_LOGO-removebg-preview.png" alt="Nakuru County" className="h-7 w-auto object-contain" />
+                <span className="font-sans text-[11px] font-semibold text-gray-500 border border-gray-200 rounded-full px-3 py-1 whitespace-nowrap">
                   County Governments
                 </span>
               </div>
             </motion.div>
           </motion.div>
 
-          {/* ── Right: Dashboard visual ───────────────────────── */}
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.25, duration: 0.75, ease: easeExpo }}
-            className="lg:col-span-7 order-1 lg:order-2 relative"
-          >
-            {/* Dot-grid background panel */}
-            <div
-              className="absolute inset-0 rounded-3xl dot-grid-bg"
-              aria-hidden="true"
-              style={{ margin: '-16px -8px -16px 24px' }}
-            />
+          {/* ── Right: Dashboard + overlapping mother photo + phone ── */}
+          <div className="lg:col-span-7 relative flex items-end">
 
-            <div className="relative flex items-end justify-end">
-
-              {/* Dashboard screenshot */}
-              <div className="relative z-10 w-full max-w-[620px] ml-auto">
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.35, duration: 0.7, ease: easeExpo }}
-                  className="rounded-2xl overflow-hidden shadow-[0_24px_64px_rgba(0,0,0,0.14)] border border-gray-200/60"
-                >
-                  <img
-                    src="/ui-mockup-dash.png"
-                    alt="TotoAfya facility dashboard"
-                    className="w-full h-auto block"
-                    loading="eager"
-                  />
-                </motion.div>
-
-                {/* Mother photo — overlapping bottom-right of dashboard */}
-                <motion.div
-                  initial={{ opacity: 0, x: 16 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.55, duration: 0.65, ease: easeExpo }}
-                  className="absolute -bottom-10 -right-6 sm:-right-10 lg:-right-14 z-20 w-44 sm:w-52 lg:w-60"
-                >
-                  <img
-                    src="/motherchildprofile.png"
-                    alt="Mother and child"
-                    className="w-full h-auto drop-shadow-[0_12px_32px_rgba(8,45,27,0.18)]"
-                    loading="eager"
-                  />
-                </motion.div>
+            {/* ── Dashboard card — takes most of the column ───────── */}
+            <motion.div
+              initial={{ opacity: 0, y: 28 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2, duration: 0.8, ease: easeExpo }}
+              className="relative w-full z-10"
+            >
+              <div className="rounded-t-2xl overflow-hidden shadow-[0_-8px_40px_rgba(0,0,0,0.10),0_0_0_1px_rgba(0,0,0,0.06)] border border-b-0 border-gray-200/70">
+                <img
+                  src="/ui-mockup-dash.png"
+                  alt="TotoAfya facility overview dashboard"
+                  className="w-full h-auto block"
+                  loading="eager"
+                />
               </div>
+            </motion.div>
 
-            </div>
-          </motion.div>
+            {/* ── Mother + baby photo — overlaps bottom-right of dashboard */}
+            <motion.div
+              initial={{ opacity: 0, x: 20, y: 20 }}
+              animate={{ opacity: 1, x: 0, y: 0 }}
+              transition={{ delay: 0.45, duration: 0.7, ease: easeExpo }}
+              className="absolute bottom-0 right-4 lg:right-0 z-20 w-48 sm:w-56 lg:w-[220px] xl:w-[260px]"
+            >
+              <img
+                src="/gettyimages-622448996-612x612.jpg"
+                alt="Mother and child"
+                className="w-full h-auto rounded-2xl shadow-[0_8px_32px_rgba(0,0,0,0.15)]"
+                loading="eager"
+              />
+            </motion.div>
 
+            {/* ── Phone mockup — far bottom-right ─────────────────── */}
+            <motion.div
+              initial={{ opacity: 0, y: 32 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.6, duration: 0.7, ease: easeExpo }}
+              className="hidden xl:block absolute bottom-0 -right-10 z-30"
+            >
+              {/* Phone frame */}
+              <div className="relative w-[120px] h-[230px] bg-gray-900 rounded-[1.75rem] shadow-[0_20px_60px_rgba(0,0,0,0.35)] border-[3px] border-gray-800 overflow-hidden">
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-14 h-[14px] bg-gray-900 rounded-b-xl z-10" />
+                <div className="absolute inset-0 bg-white overflow-hidden pt-5">
+                  <div className="px-2.5">
+                    {/* App header */}
+                    <div className="flex items-center justify-between mb-2">
+                      <div>
+                        <p className="font-sans text-[7px] text-gray-400">Good morning,</p>
+                        <p className="font-sans font-bold text-[9px] text-gray-900">Jane Wanjiku</p>
+                      </div>
+                    </div>
+                    {/* Appointment card */}
+                    <div className="bg-white rounded-xl border border-gray-100 shadow-sm p-2 mb-1.5">
+                      <p className="font-sans text-[6px] font-bold text-gray-400 uppercase tracking-wide mb-1">Next Appointment</p>
+                      <p className="font-sans font-bold text-[8px] text-gray-900">Antenatal Checkup</p>
+                      <p className="font-sans text-[6px] text-gray-400 mt-0.5">12 Jul 2025 · 10:00 AM</p>
+                      <p className="font-sans text-[6px] text-gray-400">Kisii County Hospital</p>
+                      <div className="mt-1.5 bg-forest-600 rounded-md py-1 text-center">
+                        <span className="font-sans font-bold text-[6px] text-white">View Appointment</span>
+                      </div>
+                    </div>
+                    {/* Progress card */}
+                    <div className="bg-white rounded-xl border border-gray-100 shadow-sm p-2">
+                      <p className="font-sans text-[6px] font-bold text-gray-400 uppercase tracking-wide">Your Progress</p>
+                      <p className="font-sans font-bold text-[8px] text-gray-900 mt-0.5">Pregnancy Week</p>
+                      <p className="font-sans font-bold text-[10px] text-gray-900">24 weeks</p>
+                      <div className="mt-1 w-full h-1.5 bg-gray-100 rounded-full overflow-hidden">
+                        <div className="h-full w-[26%] bg-forest-500 rounded-full" />
+                      </div>
+                      <p className="font-sans text-[6px] text-gray-400 mt-0.5">26%</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+
+          </div>
         </div>
       </div>
     </section>

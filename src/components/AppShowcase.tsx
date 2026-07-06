@@ -4,7 +4,7 @@ import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { fadeUp, staggerContainer, easeExpo } from '@/lib/animations'
-import { ArrowRight, MapPin } from 'lucide-react'
+import { ArrowRight } from 'lucide-react'
 
 export default function AppShowcase() {
   const ref = useRef(null)
@@ -72,31 +72,22 @@ export default function AppShowcase() {
               </div>
             </motion.div>
 
-            {/* ── Mother photo + phone ─────────────────────────── */}
-            <div className="lg:col-span-5 flex items-end justify-center lg:justify-start gap-4 relative">
+            {/* ── Right side: clinic photo + phone ────────────── */}
+            <div className="lg:col-span-5 flex items-end justify-center lg:justify-start gap-6 relative">
 
-              {/* Mother photo */}
+              {/* Clinic photo */}
               <motion.div
-                className="relative z-10"
+                className="relative z-10 flex-1"
                 initial={{ opacity: 0, y: 24 }}
                 animate={inView ? { opacity: 1, y: 0 } : {}}
                 transition={{ delay: 0.45, duration: 0.7, ease: easeExpo }}
               >
                 <img
-                  src="/motherchildprofile.png"
-                  alt="Mama Akinyi using TotoAfya"
-                  className="w-48 sm:w-56 lg:w-64 h-auto object-contain drop-shadow-[0_16px_40px_rgba(8,45,27,0.18)]"
+                  src="/shot_4_clinic.png"
+                  alt="TotoAfya in a clinic setting"
+                  className="w-full h-auto rounded-2xl shadow-[0_8px_32px_rgba(0,0,0,0.12)]"
                   loading="lazy"
                 />
-
-                {/* Floating name badge */}
-                <div className="absolute top-6 -right-2 lg:-right-6 bg-forest-600 text-white rounded-2xl px-4 py-2.5 shadow-lg">
-                  <p className="font-sans font-bold text-xs">Mama Akinyi</p>
-                  <p className="font-sans text-[10px] text-forest-200 flex items-center gap-1 mt-0.5">
-                    <MapPin className="w-2.5 h-2.5" />
-                    Kisii, Nyamira County
-                  </p>
-                </div>
               </motion.div>
 
               {/* Phone frame */}
@@ -106,9 +97,9 @@ export default function AppShowcase() {
                 transition={{ delay: 0.65, duration: 0.7, ease: easeExpo }}
                 className="relative z-20 flex-shrink-0"
               >
-                <div className="relative w-32 sm:w-36 h-60 sm:h-72 bg-gray-900 rounded-[1.75rem] shadow-[0_24px_64px_rgba(0,0,0,0.30)] border-4 border-gray-800 overflow-hidden">
+                <div className="relative w-32 h-60 bg-gray-900 rounded-[1.75rem] shadow-[0_24px_64px_rgba(0,0,0,0.30)] border-4 border-gray-800 overflow-hidden">
                   <div className="absolute top-0 left-1/2 -translate-x-1/2 w-14 h-4 bg-gray-900 rounded-b-xl z-10" />
-                  <div className="absolute inset-0 bg-gradient-to-b from-forest-50 to-white pt-5">
+                  <div className="absolute inset-0 bg-white pt-5">
                     <div className="px-2.5 pt-1">
                       <div className="bg-forest-600 rounded-xl p-2.5">
                         <p className="font-sans text-[7px] font-bold text-forest-200 uppercase tracking-widest mb-1">Habari,</p>
@@ -118,8 +109,7 @@ export default function AppShowcase() {
                       <div className="mt-2 bg-white rounded-xl p-2 border border-gray-100 shadow-sm">
                         <p className="font-sans text-[6px] font-bold text-gray-400 uppercase tracking-wide">Next Appointment</p>
                         <p className="font-sans font-bold text-[8px] text-gray-900 mt-0.5">ANC Follow-up</p>
-                        <p className="font-sans text-[6px] text-gray-400">Wed, 22 May 2024 · 10:00 AM</p>
-                        <p className="font-sans text-[6px] text-gray-400">Kisii Level 5 Hospital</p>
+                        <p className="font-sans text-[6px] text-gray-400">Wed, 22 May · 10:00 AM</p>
                         <div className="mt-1.5 px-2 py-1 bg-forest-600 rounded-md text-center">
                           <span className="font-sans font-bold text-[6px] text-white">Get Directions</span>
                         </div>
