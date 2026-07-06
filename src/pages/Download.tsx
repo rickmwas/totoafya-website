@@ -4,6 +4,7 @@ import { motion, useInView, AnimatePresence } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { fadeUp, staggerContainer, slideLeft, slideRight, hoverScale, easeExpo } from '@/lib/animations'
 import { Smartphone, Globe, Apple, MoreVertical, PlusSquare, Rocket, Calendar, ShieldCheck, Heart, ArrowRight } from 'lucide-react'
+import SmartInstallButton from '@/components/SmartInstallButton'
 
 // ── FAQ data ─────────────────────────────────────────────────────
 const faqs = [
@@ -109,43 +110,27 @@ export default function Download() {
             variants={fadeUp}
             className="mt-10 flex flex-col sm:flex-row gap-4 justify-center"
           >
-            {/* Google Play */}
-            <a
-              href="#"
-              {...hoverScale}
-              className="flex items-center gap-4 px-6 py-3.5 rounded-xl bg-gray-900
-                         text-white hover:bg-gray-800 shadow-lg group text-left"
-              aria-label="Get it on Google Play"
+            {/* Google Play — coming soon */}
+            <div
+              aria-disabled="true"
+              title="Android app coming soon"
+              className="flex items-center gap-4 px-6 py-3.5 rounded-xl bg-gray-900/40
+                         text-white/50 cursor-not-allowed group text-left select-none"
             >
-              <svg viewBox="0 0 24 24" className="w-8 h-8 flex-shrink-0" aria-hidden="true">
+              <svg viewBox="0 0 24 24" className="w-8 h-8 flex-shrink-0 opacity-40" aria-hidden="true">
                 <path fill="#EA4335" d="M3.18 23.76a2 2 0 001.85-.09l11.93-6.89-3.39-3.39z" />
                 <path fill="#FBBC04" d="M20.37 9.37l-2.88-1.66-3.8 3.8 3.8 3.79 2.91-1.68a2.3 2.3 0 000-4.25z" />
                 <path fill="#4285F4" d="M.17 1.08A2 2 0 000 1.88v20.23a2 2 0 00.17.8l.08.08L11.49 12l-.08-.08z" />
                 <path fill="#34A853" d="M5.03.63L16.96 7.52l-3.39 3.39z" />
               </svg>
               <div className="leading-tight">
-                <div className="font-sans text-[10px] text-gray-400 font-bold uppercase tracking-wider">Get it on</div>
-                <div className="font-sans font-bold text-base mt-0.5">Google Play</div>
+                <div className="font-sans text-[10px] text-gray-500 font-bold uppercase tracking-wider">Coming Soon</div>
+                <div className="font-sans font-bold text-base mt-0.5 text-white/50">Google Play</div>
               </div>
-            </a>
+            </div>
 
-            {/* PWA */}
-            <a
-              href="#pwa-guide"
-              {...hoverScale}
-              className="flex items-center gap-4 px-6 py-3.5 rounded-xl
-                         bg-forest-600 text-white hover:bg-forest-700
-                         shadow-warm group text-left"
-              aria-label="Install as Progressive Web App"
-            >
-              <div className="w-8 h-8 flex-shrink-0 flex items-center justify-center text-white">
-                <Globe className="w-7 h-7 stroke-[2]" />
-              </div>
-              <div className="leading-tight">
-                <div className="font-sans text-[10px] text-forest-200 font-bold uppercase tracking-wider">Add to Home Screen</div>
-                <div className="font-sans font-bold text-base mt-0.5">Web App (PWA)</div>
-              </div>
-            </a>
+            {/* PWA — Smart Install / Open button */}
+            <SmartInstallButton />
           </motion.div>
 
           {/* Version note */}
@@ -181,7 +166,7 @@ export default function Download() {
                   {
                     icon: <Globe className="w-5 h-5 text-forest-600" />,
                     title: 'Open in Browser',
-                    desc: 'Visit totoafya.co.ke in Google Chrome or Safari on your phone.',
+                    desc: 'Visit motherapp.terraseptsolutions.com in Google Chrome or Safari on your phone.',
                   },
                   {
                     icon: <MoreVertical className="w-5 h-5 text-forest-600" />,
