@@ -11,20 +11,20 @@ export default function Hero() {
       aria-label="Hero section"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="lg:grid lg:grid-cols-12 lg:gap-8 lg:items-end">
+        <div className="lg:grid lg:grid-cols-12 lg:gap-8 lg:items-start">
 
           {/* ── Copy block ─────────────────────────────────────── */}
           <motion.div
             variants={staggerContainer}
             initial="hidden"
             animate="visible"
-            className="lg:col-span-5 py-10 md:py-12 lg:pb-16 lg:pt-0 flex flex-col"
+            className="lg:col-span-5 py-10 md:py-12 lg:pb-16 lg:pt-32 flex flex-col"
           >
             {/* Label */}
             <motion.div variants={fadeUp}>
               <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-forest-50 border border-forest-100 text-forest-700 text-[10px] font-sans font-bold uppercase tracking-wider">
                 <Shield className="w-3 h-3 text-forest-600 flex-shrink-0" />
-                Enterprise Maternal Health Platform
+                Maternal Health Records · Kenya
               </span>
             </motion.div>
 
@@ -33,10 +33,10 @@ export default function Hero() {
               variants={fadeUp}
               className="mt-4 sm:mt-5 font-sans font-extrabold text-[2.2rem] sm:text-[2.75rem] lg:text-[3rem] xl:text-[3.25rem] leading-[1.1] tracking-tight text-gray-900"
             >
-              The operating system{' '}
+              Digital health records{' '}
               <br className="hidden sm:block" />
-              for{' '}
-              <span className="text-forest-600">maternal healthcare.</span>
+              for clinics that care{' '}
+              <span className="text-forest-600">about mothers.</span>
             </motion.h1>
 
             {/* Sub */}
@@ -44,9 +44,9 @@ export default function Hero() {
               variants={fadeUp}
               className="mt-4 sm:mt-5 font-sans text-sm sm:text-base text-gray-500 leading-relaxed max-w-lg"
             >
-              From ANC appointments to immunization, AI support, reporting and
-              compliance — TotoAfya gives hospitals and county health systems one
-              intelligent platform.
+              TotoAfya replaces paper registers at your facility. Nurses record
+              ANC visits and vaccinations digitally. You see a live dashboard of
+              what's happening across your clinic — even when the internet is out.
             </motion.p>
 
             {/* CTAs */}
@@ -75,29 +75,29 @@ export default function Hero() {
             {/* Trust logos */}
             <motion.div variants={fadeUp} className="mt-8 sm:mt-10">
               <p className="font-sans text-[11px] font-medium text-gray-400 mb-3 sm:mb-4 uppercase tracking-wider">
-                Trusted by leading healthcare organizations
+                Used by clinics and health departments across Kenya
               </p>
               {/* Scrollable on mobile, wrap on sm+ */}
               <div className="flex items-center gap-4 sm:gap-5 overflow-x-auto no-scrollbar pb-1 sm:flex-wrap sm:overflow-visible">
                 <img
                   src="/Header-2.png"
                   alt="Ministry of Health"
-                  className="h-7 sm:h-8 w-auto object-contain flex-shrink-0"
+                  className="h-12 sm:h-14 w-auto object-contain flex-shrink-0"
                 />
                 <img
                   src="/kisii_teaching_and_referral_hospital_logo.jpg"
                   alt="Kisii Teaching Hospital"
-                  className="h-6 sm:h-7 w-auto object-contain flex-shrink-0"
+                  className="h-11 sm:h-13 w-auto object-contain flex-shrink-0"
                 />
                 <img
                   src="/kisii_university_logo_clean-removebg-preview.png"
                   alt="Kisii University"
-                  className="h-6 sm:h-7 w-auto object-contain flex-shrink-0"
+                  className="h-11 sm:h-13 w-auto object-contain flex-shrink-0"
                 />
                 <img
                   src="/NAKURU_LOGO-removebg-preview.png"
                   alt="Nakuru County"
-                  className="h-6 sm:h-7 w-auto object-contain flex-shrink-0"
+                  className="h-11 sm:h-13 w-auto object-contain flex-shrink-0"
                 />
                 <span className="font-sans text-[11px] font-semibold text-gray-500 border border-gray-200 rounded-full px-3 py-1 whitespace-nowrap flex-shrink-0">
                   County Governments
@@ -111,7 +111,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 28 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.8, ease: easeExpo }}
-            className="lg:col-span-7 -mx-4 sm:mx-0"
+            className="lg:col-span-7 -mx-4 sm:mx-0 lg:pt-32"
           >
             {/*
               Mobile:  show only the top ~55% of the dashboard (header + stats)
@@ -123,7 +123,7 @@ export default function Hero() {
               className="
                 rounded-t-xl sm:rounded-t-2xl overflow-hidden
                 shadow-[0_-4px_32px_rgba(0,0,0,0.08),0_0_0_1px_rgba(0,0,0,0.06)]
-                max-h-[220px] sm:max-h-[340px] md:max-h-[440px] lg:max-h-none
+                max-h-[340px] sm:max-h-[500px] md:max-h-[650px] lg:max-h-[800px]
               "
             >
               <img

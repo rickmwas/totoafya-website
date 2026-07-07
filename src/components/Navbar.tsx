@@ -11,7 +11,7 @@ function Logo() {
       <img
         src="/logo.png"
         alt="TotoAfya Digital Logo"
-        className="h-10 sm:h-12 w-auto object-contain group-hover:scale-[1.03] transition-transform duration-200"
+        className="h-16 sm:h-20 w-auto object-contain group-hover:scale-[1.03] transition-transform duration-200"
       />
     </Link>
   )
