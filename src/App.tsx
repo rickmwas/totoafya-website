@@ -1,5 +1,5 @@
 // ── TotoAfya Digital — Root Router ─────────────────────────────
-import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Home          from '@/pages/Home'
 import About         from '@/pages/About'
 import Contact       from '@/pages/Contact'
@@ -8,20 +8,15 @@ import Pricing       from '@/pages/Pricing'
 import PrivacyPolicy from '@/pages/PrivacyPolicy'
 import TermsOfUse    from '@/pages/TermsOfUse'
 import Disclaimer    from '@/pages/Disclaimer'
-import Pitch         from '@/pages/Pitch'
 import Navbar        from '@/components/Navbar'
 import Footer        from '@/components/Footer'
 import ScrollToTop   from '@/components/ScrollToTop'
 
 function AppContent() {
-  const location = useLocation()
-  const isPitchPage = location.pathname === '/pitch'
-
   return (
     <>
       <ScrollToTop />
-      {/* Conditionally render nav — hidden on pitch deck page */}
-      {!isPitchPage && <Navbar />}
+      <Navbar />
 
       <main>
         <Routes>
@@ -33,14 +28,12 @@ function AppContent() {
           <Route path="/privacy"    element={<PrivacyPolicy />} />
           <Route path="/terms"      element={<TermsOfUse />}    />
           <Route path="/disclaimer" element={<Disclaimer />}    />
-          <Route path="/pitch"      element={<Pitch />}         />
           {/* 404 fallback */}
           <Route path="*"           element={<Home />}     />
         </Routes>
       </main>
 
-      {/* Conditionally render footer — hidden on pitch deck page */}
-      {!isPitchPage && <Footer />}
+      <Footer />
     </>
   )
 }

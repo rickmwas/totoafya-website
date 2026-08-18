@@ -8,7 +8,6 @@ Allow: /contact
 Allow: /privacy
 Allow: /terms
 Allow: /disclaimer
-Disallow: /pitch
 
 # XML Sitemap Location
 Sitemap: https://totoafya.co.ke/sitemap.xml
