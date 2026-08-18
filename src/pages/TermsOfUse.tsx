@@ -3,6 +3,8 @@ import { useRef, useState, useEffect } from 'react'
 import { motion, useInView } from 'framer-motion'
 import { fadeUp, staggerContainer } from '@/lib/animations'
 import { FileText, UserCheck, ShieldAlert, CreditCard, HelpCircle, ArrowRight } from 'lucide-react'
+import SEOHead from '@/components/SEOHead'
+import { getBreadcrumbSchema } from '@/lib/seoConfig'
 
 const sections = [
   { id: 'acceptance', label: '1. Acceptance of Terms' },
@@ -39,6 +41,11 @@ export default function TermsOfUse() {
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
+
+  const termsSchemas = getBreadcrumbSchema([
+    { name: 'Home', path: '/' },
+    { name: 'Terms of Use', path: '/terms' },
+  ])
 
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id)

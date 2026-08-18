@@ -4,6 +4,8 @@ import { motion, useInView, AnimatePresence } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { fadeUp, staggerContainer, hoverScale, easeExpo, slideLeft, slideRight } from '@/lib/animations'
 import { Check, ShieldCheck, Building2, UserCheck, Sparkles, Zap, HelpCircle, PhoneCall, ChevronDown } from 'lucide-react'
+import SEOHead from '@/components/SEOHead'
+import { getBreadcrumbSchema, getFAQPageSchema } from '@/lib/seoConfig'
 
 // ── FAQs data ────────────────────────────────────────────────────
 const faqs = [
@@ -182,8 +184,30 @@ export default function Pricing() {
 
   const activePlans = billingType === 'b2b' ? b2bPlans : b2cPlans
 
+  const pricingSchemas = [
+    getFAQPageSchema(faqs),
+    getBreadcrumbSchema([
+      { name: 'Home', path: '/' },
+      { name: 'Pricing', path: '/pricing' },
+    ]),
+  ]
+
   return (
     <div className="pt-16">
+      <SEOHead
+        title="Pricing Plans & Clinic Subscriptions"
+        description="Flexible KES pricing for maternity clinics, health centers, and African mothers. Support for Safaricom M-Pesa (Lipa na M-Pesa) payments."
+        keywords={[
+          'TotoAfya pricing KES',
+          'maternity clinic software cost Kenya',
+          'M-Pesa health app subscription',
+          'community clinic software Kenya',
+          'ANC portal pricing',
+        ]}
+        canonicalPath="/pricing"
+        jsonLd={pricingSchemas}
+      />
+
       {/* ── Page Header ────────────────────────────────────────── */}
       <section className="section mesh-bg text-center relative overflow-hidden">
         <div className="absolute -right-32 -top-16 w-96 h-96 rounded-[100px_350px_100px_350px] border-[3px] border-forest-100/25 rotate-[25deg] pointer-events-none" aria-hidden="true" />

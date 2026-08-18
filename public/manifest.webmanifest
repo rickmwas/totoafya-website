@@ -1,0 +1,23 @@
+{
+  "name": "TotoAfya Digital — Maternal Care",
+  "short_name": "TotoAfya",
+  "description": "Smart maternal health companion, immunization tracker, and facility portal for Kenya.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FFFFFF",
+  "theme_color": "#1A6B45",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/logo.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

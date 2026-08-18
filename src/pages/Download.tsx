@@ -3,8 +3,10 @@ import { useRef, useState } from 'react'
 import { motion, useInView, AnimatePresence } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { fadeUp, staggerContainer, slideLeft, slideRight, hoverScale, easeExpo } from '@/lib/animations'
-import { Smartphone, Globe, Apple, MoreVertical, PlusSquare, Rocket, Calendar, ShieldCheck, Heart, ArrowRight } from 'lucide-react'
+import { Smartphone, Globe, Apple, MoreVertical, PlusSquare, Rocket, Calendar, ShieldCheck, Heart, ArrowRight, ChevronDown } from 'lucide-react'
 import SmartInstallButton from '@/components/SmartInstallButton'
+import SEOHead from '@/components/SEOHead'
+import { getBreadcrumbSchema, getSoftwareAppSchema } from '@/lib/seoConfig'
 
 // ── FAQ data ─────────────────────────────────────────────────────
 const faqs = [
@@ -40,12 +42,9 @@ function FAQItem({ q, a }: { q: string; a: string }) {
         aria-expanded={open}
       >
         <span className="font-sans font-bold text-sm text-gray-900">{q}</span>
-        <svg
+        <ChevronDown
           className={`w-4 h-4 text-forest-600 flex-shrink-0 transition-transform duration-300 ${open ? 'rotate-180' : ''}`}
-          viewBox="0 0 16 16" fill="none"
-        >
-          <path d="M4 6l4 4 4-4" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
-        </svg>
+        />
       </button>
       <AnimatePresence initial={false}>
         {open && (
@@ -78,8 +77,29 @@ export default function Download() {
   const ref = useRef(null)
   const inView = useInView(ref, { once: true, margin: '-80px' })
 
+  const downloadSchemas = [
+    getSoftwareAppSchema(),
+    getBreadcrumbSchema([
+      { name: 'Home', path: '/' },
+      { name: 'Download', path: '/download' },
+    ]),
+  ]
+
   return (
     <div className="pt-16">
+      <SEOHead
+        title="Download Mother App & Access Clinic Portals"
+        description="Download TotoAfya Digital for Android or launch the web PWA. Instant access for mothers, community health workers, and clinical nurses across Kenya."
+        keywords={[
+          'Download TotoAfya App',
+          'TotoAfya Android APK',
+          'Maternal care app download Kenya',
+          'Nurse portal login',
+          'PWA health app Kenya',
+        ]}
+        canonicalPath="/download"
+        jsonLd={downloadSchemas}
+      />
 
       {/* ── Hero ──────────────────────────────────────────────── */}
       <section className="section mesh-bg relative overflow-hidden text-center">

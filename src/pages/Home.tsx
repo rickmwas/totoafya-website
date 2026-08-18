@@ -7,12 +7,35 @@ import HowItWorks   from '@/components/HowItWorks'
 import AppShowcase  from '@/components/AppShowcase'
 import Testimonials from '@/components/Testimonials'
 import CTA          from '@/components/CTA'
+import SEOHead      from '@/components/SEOHead'
+import { getOrganizationSchema, getWebSiteSchema, getSoftwareAppSchema } from '@/lib/seoConfig'
 
 export default function Home() {
+  const homeJsonLd = [
+    getOrganizationSchema(),
+    getWebSiteSchema(),
+    getSoftwareAppSchema(),
+  ]
+
   return (
     <>
-      {/* ── SEO meta ─────────────────────────────────────────── */}
-      <title>TotoAfya Digital — The Operating System for Maternal Healthcare</title>
+      {/* ── Dynamic SEO Meta & Structured Data ───────────────── */}
+      <SEOHead
+        title="TotoAfya Digital — Operating System for Maternal Care in Kenya"
+        description="Empowering African mothers, community health workers, and maternity clinics in Kenya with smart ANC logs, KEPI vaccination schedules, and AI care guidance."
+        keywords={[
+          'maternal health Kenya',
+          'child health app Kenya',
+          'ANC tracker',
+          'vaccination reminder Kenya',
+          'KEPI schedule',
+          'CHW digital app',
+          'TotoAfya Digital',
+          'maternal healthcare Nairobi Nakuru Kisii',
+        ]}
+        canonicalPath="/"
+        jsonLd={homeJsonLd}
+      />
 
       {/* ── Page sections (in scroll order) ─────────────────── */}
       <Hero />
@@ -25,3 +48,4 @@ export default function Home() {
     </>
   )
 }
+

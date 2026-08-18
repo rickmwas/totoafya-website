@@ -3,6 +3,8 @@ import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
 import { fadeUp, staggerContainer, slideLeft, slideRight, hoverScale } from '@/lib/animations'
 import { Globe, Shield, Users, Award, CheckCircle } from 'lucide-react'
+import SEOHead from '@/components/SEOHead'
+import { getBreadcrumbSchema, getOrganizationSchema } from '@/lib/seoConfig'
 
 // ── Team members ─────────────────────────────────────────────────
 const team = [
@@ -66,8 +68,32 @@ export default function About() {
   const valuesInView = useInView(valuesRef, { once: true, margin: '-80px' })
   const awardInView = useInView(awardRef, { once: true, margin: '-80px' })
 
+  const aboutSchemas = [
+    getOrganizationSchema(),
+    getBreadcrumbSchema([
+      { name: 'Home', path: '/' },
+      { name: 'About Us', path: '/about' },
+    ]),
+  ]
+
   return (
     <div className="pt-16">
+      <SEOHead
+        title="About Us — Mission, Team & Vision for Maternal Care"
+        description="Learn about TerraSept Solutions Ltd and TotoAfya Digital — transforming maternal and child healthcare in Kenya through offline-first digital technology and community health worker empowerment."
+        keywords={[
+          'About TotoAfya',
+          'TerraSept Solutions Ltd',
+          'Maternal healthcare company Kenya',
+          'Erick Mwangi CTO',
+          'Michael Onyango CEO',
+          'Hyacinth Onchangu CMO',
+          'Kisii University incubator',
+          'Nakuru county maternal health pilot',
+        ]}
+        canonicalPath="/about"
+        jsonLd={aboutSchemas}
+      />
 
       {/* ── Hero ──────────────────────────────────────────────── */}
       <section

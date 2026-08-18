@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import SEOHead from '@/components/SEOHead';
 import { 
   ArrowLeft, 
   ArrowRight, 
@@ -630,7 +631,12 @@ export default function Pitch() {
 
   return (
     <>
-      <title>Pitch Deck — TotoAfya Digital</title>
+      <SEOHead
+        title="Investor Pitch Deck — Executive Summary & Product Roadmap"
+        description="Executive pitch deck for TotoAfya Digital maternal healthcare platform."
+        canonicalPath="/pitch"
+        noindex={true}
+      />
       <div className="min-h-screen bg-[#F7F5F0] flex flex-col p-6 font-sans">
         {/* Header */}
         <div className="flex justify-between items-center mb-6">

@@ -11,6 +11,7 @@ import Disclaimer    from '@/pages/Disclaimer'
 import Pitch         from '@/pages/Pitch'
 import Navbar        from '@/components/Navbar'
 import Footer        from '@/components/Footer'
+import ScrollToTop   from '@/components/ScrollToTop'
 
 function AppContent() {
   const location = useLocation()
@@ -18,6 +19,7 @@ function AppContent() {
 
   return (
     <>
+      <ScrollToTop />
       {/* Conditionally render nav — hidden on pitch deck page */}
       {!isPitchPage && <Navbar />}
 
@@ -50,3 +52,4 @@ export default function App() {
     </BrowserRouter>
   )
 }
+

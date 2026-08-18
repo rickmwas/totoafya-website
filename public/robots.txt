@@ -1,0 +1,14 @@
+# ── TotoAfya Digital Web Crawler Directives ────────────────────
+User-agent: *
+Allow: /
+Allow: /about
+Allow: /pricing
+Allow: /download
+Allow: /contact
+Allow: /privacy
+Allow: /terms
+Allow: /disclaimer
+Disallow: /pitch
+
+# XML Sitemap Location
+Sitemap: https://totoafya.co.ke/sitemap.xml

@@ -7,6 +7,8 @@ import { motion, useInView } from 'framer-motion'
 import { fadeUp, staggerContainer, slideLeft, slideRight, hoverScale } from '@/lib/animations'
 import type { ContactFormData } from '@/types'
 import { MapPin, Mail, Phone, Clock, Building2, CheckCircle, ArrowRight } from 'lucide-react'
+import SEOHead from '@/components/SEOHead'
+import { getBreadcrumbSchema, getOrganizationSchema } from '@/lib/seoConfig'
 
 // ── Validation schema ────────────────────────────────────────────
 const schema = z.object({

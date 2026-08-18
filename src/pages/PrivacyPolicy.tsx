@@ -3,6 +3,8 @@ import { useRef, useState, useEffect } from 'react'
 import { motion, useInView } from 'framer-motion'
 import { fadeUp, staggerContainer } from '@/lib/animations'
 import { Shield, Eye, Lock, Server, CheckCircle2, Mail, Phone, MapPin } from 'lucide-react'
+import SEOHead from '@/components/SEOHead'
+import { getBreadcrumbSchema } from '@/lib/seoConfig'
 
 const sections = [
   { id: 'introduction', label: '1. Introduction' },
@@ -39,6 +41,11 @@ export default function PrivacyPolicy() {
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
+
+  const privacySchemas = getBreadcrumbSchema([
+    { name: 'Home', path: '/' },
+    { name: 'Privacy Policy', path: '/privacy' },
+  ])
 
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id)

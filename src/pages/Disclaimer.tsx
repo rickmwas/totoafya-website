@@ -3,6 +3,8 @@ import { useRef, useState, useEffect } from 'react'
 import { motion, useInView } from 'framer-motion'
 import { fadeUp, staggerContainer } from '@/lib/animations'
 import { ShieldAlert, Heart, Activity, Siren, HelpCircle, ArrowRight } from 'lucide-react'
+import SEOHead from '@/components/SEOHead'
+import { getBreadcrumbSchema } from '@/lib/seoConfig'
 
 const sections = [
   { id: 'educational', label: '1. Educational Support Only' },
