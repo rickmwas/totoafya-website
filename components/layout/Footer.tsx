@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { ShieldCheck, Mail, MapPin, Phone, ExternalLink } from 'lucide-react';
+import { ShieldCheck, Mail, MapPin, Phone } from 'lucide-react';
 import { SITE_CONFIG } from '@/lib/constants';
 
 export default function Footer() {

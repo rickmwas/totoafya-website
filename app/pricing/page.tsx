@@ -2,9 +2,8 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
-import type { Metadata } from 'next';
-import { Check, ShieldCheck, Zap, Building2, PhoneCall, ChevronDown } from 'lucide-react';
-import { B2B_PRICING_PLANS, B2C_PRICING_PLANS, FAQ_ITEMS, SITE_CONFIG } from '@/lib/constants';
+import { Check, ShieldCheck, Zap, PhoneCall, ChevronDown } from 'lucide-react';
+import { B2B_PRICING_PLANS, B2C_PRICING_PLANS, FAQ_ITEMS } from '@/lib/constants';
 
 export default function PricingPage() {
   const [pricingMode, setPricingMode] = useState<'b2b' | 'b2c'>('b2b');

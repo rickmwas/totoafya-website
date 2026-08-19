@@ -35,7 +35,8 @@ export default function ContactPage() {
 
   const onSubmit = async (data: ContactFormInput) => {
     setLoading(true);
-    // Simulate submission delay
+    // Simulate submission payload logging & delay
+    console.log('Contact form payload:', data);
     await new Promise((res) => setTimeout(res, 1000));
     setLoading(false);
     setSubmitted(true);

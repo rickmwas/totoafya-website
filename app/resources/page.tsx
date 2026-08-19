@@ -1,8 +1,8 @@
 import React from 'react';
 import Link from 'next/link';
 import type { Metadata } from 'next';
-import { Syringe, FileText, ShieldCheck, ChevronRight, Download, BookOpen } from 'lucide-react';
-import { FAQ_ITEMS, SITE_CONFIG } from '@/lib/constants';
+import { Syringe, ShieldCheck, ChevronRight, BookOpen } from 'lucide-react';
+import { FAQ_ITEMS } from '@/lib/constants';
 
 export const metadata: Metadata = {
   title: 'Resources & FAQs — Technical & KEPI Documentation',
@@ -75,7 +75,7 @@ export default function ResourcesPage() {
               </div>
               <h3 className="text-lg font-bold text-slate-900">Data Protection & Privacy Overview</h3>
               <p className="text-xs text-slate-600 leading-relaxed">
-                Legal breakdown of compliance with Kenya's Data Protection Act 2019, patient data consent, role-based authorization, and encrypted storage.
+                Legal breakdown of compliance with Kenya&apos;s Data Protection Act 2019, patient data consent, role-based authorization, and encrypted storage.
               </p>
             </div>
             <Link

@@ -1,20 +1,14 @@
 import React from 'react';
-import Image from 'next/image';
 import Link from 'next/link';
 import type { Metadata } from 'next';
 import {
-  Database,
   Syringe,
   Activity,
   WifiOff,
   ShieldCheck,
-  Cpu,
-  Layers,
   ArrowRight,
   CheckCircle2,
-  FileCode2,
 } from 'lucide-react';
-import { SITE_CONFIG } from '@/lib/constants';
 
 export const metadata: Metadata = {
   title: 'Product Architecture & Technical Capabilities',

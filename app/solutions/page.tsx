@@ -2,8 +2,7 @@ import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import type { Metadata } from 'next';
-import { CheckCircle2, ArrowRight, ShieldCheck, Heart, Stethoscope, Building2, Globe2 } from 'lucide-react';
-import { ECOSYSTEM_PILLARS } from '@/lib/constants';
+import { CheckCircle2, ArrowRight, Heart, Stethoscope, Building2, Globe2 } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'Solutions — Stakeholder Capabilities & Workflows',

@@ -2,7 +2,7 @@ import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import type { Metadata } from 'next';
-import { Award, ShieldCheck, Globe2, Users, CheckCircle2, ArrowRight } from 'lucide-react';
+import { Award, ShieldCheck, Globe2, Users, ArrowRight } from 'lucide-react';
 import { SITE_CONFIG, LEADERSHIP_TEAM } from '@/lib/constants';
 
 export const metadata: Metadata = {
@@ -37,7 +37,7 @@ export default function AboutPage() {
               <span>Kisii Innovation Week Winner</span>
             </div>
             <h2 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">
-              Recognized as "Best Project — Digital Healthcare"
+              Recognized as &quot;Best Project — Digital Healthcare&quot;
             </h2>
             <p className="text-xs sm:text-sm text-emerald-200 leading-relaxed">
               Awarded for excellence in technology innovation designed to reduce maternal and infant mortality through offline-first digital registries and automated KEPI immunization schedules.
@@ -125,7 +125,7 @@ export default function AboutPage() {
             <ShieldCheck className="w-6 h-6 text-emerald-800" />
             <h3 className="text-base font-bold text-slate-900">Data Protection</h3>
             <p className="text-xs text-slate-600 leading-relaxed">
-              Patient records are encrypted end-to-end and stored securely in full compliance with Kenya's Data Protection Act 2019.
+              Patient records are encrypted end-to-end and stored securely in full compliance with Kenya&apos;s Data Protection Act 2019.
             </p>
           </div>
 
