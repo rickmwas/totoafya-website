@@ -1,4 +1,8 @@
-# ── TotoAfya Digital Web Crawler Directives ────────────────────
+# ── TotoAfya Digital Crawler & AI Directives ────────────────────
+# Allow search engine and AI crawlers to discover and index public marketing pages,
+# while protecting internal application APIs and sensitive routes.
+
+# ── General Search Engine Crawlers (Google, Bing, Yahoo, DuckDuckGo)
 User-agent: *
 Allow: /
 Allow: /about
@@ -8,6 +12,52 @@ Allow: /contact
 Allow: /privacy
 Allow: /terms
 Allow: /disclaimer
+Disallow: /api/
+Disallow: /admin/
+Disallow: /*.json$
+Disallow: /*.env$
+Disallow: /*.config$
 
-# XML Sitemap Location
+# ── AI Search & Assistant Crawlers (OpenAI, Anthropic, Google, Perplexity)
+User-agent: GPTBot
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+
+User-agent: ChatGPT-User
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+
+User-agent: ClaudeBot
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+
+User-agent: Google-Extended
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+
+User-agent: PerplexityBot
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+
+User-agent: Bytespider
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+
+User-agent: CCBot
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+
+User-agent: Applebot-Extended
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+
+# ── XML Sitemap Location
 Sitemap: https://totoafya.co.ke/sitemap.xml
