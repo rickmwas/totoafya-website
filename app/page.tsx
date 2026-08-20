@@ -3,14 +3,11 @@ import Image from 'next/image';
 import Link from 'next/link';
 import {
   Syringe,
-  FileSpreadsheet,
   ArrowRight,
   CheckCircle2,
   Database,
   Lock,
   ShieldCheck,
-  Smartphone,
-  Stethoscope,
   ChevronRight,
   Zap,
 } from 'lucide-react';
@@ -28,7 +25,7 @@ export default function HomePage() {
         {/* Full Bleed Photographic Background Asset */}
         <Image
           src="/images/hero-mother-child.jpg"
-          alt="Connected Care for Kenya's Families — Mother & Child"
+          alt="Connected Care for Kenya&apos;s Families — Mother & Child"
           fill
           className="object-cover object-center scale-105 transition-transform duration-1000"
           priority
@@ -49,7 +46,7 @@ export default function HomePage() {
             <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold text-white tracking-tight leading-[1.08] drop-shadow-md">
               Connected care.{' '}
               <span className="block sm:inline bg-gradient-to-r from-emerald-400 via-teal-300 to-emerald-200 bg-clip-text text-transparent">
-                For Kenya's Families.
+                For Kenya&apos;s Families.
               </span>
             </h1>
           </div>
