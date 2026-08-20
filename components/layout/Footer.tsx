@@ -13,15 +13,13 @@ export default function Footer() {
           {/* Column 1: Institutional Identity */}
           <div className="lg:col-span-2 space-y-4">
             <Link href="/" className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-lg bg-white/10 p-1 border border-white/20">
-                <Image
-                  src="/logo.png"
-                  alt="TotoAfya Digital"
-                  width={40}
-                  height={40}
-                  className="w-full h-full object-contain"
-                />
-              </div>
+              <Image
+                src="/logo.png"
+                alt="TotoAfya Digital"
+                width={40}
+                height={40}
+                className="w-10 h-10 object-contain shrink-0"
+              />
               <div className="flex flex-col">
                 <span className="font-sans font-bold text-lg text-white tracking-tight">
                   TotoAfya<span className="text-emerald-400 font-semibold ml-1">Digital</span>
