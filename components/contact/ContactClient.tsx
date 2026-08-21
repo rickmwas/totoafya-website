@@ -9,11 +9,11 @@ import { SITE_CONFIG } from '@/lib/constants';
 
 const contactSchema = z.object({
   fullName: z.string().min(2, 'Please enter your full name'),
-  email: z.string().email('Please enter a valid email address'),
+  email: z.string().email('Please enter a valid work email address'),
   phone: z.string().min(8, 'Please enter a valid phone number'),
   organization: z.string().min(2, 'Please enter your facility or organization name'),
   role: z.enum(['caregiver', 'nurse', 'admin', 'county', 'partner'], {
-    errorMap: () => ({ message: 'Please select your role' }),
+    errorMap: () => ({ message: 'Please select your primary role' }),
   }),
   message: z.string().min(15, 'Message must be at least 15 characters'),
 });
@@ -35,56 +35,59 @@ export default function ContactClient() {
 
   const onSubmit = async (data: ContactFormInput) => {
     setLoading(true);
-    console.log('Contact form payload:', data);
-    await new Promise((res) => setTimeout(res, 1000));
+    console.log('Institutional Contact payload:', data);
+    await new Promise((res) => setTimeout(res, 800));
     setLoading(false);
     setSubmitted(true);
     reset();
   };
 
   return (
-    <div className="space-y-16 py-12">
+    <div className="space-y-16 py-12 bg-[#FAF9F6]">
+      
       {/* Header */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl space-y-4">
-          <span className="badge-trust">Institutional Contact & Inquiries</span>
-          <h1 className="text-4xl sm:text-5xl font-bold text-slate-900 tracking-tight">
-            Connect with the{' '}
-            <span className="font-serif italic text-emerald-800">TerraSept Solutions team.</span>
+          <span className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-emerald-50 text-emerald-800 text-xs font-bold uppercase tracking-wider border border-emerald-200">
+            Institutional Contact & Inquiries
+          </span>
+          <h1 className="text-4xl sm:text-5xl font-extrabold text-slate-900 tracking-tight">
+            Connect with the TerraSept Solutions team.
           </h1>
-          <p className="text-base text-slate-600 leading-relaxed">
-            Whether you represent a dispensary, referral hospital, county health department, development partner, or caregiver family — our technical team is ready to assist with your pilot evaluation and system integration.
+          <p className="text-base text-slate-600 leading-relaxed font-normal">
+            Whether representing a dispensary, maternity hospital, county health department, development partner, or caregiver family — our team is ready to assist with your pilot evaluation.
           </p>
         </div>
       </section>
 
-      {/* Main Form & Info Grid */}
+      {/* Main Grid */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+          
           {/* Left: Contact Info */}
           <div className="lg:col-span-5 space-y-8">
-            <div className="rounded-2xl bg-white border border-slate-200 p-8 shadow-sm space-y-6">
-              <h2 className="text-xl font-bold text-slate-900 border-b border-slate-100 pb-4">
-                Office & Contact Channels
+            <div className="bg-white rounded-2xl border border-slate-200 p-8 shadow-sm space-y-6">
+              <h2 className="text-lg font-bold text-slate-900 border-b border-slate-100 pb-4">
+                Office & Direct Contact Channels
               </h2>
 
-              <div className="space-y-5 text-xs text-slate-700">
+              <div className="space-y-5 text-xs text-slate-700 font-medium">
                 <div className="flex items-start gap-3.5">
-                  <div className="w-9 h-9 rounded-xl bg-emerald-50 border border-emerald-200 flex items-center justify-center text-emerald-800 shrink-0">
-                    <MapPin className="w-4 h-4" />
+                  <div className="w-9 h-9 rounded-lg bg-slate-100 flex items-center justify-center text-slate-800 shrink-0">
+                    <MapPin className="w-4 h-4 text-emerald-800" />
                   </div>
                   <div>
-                    <strong className="font-semibold text-slate-900 block">Headquarters Location</strong>
+                    <strong className="font-bold text-slate-900 block">Headquarters Location</strong>
                     <span className="text-slate-600">{SITE_CONFIG.address}</span>
                   </div>
                 </div>
 
                 <div className="flex items-start gap-3.5">
-                  <div className="w-9 h-9 rounded-xl bg-emerald-50 border border-emerald-200 flex items-center justify-center text-emerald-800 shrink-0">
-                    <Mail className="w-4 h-4" />
+                  <div className="w-9 h-9 rounded-lg bg-slate-100 flex items-center justify-center text-slate-800 shrink-0">
+                    <Mail className="w-4 h-4 text-emerald-800" />
                   </div>
                   <div>
-                    <strong className="font-semibold text-slate-900 block">General & Partnerships Email</strong>
+                    <strong className="font-bold text-slate-900 block">General & Partnerships Email</strong>
                     <a href={`mailto:${SITE_CONFIG.email}`} className="text-emerald-800 hover:underline">
                       {SITE_CONFIG.email}
                     </a>
@@ -92,11 +95,11 @@ export default function ContactClient() {
                 </div>
 
                 <div className="flex items-start gap-3.5">
-                  <div className="w-9 h-9 rounded-xl bg-emerald-50 border border-emerald-200 flex items-center justify-center text-emerald-800 shrink-0">
-                    <Phone className="w-4 h-4" />
+                  <div className="w-9 h-9 rounded-lg bg-slate-100 flex items-center justify-center text-slate-800 shrink-0">
+                    <Phone className="w-4 h-4 text-emerald-800" />
                   </div>
                   <div>
-                    <strong className="font-semibold text-slate-900 block">Telephone & Support Line</strong>
+                    <strong className="font-bold text-slate-900 block">Telephone & Support Line</strong>
                     <a href={`tel:${SITE_CONFIG.phone}`} className="text-emerald-800 hover:underline">
                       {SITE_CONFIG.phone}
                     </a>
@@ -104,25 +107,25 @@ export default function ContactClient() {
                 </div>
 
                 <div className="flex items-start gap-3.5">
-                  <div className="w-9 h-9 rounded-xl bg-emerald-50 border border-emerald-200 flex items-center justify-center text-emerald-800 shrink-0">
-                    <Clock className="w-4 h-4" />
+                  <div className="w-9 h-9 rounded-lg bg-slate-100 flex items-center justify-center text-slate-800 shrink-0">
+                    <Clock className="w-4 h-4 text-emerald-800" />
                   </div>
                   <div>
-                    <strong className="font-semibold text-slate-900 block">Operating Hours</strong>
+                    <strong className="font-bold text-slate-900 block">Operating Hours</strong>
                     <span className="text-slate-600">Mon – Fri: 8:00 AM – 5:00 PM EAT</span>
                   </div>
                 </div>
               </div>
             </div>
 
-            <div className="p-6 rounded-2xl bg-slate-900 text-white space-y-3 border border-slate-800">
+            <div className="p-6 rounded-2xl bg-slate-950 text-white space-y-3 border border-slate-900">
               <div className="flex items-center gap-2 text-emerald-400 text-xs font-bold uppercase tracking-wider">
                 <Building2 className="w-4 h-4" />
                 <span>Executive Pilot Consultations</span>
               </div>
-              <p className="text-xs text-slate-300 leading-relaxed">
-                For county directors of health and development partner organizations, email project lead Erick Mwangi directly at{' '}
-                <a href={`mailto:${SITE_CONFIG.partnershipsEmail}`} className="text-emerald-400 underline">
+              <p className="text-xs text-slate-300 leading-relaxed font-normal">
+                For county directors of health and development partner organizations, contact executive leadership directly at{' '}
+                <a href={`mailto:${SITE_CONFIG.partnershipsEmail}`} className="text-emerald-400 underline font-semibold">
                   {SITE_CONFIG.partnershipsEmail}
                 </a>.
               </p>
@@ -131,27 +134,27 @@ export default function ContactClient() {
 
           {/* Right: Contact Form */}
           <div className="lg:col-span-7">
-            <div className="rounded-2xl bg-white border border-slate-200 p-8 sm:p-10 shadow-sm">
+            <div className="bg-white rounded-2xl border border-slate-200 p-8 sm:p-10 shadow-sm">
               {submitted ? (
                 <div className="text-center py-12 space-y-4">
                   <div className="w-12 h-12 rounded-full bg-emerald-100 text-emerald-800 flex items-center justify-center mx-auto">
                     <CheckCircle2 className="w-6 h-6" />
                   </div>
                   <h3 className="text-2xl font-bold text-slate-900">Inquiry Received</h3>
-                  <p className="text-xs sm:text-sm text-slate-600 max-w-md mx-auto">
-                    Thank you for reaching out to TerraSept Solutions. A member of our technical team will respond within 24 hours.
+                  <p className="text-xs sm:text-sm text-slate-600 max-w-md mx-auto leading-relaxed">
+                    Thank you for reaching out to TerraSept Solutions. A member of our technical deployment team will respond within 24 business hours.
                   </p>
                   <button
                     onClick={() => setSubmitted(false)}
-                    className="inline-flex items-center gap-2 px-6 py-2.5 rounded-xl border border-slate-300 text-xs font-bold text-slate-800 hover:bg-slate-50 transition-all"
+                    className="inline-flex items-center gap-2 px-6 py-2.5 rounded-lg border border-slate-300 text-xs font-bold text-slate-800 hover:bg-slate-50 transition-all"
                   >
                     Submit Another Inquiry
                   </button>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
-                  <h2 className="text-xl font-bold text-slate-900 border-b border-slate-100 pb-4">
-                    Send an Institutional Message
+                  <h2 className="text-lg font-bold text-slate-900 border-b border-slate-100 pb-4">
+                    Send an Institutional Inquiry
                   </h2>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -209,7 +212,7 @@ export default function ContactClient() {
                       <input
                         {...register('organization')}
                         type="text"
-                        placeholder="Kisii Level 5 Maternity Ward"
+                        placeholder="Kisii Maternity Ward"
                         className="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 text-xs focus:ring-2 focus:ring-emerald-700 focus:outline-none"
                       />
                       {errors.organization && (
@@ -224,7 +227,7 @@ export default function ContactClient() {
                     </label>
                     <select
                       {...register('role')}
-                      className="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 text-xs focus:ring-2 focus:ring-emerald-700 focus:outline-none"
+                      className="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 text-xs focus:ring-2 focus:ring-emerald-700 focus:outline-none bg-white"
                     >
                       <option value="">Select your role...</option>
                       <option value="caregiver">Mother / Caregiver</option>
@@ -240,12 +243,12 @@ export default function ContactClient() {
 
                   <div className="space-y-1.5">
                     <label className="text-xs font-bold uppercase tracking-wider text-slate-700">
-                      Message / Inquiry <span className="text-red-500">*</span>
+                      Message / Pilot Requirements <span className="text-red-500">*</span>
                     </label>
                     <textarea
                       {...register('message')}
                       rows={5}
-                      placeholder="Please detail your pilot requirements, facility size, or questions..."
+                      placeholder="Please detail your pilot requirements, facility size, or deployment questions..."
                       className="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 text-xs focus:ring-2 focus:ring-emerald-700 focus:outline-none resize-none"
                     />
                     {errors.message && (
@@ -256,7 +259,7 @@ export default function ContactClient() {
                   <button
                     type="submit"
                     disabled={loading}
-                    className="w-full py-3.5 rounded-xl bg-emerald-800 text-white font-bold text-xs hover:bg-emerald-900 transition-all flex items-center justify-center gap-2 shadow-sm disabled:opacity-50"
+                    className="w-full py-3.5 rounded-lg bg-emerald-800 text-white font-bold text-xs hover:bg-emerald-900 transition-all flex items-center justify-center gap-2 shadow-sm disabled:opacity-50"
                   >
                     {loading ? (
                       <span>Sending Message...</span>
@@ -271,38 +274,37 @@ export default function ContactClient() {
               )}
             </div>
           </div>
+
         </div>
       </section>
 
-      {/* Institutional FAQ Section for Content Depth */}
+      {/* FAQ */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 border-t border-slate-200 pt-16 space-y-8">
         <div className="max-w-3xl space-y-2">
           <div className="flex items-center gap-2 text-emerald-800 font-bold text-xs uppercase tracking-wider">
             <HelpCircle className="w-4 h-4" />
-            <span>Pilot Onboarding & Consultation Details</span>
+            <span>Pilot Onboarding & Consultation</span>
           </div>
           <h2 className="text-2xl font-bold text-slate-900">Frequently Asked Contact Questions</h2>
-          <p className="text-xs text-slate-600 leading-relaxed">
-            Before submitting your inquiry, review these standard response guidelines for health facilities, county directors, and development partners.
-          </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div className="p-6 rounded-2xl bg-white border border-slate-200 space-y-2">
+          <div className="p-6 rounded-xl bg-white border border-slate-200 space-y-2">
             <h3 className="text-sm font-bold text-slate-900">What is the response timeframe for pilot inquiries?</h3>
             <p className="text-xs text-slate-600 leading-relaxed">
               Our technical deployment team reviews all facility and county inquiries within 24 business hours. Formal pilot consultations include hardware assessment and staff onboarding timetables.
             </p>
           </div>
 
-          <div className="p-6 rounded-2xl bg-white border border-slate-200 space-y-2">
-            <h3 className="text-sm font-bold text-slate-900">Can rural dispensaries request onsite training?</h3>
+          <div className="p-6 rounded-xl bg-white border border-slate-200 space-y-2">
+            <h3 className="text-sm font-bold text-slate-900">Can dispensaries request onsite staff training?</h3>
             <p className="text-xs text-slate-600 leading-relaxed">
-              Yes. For Premium Facility and County Enterprise tiers, TerraSept Solutions conducts onsite clinical nurse and Community Health Volunteer (CHV) training sessions tailored to local facility workflows.
+              Yes. TerraSept Solutions conducts onsite clinical nurse and Community Health Volunteer (CHV) training sessions tailored to local facility workflows.
             </p>
           </div>
         </div>
       </section>
+
     </div>
   );
 }

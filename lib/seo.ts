@@ -43,29 +43,6 @@ export function getSoftwareApplicationSchema() {
       price: '0',
       priceCurrency: 'KES',
     },
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      ratingValue: '4.9',
-      ratingCount: '48',
-      bestRating: '5',
-      worstRating: '1',
-    },
-    review: [
-      {
-        '@type': 'Review',
-        author: {
-          '@type': 'Organization',
-          name: 'Kisii University Innovation Hub',
-        },
-        reviewRating: {
-          '@type': 'Rating',
-          ratingValue: '5',
-          bestRating: '5',
-        },
-        reviewBody:
-          'Recognized as Best Digital Healthcare Innovation during Kisii Innovation Week for connected offline-first maternal and child immunization tracking.',
-      },
-    ],
     description: SITE_CONFIG.description,
   };
 }
