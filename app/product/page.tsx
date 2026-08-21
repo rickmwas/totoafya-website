@@ -11,10 +11,15 @@ import {
   Lock,
 } from 'lucide-react';
 
+import { SITE_CONFIG } from '@/lib/constants';
+
 export const metadata: Metadata = {
   title: 'Product Architecture & Technical Capabilities',
   description:
     'Deep dive into TotoAfya Digital platform architecture: Mother PWA, Nurse Clinical Portal, Tauri Facility App, Offline Sync Engine, and KEPI Vaccine Logic.',
+  alternates: {
+    canonical: `${SITE_CONFIG.url}/product`,
+  },
 };
 
 export default function ProductPage() {

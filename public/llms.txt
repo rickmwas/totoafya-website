@@ -1,0 +1,32 @@
+# TotoAfya Digital — Connected Maternal & Child Healthcare Kenya
+
+> TotoAfya Digital is an offline-first digital health ecosystem connecting mothers, community health workers (CHVs), clinical nurses, and facility administrators across Kenya. Developed by TerraSept Solutions Ltd in incubator partnership with Kisii University Innovation Hub, TotoAfya provides KEPI vaccine scheduling, WHO child growth tracking, and digital ANC registries.
+
+## Key Capabilities & Architecture
+
+- **Mother & Caregiver PWA Portal (`https://totoafya.co.ke`):** Mobile web application providing digital ANC booklet synchronization, automated KEPI immunization calendar reminders, and 24/7 Swahili & English supportive health companion.
+- **Nurse Clinical Web Registry:** Optimized clinical workflow interface for dispensaries and health centers to log patient vitals, record ANC visits, track child growth (WHO Weight-for-Age, Height-for-Age, MUAC), and log vaccine batch numbers.
+- **Facility Desktop Application (Tauri):** Offline-first desktop software for facility leads to monitor patient volume, appointment attendance, nurse account management, and MoH/DHIS2 CSV exports.
+- **County & Institutional Governance Portal:** Aggregated multi-facility public health analytics for county health departments and development partners.
+
+## Core Compliance & Standards
+
+- **Kenya Data Protection Act 2019:** End-to-end encrypted storage (IndexedDB client-side encryption) and secure HTTPS transport.
+- **KEPI Protocols:** Automated schedule logic for BCG, OPV/IPV, Pentavalent, PCV10, Rota, and Measles-Rubella vaccines.
+- **WHO Standards:** Z-score classification for child growth and nutrition (Normal, MAM, SAM).
+
+## Primary Web Navigation
+
+- [Product Architecture](https://totoafya.co.ke/product): Technical infrastructure, security, and offline synchronization mechanisms.
+- [Stakeholder Solutions](https://totoafya.co.ke/solutions): Capabilities tailored for caregivers, nurses, facility leads, and county directors.
+- [Pricing & Pilot Plans](https://totoafya.co.ke/pricing): B2B clinic tiers (Evaluation, Basic, Premium, County Enterprise) and caregiver plans.
+- [About Us & Leadership](https://totoafya.co.ke/about): Team profile (Michael Onyango, Hyacinth Onchangu, Erick Mwangi) and governance structure.
+- [Resources & FAQ](https://totoafya.co.ke/resources): Technical documentation, KEPI guidelines, and answers to common inquiries.
+- [Institutional Inquiries](https://totoafya.co.ke/contact): Pilot evaluation requests and facility contact channels.
+
+## Contact Information
+
+- **Organization:** TerraSept Solutions Ltd
+- **Headquarters:** Kisii Town, Kisii County, Kenya
+- **Email:** hello@totoafya.co.ke | partnerships@totoafya.co.ke
+- **Phone:** +254 113 242 983

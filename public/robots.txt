@@ -14,6 +14,7 @@ Allow: /terms
 Allow: /disclaimer
 Disallow: /api/
 Disallow: /admin/
+Disallow: /cdn-cgi/
 Disallow: /*.json$
 Disallow: /*.env$
 Disallow: /*.config$

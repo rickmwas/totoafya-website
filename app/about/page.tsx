@@ -9,6 +9,9 @@ export const metadata: Metadata = {
   title: 'About Us — Mission, Leadership & Vision',
   description:
     'Learn about TerraSept Solutions Ltd, Kisii Innovation Week recognition, and TotoAfya Digital leadership team transforming maternal healthcare in Kenya.',
+  alternates: {
+    canonical: `${SITE_CONFIG.url}/about`,
+  },
 };
 
 export default function AboutPage() {

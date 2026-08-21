@@ -2,12 +2,15 @@ import React from 'react';
 import Link from 'next/link';
 import type { Metadata } from 'next';
 import { Syringe, ShieldCheck, ChevronRight, BookOpen } from 'lucide-react';
-import { FAQ_ITEMS } from '@/lib/constants';
+import { FAQ_ITEMS, SITE_CONFIG } from '@/lib/constants';
 
 export const metadata: Metadata = {
   title: 'Resources & FAQs — Technical & KEPI Documentation',
   description:
     'Explore TotoAfya Digital clinical documentation, KEPI vaccine schedule standards, pilot readiness guide, and platform FAQs.',
+  alternates: {
+    canonical: `${SITE_CONFIG.url}/resources`,
+  },
 };
 
 export default function ResourcesPage() {

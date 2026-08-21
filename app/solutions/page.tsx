@@ -4,10 +4,15 @@ import Link from 'next/link';
 import type { Metadata } from 'next';
 import { CheckCircle2, ArrowRight } from 'lucide-react';
 
+import { SITE_CONFIG } from '@/lib/constants';
+
 export const metadata: Metadata = {
   title: 'Solutions — Stakeholder Capabilities & Workflows',
   description:
     'Explore TotoAfya Digital solutions tailored for Mothers, Clinical Nurses, Facility Administrators, and County Health Departments in Kenya.',
+  alternates: {
+    canonical: `${SITE_CONFIG.url}/solutions`,
+  },
 };
 
 export default function SolutionsPage() {
