@@ -2,186 +2,217 @@ import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import type { Metadata } from 'next';
-import { ArrowRight, CheckCircle2 } from 'lucide-react';
-import { SITE_CONFIG } from '@/lib/constants';
+import { CheckCircle2, ArrowRight, Heart, Stethoscope, Building2 } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Solutions — Workflows Tailored for Healthcare Stakeholders',
+  title: 'Solutions — Stakeholder Capabilities & Workflows',
   description:
-    'Discover specialized TotoAfya Digital solutions for Mothers, Clinical Nurses, Health Facilities, County Health Systems, and Development Donors in Kenya.',
-  alternates: {
-    canonical: `${SITE_CONFIG.url}/solutions`,
-  },
+    'Explore TotoAfya Digital solutions tailored for Mothers, Clinical Nurses, Facility Administrators, and County Health Departments in Kenya.',
 };
 
 export default function SolutionsPage() {
   return (
-    <div className="space-y-24 py-12 bg-[#FAF9F6]">
-      
+    <div className="space-y-20 py-12 bg-[#F8FAFA] text-[#102027]">
       {/* Page Header */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl space-y-4">
-          <span className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-emerald-50 text-emerald-800 text-xs font-bold uppercase tracking-wider border border-emerald-200">
-            Tailored Stakeholder Workflows
-          </span>
-          <h1 className="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight">
-            Built for the realities of every healthcare role.
+          <div className="badge-clinical">Role-Tailored Healthcare Solutions</div>
+          <h1 className="text-4xl sm:text-5xl font-bold text-[#063B4C] tracking-tight">
+            Coordinated care for every level of <span className="text-[#087EA4]">the health system.</span>
           </h1>
-          <p className="text-base text-slate-600 leading-relaxed font-normal">
-            Whether caring for a newborn at home, running a high-volume dispensary clinic, managing facility operations, or overseeing county-wide immunization, TotoAfya provides purpose-built capabilities.
+          <p className="text-base text-[#5E7078] leading-relaxed">
+            TotoAfya Digital replaces disjointed paper logs with synchronized, role-specific tools that empower mothers, nurses, facility managers, and county health leaders.
           </p>
         </div>
       </section>
 
-      {/* 1. Mothers & Caregivers — Human Photo + Product Interface */}
-      <section id="mothers" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-white rounded-2xl border border-slate-200 p-8 sm:p-12 space-y-8 shadow-sm">
-          <div className="max-w-2xl space-y-3">
-            <span className="text-xs font-bold uppercase tracking-wider text-emerald-800">For Mothers & Caregivers</span>
-            <h2 className="text-2xl sm:text-3xl font-bold text-slate-900">
-              Clear pregnancy milestone guidance and automated SMS reminders.
-            </h2>
-            <p className="text-sm text-slate-600 leading-relaxed">
-              Expectant mothers receive timely SMS notifications prior to scheduled ANC and vaccination visits, eliminating forgotten milestone dates. The PWA portal offers bilingual health guidance in Swahili and English.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center pt-4">
-            <div className="relative aspect-[4/3] rounded-xl overflow-hidden border border-slate-200">
-              <Image
-                src="/images/hero-mother-child.jpg"
-                alt="Kenyan mother with child"
-                fill
-                className="object-cover"
-              />
+      {/* Stakeholder Deep Dives */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+        {/* Solution 1: Mothers & Caregivers */}
+        <div id="caregivers" className="rounded-xl bg-white border border-[#D4E7EC] p-8 sm:p-12 space-y-8">
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 rounded-lg bg-[#EAF6F9] text-[#087EA4] flex items-center justify-center">
+              <Heart className="w-5 h-5" />
             </div>
-
-            <div className="relative aspect-[4/3] rounded-xl overflow-hidden border border-slate-200 bg-slate-100">
-              <Image
-                src="/mother_portal_mockup.png"
-                alt="Mother PWA Portal Interface"
-                fill
-                className="object-cover object-top"
-              />
+            <div>
+              <span className="text-xs font-bold uppercase tracking-wider text-[#087EA4]">Caregiver Portal</span>
+              <h2 className="text-2xl font-bold text-[#063B4C]">For Mothers & Families</h2>
             </div>
           </div>
-        </div>
-      </section>
 
-      {/* 2. Health Workers & CHVs — Clinical Workflow + Tablet UI */}
-      <section id="clinicians" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-emerald-950 text-white rounded-2xl border border-emerald-900 p-8 sm:p-12 space-y-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-            
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             <div className="lg:col-span-6 space-y-4">
-              <span className="text-xs font-bold uppercase tracking-wider text-emerald-400">For Clinical Nurses & CHVs</span>
-              <h2 className="text-2xl sm:text-3xl font-bold text-white">
-                Fast clinical registries built for high patient volume.
-              </h2>
-              <p className="text-sm text-emerald-100 leading-relaxed">
-                Nurses at dispensary and maternity centers register patients, record vitals, log blood pressure, and view KEPI immunization timetables in under two minutes per visit.
+              <p className="text-sm text-[#5E7078] leading-relaxed">
+                Expectant mothers and caregivers receive a mobile PWA that transforms their ANC booklet into an interactive, encrypted health companion.
               </p>
-              
-              <div className="pt-4 space-y-2 text-xs text-emerald-200">
-                <div className="flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-400" />
-                  <span>WHO Weight-for-Age & MUAC nutrition staging (Normal, MAM, SAM)</span>
+              <div className="space-y-3 pt-2">
+                <div className="flex items-start gap-3 text-xs text-[#102027]">
+                  <CheckCircle2 className="w-4 h-4 text-[#087EA4] shrink-0 mt-0.5" />
+                  <div>
+                    <strong className="font-bold text-[#063B4C] block">Automated Vaccine SMS Alerts</strong>
+                    <span className="text-[#5E7078]">Notifications sent before each of the 7 KEPI immunization visits.</span>
+                  </div>
                 </div>
-                <div className="flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-400" />
-                  <span>Red-flag danger sign clinical warnings</span>
+
+                <div className="flex items-start gap-3 text-xs text-[#102027]">
+                  <CheckCircle2 className="w-4 h-4 text-[#087EA4] shrink-0 mt-0.5" />
+                  <div>
+                    <strong className="font-bold text-[#063B4C] block">24/7 Bilingual Supportive Guidance</strong>
+                    <span className="text-[#5E7078]">Swahili & English guidance on nutrition, danger signs, and clinic visits.</span>
+                  </div>
                 </div>
-                <div className="flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-400" />
-                  <span>Offline operation during power or network outages</span>
+
+                <div className="flex items-start gap-3 text-xs text-[#102027]">
+                  <CheckCircle2 className="w-4 h-4 text-[#087EA4] shrink-0 mt-0.5" />
+                  <div>
+                    <strong className="font-bold text-[#063B4C] block">Child Growth & Milestone Visualizer</strong>
+                    <span className="text-[#5E7078]">Track weight-for-age, height-for-age, and motor milestones easily.</span>
+                  </div>
                 </div>
               </div>
             </div>
 
             <div className="lg:col-span-6">
-              <div className="relative aspect-[16/10] rounded-xl overflow-hidden border border-emerald-800 bg-emerald-900 shadow-xl">
+              <div className="rounded-lg overflow-hidden border border-[#D4E7EC]">
                 <Image
-                  src="/nurse_portal_mockup.png"
-                  alt="Nurse Clinical Registry Interface"
-                  fill
-                  className="object-cover object-top"
+                  src="/mother_portal_mockup.png"
+                  alt="Mother Portal Interface"
+                  width={800}
+                  height={500}
+                  className="w-full h-auto object-cover"
                 />
               </div>
             </div>
-
           </div>
         </div>
-      </section>
 
-      {/* 3. Health Facilities — Operational Dashboard & Data Exports */}
-      <section id="facilities" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-white rounded-2xl border border-slate-200 p-8 sm:p-12 space-y-8 shadow-sm">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-            
+        {/* Solution 2: Clinical Nurses & CHVs */}
+        <div id="nurses" className="rounded-xl bg-white border border-[#D4E7EC] p-8 sm:p-12 space-y-8">
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 rounded-lg bg-[#EAF6F9] text-[#087EA4] flex items-center justify-center">
+              <Stethoscope className="w-5 h-5" />
+            </div>
+            <div>
+              <span className="text-xs font-bold uppercase tracking-wider text-[#087EA4]">Nurse Clinical Registry</span>
+              <h2 className="text-2xl font-bold text-[#063B4C]">For Clinical Nurses & CHVs</h2>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             <div className="lg:col-span-6 order-2 lg:order-1">
-              <div className="relative aspect-[16/10] rounded-xl overflow-hidden border border-slate-200 bg-slate-100 shadow-md">
+              <div className="rounded-lg overflow-hidden border border-[#D4E7EC]">
                 <Image
-                  src="/admin_telemetry_trust.png"
-                  alt="Facility Telemetry App"
-                  fill
-                  className="object-cover object-top"
+                  src="/nurse_portal_mockup.png"
+                  alt="Nurse Clinical Registry Portal"
+                  width={800}
+                  height={500}
+                  className="w-full h-auto object-cover"
                 />
               </div>
             </div>
 
             <div className="lg:col-span-6 order-1 lg:order-2 space-y-4">
-              <span className="text-xs font-bold uppercase tracking-wider text-emerald-800">For Health Facilities & Dispensaries</span>
-              <h2 className="text-2xl sm:text-3xl font-bold text-slate-900">
-                Operational telemetry and 1-click MoH register exports.
-              </h2>
-              <p className="text-sm text-slate-600 leading-relaxed">
-                Hospital managers and facility leads track patient attendance, identify vaccine dropouts, provision staff accounts, and export CSV/Excel registers aligned with Ministry of Health monthly reporting.
+              <p className="text-sm text-[#5E7078] leading-relaxed">
+                Empowers clinical nurses in dispensaries and health centers to complete maternal intake, log vitals, track red-flag danger signs, and administer vaccines seamlessly.
               </p>
-              
-              <div className="pt-2">
-                <Link
-                  href="/contact"
-                  className="inline-flex items-center gap-2 px-5 py-3 rounded-lg bg-emerald-800 text-white text-xs font-bold hover:bg-emerald-900 transition-colors shadow-sm"
-                >
-                  <span>Discuss facility deployment</span>
-                  <ArrowRight className="w-4 h-4" />
-                </Link>
+              <div className="space-y-3 pt-2">
+                <div className="flex items-start gap-3 text-xs text-[#102027]">
+                  <CheckCircle2 className="w-4 h-4 text-[#087EA4] shrink-0 mt-0.5" />
+                  <div>
+                    <strong className="font-bold text-[#063B4C] block">Under-2-Minute Registration Workflow</strong>
+                    <span className="text-[#5E7078]">Fast digital intake designed for busy dispensary environments.</span>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-3 text-xs text-[#102027]">
+                  <CheckCircle2 className="w-4 h-4 text-[#087EA4] shrink-0 mt-0.5" />
+                  <div>
+                    <strong className="font-bold text-[#063B4C] block">WHO Growth Z-Score Calculation</strong>
+                    <span className="text-[#5E7078]">Automated staging for Weight-for-Age, Height-for-Age & MUAC.</span>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-3 text-xs text-[#102027]">
+                  <CheckCircle2 className="w-4 h-4 text-[#087EA4] shrink-0 mt-0.5" />
+                  <div>
+                    <strong className="font-bold text-[#063B4C] block">KEPI Vaccine Schedule Engine</strong>
+                    <span className="text-[#5E7078]">Calculates exact target dates for BCG, Penta 1-3, Rota, and Measles.</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Solution 3: Facilities & County Systems */}
+        <div id="facilities" className="rounded-xl bg-white border border-[#D4E7EC] p-8 sm:p-12 space-y-8">
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 rounded-lg bg-[#EAF6F9] text-[#087EA4] flex items-center justify-center">
+              <Building2 className="w-5 h-5" />
+            </div>
+            <div>
+              <span className="text-xs font-bold uppercase tracking-wider text-[#087EA4]">Facility & County Intelligence</span>
+              <h2 className="text-2xl font-bold text-[#063B4C]">For Hospitals & County Health Departments</h2>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            <div className="lg:col-span-6 space-y-4">
+              <p className="text-sm text-[#5E7078] leading-relaxed">
+                Hospital managers and county health directors gain aggregated performance telemetry, immunization coverage tracking, and automated MoH register exports.
+              </p>
+              <div className="space-y-3 pt-2">
+                <div className="flex items-start gap-3 text-xs text-[#102027]">
+                  <CheckCircle2 className="w-4 h-4 text-[#087EA4] shrink-0 mt-0.5" />
+                  <div>
+                    <strong className="font-bold text-[#063B4C] block">Automated MoH / DHIS2 Exports</strong>
+                    <span className="text-[#5E7078]">One-click CSV generation formatted for Ministry of Health reporting.</span>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-3 text-xs text-[#102027]">
+                  <CheckCircle2 className="w-4 h-4 text-[#087EA4] shrink-0 mt-0.5" />
+                  <div>
+                    <strong className="font-bold text-[#063B4C] block">Immunization Coverage & Dropout Tracking</strong>
+                    <span className="text-[#5E7078]">Identify missed vaccine visits and send community outreach prompts.</span>
+                  </div>
+                </div>
               </div>
             </div>
 
+            <div className="lg:col-span-6">
+              <div className="rounded-lg overflow-hidden border border-[#D4E7EC]">
+                <Image
+                  src="/admin_telemetry_trust.png"
+                  alt="Facility Telemetry Interface"
+                  width={800}
+                  height={500}
+                  className="w-full h-auto object-cover"
+                />
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* 4. Health Systems & Donors — Aggregated Impact & Governance */}
-      <section id="donors" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-slate-900 text-white rounded-2xl border border-slate-800 p-8 sm:p-12 space-y-6">
-          <div className="max-w-3xl space-y-3">
-            <span className="text-xs font-bold uppercase tracking-wider text-emerald-400">For County Directors & Development Donors</span>
-            <h2 className="text-2xl sm:text-3xl font-bold text-white">
-              Aggregated public health telemetry and verifiable evidence.
-            </h2>
-            <p className="text-sm text-slate-300 leading-relaxed">
-              County reproductive health coordinators and development partners obtain multi-facility visibility across sub-counties. Evaluate immunization coverage rates and audit-trailed milestone data.
-            </p>
-          </div>
-
-          <div className="pt-4 border-t border-slate-800 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4">
-            <div className="text-xs text-slate-400 font-medium">
-              <span>Incubated at {SITE_CONFIG.governance.incubator} under {SITE_CONFIG.legalName}.</span>
-            </div>
-
+      {/* CTA Strip */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="bg-[#063B4C] text-white rounded-xl p-8 sm:p-12 text-center space-y-4">
+          <h2 className="text-2xl sm:text-3xl font-bold text-white">Explore a pilot for your facility or county</h2>
+          <p className="text-sm text-[#EAF6F9] max-w-xl mx-auto">
+            Contact our health partnerships team to arrange a clinical workflow demo and technical readiness check.
+          </p>
+          <div className="pt-2">
             <Link
-              href="/contact"
-              className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg bg-emerald-700 hover:bg-emerald-600 text-white font-bold text-xs shadow-sm text-center"
+              href="/contact?type=pilot"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-md bg-[#087EA4] text-white font-semibold text-xs hover:bg-[#066989] transition-all"
             >
-              <span>Arrange institutional consultation</span>
+              <span>Request Pilot Demo</span>
               <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
         </div>
       </section>
-
     </div>
   );
 }

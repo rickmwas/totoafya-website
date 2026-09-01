@@ -21,9 +21,6 @@ const newsreaderSerif = Newsreader({
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_CONFIG.url),
-  alternates: {
-    canonical: SITE_CONFIG.url,
-  },
   title: {
     default: `${SITE_CONFIG.name} — Connected Maternal & Child Healthcare Kenya`,
     template: `%s | ${SITE_CONFIG.name}`,

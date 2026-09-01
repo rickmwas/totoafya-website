@@ -4,69 +4,53 @@ import { ShieldAlert } from 'lucide-react';
 import { SITE_CONFIG } from '@/lib/constants';
 
 export const metadata: Metadata = {
-  title: 'Clinical Safety & Non-Diagnostic Disclaimer',
+  title: 'Clinical & AI Guardrails Disclaimer',
   description:
-    'Clinical safety boundaries, non-diagnostic scope, and supportive guidance disclaimer for TotoAfya Digital.',
-  alternates: {
-    canonical: `${SITE_CONFIG.url}/disclaimer`,
-  },
+    'Clinical safety, non-diagnostic boundaries, and AI supportive scope disclaimer for TotoAfya Digital.',
 };
 
 export default function DisclaimerPage() {
   return (
-    <div className="bg-[#FAF9F6] py-16">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8 bg-white p-8 sm:p-12 rounded-2xl border border-slate-200 shadow-sm">
-        
-        <div className="space-y-2 border-b border-slate-200 pb-6">
-          <span className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-amber-50 text-amber-900 text-xs font-bold uppercase tracking-wider border border-amber-200">
-            Safety Disclosures
-          </span>
-          <h1 className="text-3xl font-extrabold text-slate-900">Clinical Safety & Non-Diagnostic Disclaimer</h1>
-          <p className="text-xs text-slate-500 font-medium">
-            Last updated: August 21, 2026 · {SITE_CONFIG.legalName}
+    <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-8 bg-[#F8FAFA] text-[#102027]">
+      <div className="space-y-2 border-b border-[#D4E7EC] pb-6">
+        <div className="badge-clinical">Safety Disclosures</div>
+        <h1 className="text-3xl font-bold text-[#063B4C]">Clinical & AI Guardrails Disclaimer</h1>
+        <p className="text-xs text-[#5E7078]">
+          Last updated: August 19, 2026 · {SITE_CONFIG.legalName}
+        </p>
+      </div>
+
+      <div className="p-6 rounded-xl bg-amber-50 border border-amber-200 text-amber-900 space-y-3">
+        <div className="flex items-center gap-2 font-bold text-sm">
+          <ShieldAlert className="w-5 h-5 text-amber-700 shrink-0" />
+          <span>Non-Diagnostic Clinical Scope Notice</span>
+        </div>
+        <p className="text-xs leading-relaxed text-amber-950">
+          TotoAfya Digital is a health registry and supportive guidance tool. It is NOT an automated diagnostic system, medical device, or prescription software. It does not replace the professional evaluation, diagnosis, or treatment by a licensed physician, midwife, or nurse.
+        </p>
+      </div>
+
+      <div className="text-xs sm:text-sm text-[#5E7078] leading-relaxed space-y-6">
+        <section className="space-y-2">
+          <h2 className="text-base font-bold text-[#063B4C]">1. AI Health Companion Limitations</h2>
+          <p>
+            The 24/7 Swahili and English AI Care Companion integrated into the Mother PWA is strictly programmed to deliver supportive maternal health education based on public WHO and Kenya Ministry of Health protocols. It does not generate medical diagnoses, prescribe drugs, or issue binding clinical directives.
           </p>
-        </div>
+        </section>
 
-        <div className="p-6 rounded-xl bg-amber-50 border border-amber-200 text-amber-950 space-y-2">
-          <div className="flex items-center gap-2 font-bold text-sm">
-            <ShieldAlert className="w-5 h-5 text-amber-800 shrink-0" />
-            <span>Non-Diagnostic Clinical Scope Notice</span>
-          </div>
-          <p className="text-xs leading-relaxed">
-            TotoAfya Digital is a health registry, workflow automation platform, and supportive educational guidance tool. It is NOT an automated diagnostic system, medical advice engine, or prescription tool. It does not replace professional clinical judgment, diagnosis, or treatment by a licensed physician, clinical officer, midwife, or nurse.
+        <section className="space-y-2">
+          <h2 className="text-base font-bold text-[#063B4C]">2. Emergency Symptoms & Red Flags</h2>
+          <p>
+            In the event of acute red-flag danger signs (such as severe vaginal bleeding, severe abdominal pain, high fever, convulsions, or absence of fetal movement), caregivers are explicitly instructed to seek immediate emergency care at the nearest health facility.
           </p>
-        </div>
+        </section>
 
-        <div className="prose prose-slate max-w-none text-xs sm:text-sm text-slate-600 leading-relaxed space-y-6">
-          <section className="space-y-2">
-            <h2 className="text-base font-bold text-slate-900">1. Health Companion Scope</h2>
-            <p>
-              The Swahili and English supportive health companion in the Mother PWA Portal is constrained to deliver maternal, newborn, and child health education derived from published World Health Organization (WHO) protocols and Kenya Ministry of Health guidelines. It does not generate clinical diagnoses, order diagnostic tests, or prescribe medications.
-            </p>
-          </section>
-
-          <section className="space-y-2">
-            <h2 className="text-base font-bold text-slate-900">2. Emergency Danger Signs & Referral Protocol</h2>
-            <p>
-              When expectant mothers or caregivers record acute red-flag danger signs—such as severe vaginal bleeding, severe abdominal pain, high fever, severe headache with blurred vision, convulsions, or reduced fetal movement—the platform displays emergency alerts directing the user to seek immediate physical medical care at the nearest health facility.
-            </p>
-          </section>
-
-          <section className="space-y-2">
-            <h2 className="text-base font-bold text-slate-900">3. Clinical Decision Support for Providers</h2>
-            <p>
-              Calculations within the Nurse Clinical Portal (including WHO Z-score growth staging for MAM/SAM malnutrition and blood pressure flags) are decision support tools. Clinical nurses remain accountable for measuring, verifying, and validating patient vitals before recording clinical notes or rendering care.
-            </p>
-          </section>
-
-          <section className="space-y-2">
-            <h2 className="text-base font-bold text-slate-900">4. KEPI Immunization Schedule Validation</h2>
-            <p>
-              Immunization target dates generated by TotoAfya Digital reflect the Kenya Expanded Programme on Immunization (KEPI) national timetable. Clinical nurses must verify vaccine availability, contraindications, and child health status prior to vaccine administration.
-            </p>
-          </section>
-        </div>
-
+        <section className="space-y-2">
+          <h2 className="text-base font-bold text-[#063B4C]">3. Clinician Vitals & Protocols</h2>
+          <p>
+            Automated alerts (such as blood pressure warnings or MUAC malnutrition staging) within the Nurse Clinical Portal are provided as clinical decision support. Nurses and clinicians remain fully responsible for validating patient vitals prior to medical intervention.
+          </p>
+        </section>
       </div>
     </div>
   );

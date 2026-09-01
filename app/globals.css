@@ -1,88 +1,113 @@
 @import "tailwindcss";
 
-:root {
-  --bg-canvas: #fafaf7;
-  --bg-surface: #ffffff;
-  --bg-dark: #0b132b;
-  --bg-dark-surface: #111c3a;
-  --text-main: #0f172a;
-  --text-muted: #475569;
-  --text-inverse: #f8fafc;
-  --brand-emerald-primary: #047857;
-  --brand-emerald-light: #059669;
-  --brand-emerald-bg: #f0fdf4;
-  --brand-emerald-border: #bbf7d0;
-  --border-subtle: #e2e8f0;
-  --border-medium: #cbd5e1;
+@layer base {
+  :root {
+    --background: #F8FAFA;
+    --foreground: #102027;
+    --primary-blue: #087EA4;
+    --primary-blue-hover: #066989;
+    --deep-navy: #063B4C;
+    --secondary-teal: #159A9C;
+    --soft-clinical-blue: #EAF6F9;
+    --muted-text: #5E7078;
+    --border-clinical: #D4E7EC;
+    --border-subtle: #E2E8F0;
+    --success-green: #0E8345;
+    --warning-amber: #D97706;
+    --danger-red: #DC2626;
+  }
+
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
 }
 
-body {
-  background-color: var(--bg-canvas);
-  color: var(--text-main);
-  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
+/* Custom Editorial & Institutional Utility Classes */
+.bg-health-navy {
+  background-color: #063B4C;
 }
 
-/* Premium Typography Utilities */
-.font-serif-accent {
-  font-family: var(--font-serif), Georgia, serif;
+.text-health-navy {
+  color: #063B4C;
 }
 
-/* High-Trust Surface Containers */
-.surface-card {
-  background-color: #ffffff;
-  border: 1px solid var(--border-subtle);
-  border-radius: 0.75rem;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+.bg-health-blue {
+  background-color: #087EA4;
 }
 
-.surface-card:hover {
-  border-color: var(--border-medium);
-  box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.05);
+.text-health-blue {
+  color: #087EA4;
 }
 
-.surface-card-dark {
-  background-color: var(--bg-dark-surface);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 0.75rem;
-  color: #f8fafc;
+.bg-clinical-soft {
+  background-color: #EAF6F9;
 }
 
-/* Factual Evidence Strip */
-.evidence-badge {
+.border-clinical {
+  border-color: #D4E7EC;
+}
+
+.text-muted-clinical {
+  color: #5E7078;
+}
+
+.badge-clinical {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 0.25rem 0.75rem;
-  border-radius: 9999px;
+  padding: 0.375rem 0.875rem;
+  border-radius: 6px;
   font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.03em;
-  background-color: var(--brand-emerald-bg);
-  color: var(--brand-emerald-primary);
-  border: 1px solid var(--brand-emerald-border);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  background-color: #EAF6F9;
+  color: #063B4C;
+  border: 1px solid #C4E2EA;
 }
 
-/* Clean Focus Ring Accessibility */
+.badge-clinical-navy {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.375rem 0.875rem;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #EAF6F9;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Restrained Focus States for Institutional Accessibility */
 a:focus-visible,
 button:focus-visible,
 input:focus-visible,
 select:focus-visible,
 textarea:focus-visible {
-  outline: 2px solid var(--brand-emerald-primary);
+  outline: 2px solid #087EA4;
   outline-offset: 2px;
 }
 
-/* Custom Scrollbar */
+/* Custom Scrollbar for registries and UI showcases */
 ::-webkit-scrollbar {
   width: 6px;
   height: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #f1f5f9;
+  background: #F1F5F9;
 }
 ::-webkit-scrollbar-thumb {
-  background: #047857;
+  background: #CBD5E1;
   border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94A3B8;
 }

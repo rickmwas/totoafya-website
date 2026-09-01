@@ -1,215 +1,156 @@
 import React from 'react';
-import Image from 'next/image';
 import Link from 'next/link';
 import type { Metadata } from 'next';
-import { ArrowRight, CheckCircle2, Database, Syringe, Activity, Lock, FileSpreadsheet } from 'lucide-react';
-import { SITE_CONFIG } from '@/lib/constants';
+import { Syringe, WifiOff, ArrowRight } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Platform Capabilities & Care Infrastructure',
+  title: 'Product Architecture & Technical Capabilities',
   description:
-    'Discover how TotoAfya Digital connects care from mother to health worker, facility, and health system with offline-first digital registries.',
-  alternates: {
-    canonical: `${SITE_CONFIG.url}/product`,
-  },
+    'Deep dive into TotoAfya Digital platform architecture: Mother PWA, Nurse Clinical Portal, Tauri Facility App, Offline Sync Engine, and KEPI Vaccine Logic.',
 };
 
 export default function ProductPage() {
   return (
-    <div className="space-y-20 py-12 bg-[#FAF9F6]">
-      
-      {/* 1. Header Section — Outcome-Led */}
+    <div className="space-y-20 py-12 bg-[#F8FAFA] text-[#102027]">
+      {/* Page Header */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl space-y-4">
-          <span className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-emerald-50 text-emerald-800 text-xs font-bold uppercase tracking-wider border border-emerald-200">
-            Platform Overview
-          </span>
-          <h1 className="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight">
-            How TotoAfya connects care.
+          <div className="badge-clinical">Technical Platform Architecture</div>
+          <h1 className="text-4xl sm:text-5xl font-bold text-[#063B4C] tracking-tight">
+            Production-grade health registry <span className="text-[#087EA4]">built for offline resilience.</span>
           </h1>
-          <p className="text-base text-slate-600 leading-relaxed font-normal">
-            Care flows continuously across four levels of the health system — ensuring health workers have complete records, mothers stay informed, and facilities maintain full visibility.
+          <p className="text-base text-[#5E7078] leading-relaxed">
+            TotoAfya Digital combines mobile Progressive Web Apps, tablet clinical registries, and desktop management tools linked through an encrypted offline synchronization engine.
           </p>
         </div>
       </section>
 
-      {/* 2. Care Flow Composition (Mother -> Health Worker -> Facility -> Health System) */}
+      {/* Architectural Overview Diagram / Pillars */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-white rounded-2xl border border-slate-200 p-8 sm:p-12 space-y-10 shadow-sm">
-          <div className="border-b border-slate-100 pb-6 space-y-1">
-            <span className="text-xs font-bold uppercase tracking-wider text-emerald-800">Connected Care Journey</span>
-            <h2 className="text-2xl font-bold text-slate-900">Synchronized record across every encounter</h2>
+        <div className="rounded-xl bg-[#063B4C] text-white p-8 sm:p-12 border border-[#084D63] space-y-8">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pb-6 border-b border-[#084D63]">
+            <div>
+              <span className="text-xs font-bold uppercase tracking-wider text-[#159A9C]">
+                Multi-Portal Architecture
+              </span>
+              <h2 className="text-2xl font-bold text-white mt-1">Four Integrated Portals</h2>
+            </div>
+            <span className="text-xs text-[#C4E2EA] font-mono">
+              Partitioned by Facility UUID (`facility_id`)
+            </span>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-            
-            <div className="space-y-3">
-              <span className="w-8 h-8 rounded-full bg-emerald-100 text-emerald-800 flex items-center justify-center font-bold text-xs">01</span>
-              <h3 className="text-base font-bold text-slate-900">Mother & Caregiver</h3>
-              <p className="text-xs text-slate-600 leading-relaxed">
-                Registers profile, receives automated vaccine SMS reminders, and accesses pregnancy milestone tracking.
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="p-5 rounded-lg bg-[#084D63] border border-[#0A5C77] space-y-3">
+              <div className="w-8 h-8 rounded bg-[#063B4C] text-[#159A9C] flex items-center justify-center font-bold text-xs">
+                01
+              </div>
+              <h3 className="text-sm font-bold text-white">Mother PWA Portal</h3>
+              <p className="text-xs text-[#C4E2EA] leading-relaxed">
+                Mobile-first PWA for pregnancy logs, vaccine schedules, and AI health chat.
               </p>
+              <span className="text-[10px] font-mono text-[#159A9C] block pt-1">
+                `apps/mother-portal`
+              </span>
             </div>
 
-            <div className="space-y-3">
-              <span className="w-8 h-8 rounded-full bg-emerald-100 text-emerald-800 flex items-center justify-center font-bold text-xs">02</span>
-              <h3 className="text-base font-bold text-slate-900">Health Worker & CHV</h3>
-              <p className="text-xs text-slate-600 leading-relaxed">
-                Logs vitals, ANC parameters, WHO growth staging, and KEPI vaccine doses in under 2 minutes per visit.
+            <div className="p-5 rounded-lg bg-[#084D63] border border-[#0A5C77] space-y-3">
+              <div className="w-8 h-8 rounded bg-[#063B4C] text-[#159A9C] flex items-center justify-center font-bold text-xs">
+                02
+              </div>
+              <h3 className="text-sm font-bold text-white">Nurse Clinical Portal</h3>
+              <p className="text-xs text-[#C4E2EA] leading-relaxed">
+                Tablet/laptop registry for ANC vitals, WHO growth staging, and vaccine entry.
               </p>
+              <span className="text-[10px] font-mono text-[#159A9C] block pt-1">
+                `apps/nurse-portal`
+              </span>
             </div>
 
-            <div className="space-y-3">
-              <span className="w-8 h-8 rounded-full bg-emerald-100 text-emerald-800 flex items-center justify-center font-bold text-xs">03</span>
-              <h3 className="text-base font-bold text-slate-900">Health Facility</h3>
-              <p className="text-xs text-slate-600 leading-relaxed">
-                Monitors daily appointment attendance, manages staff access, and exports monthly patient registers.
+            <div className="p-5 rounded-lg bg-[#084D63] border border-[#0A5C77] space-y-3">
+              <div className="w-8 h-8 rounded bg-[#063B4C] text-[#159A9C] flex items-center justify-center font-bold text-xs">
+                03
+              </div>
+              <h3 className="text-sm font-bold text-white">Facility PC Desktop App</h3>
+              <p className="text-xs text-[#C4E2EA] leading-relaxed">
+                Tauri-wrapped desktop app for facility managers to view analytics & alerts.
               </p>
+              <span className="text-[10px] font-mono text-[#159A9C] block pt-1">
+                `apps/facility-pc`
+              </span>
             </div>
 
-            <div className="space-y-3">
-              <span className="w-8 h-8 rounded-full bg-emerald-100 text-emerald-800 flex items-center justify-center font-bold text-xs">04</span>
-              <h3 className="text-base font-bold text-slate-900">County Health System</h3>
-              <p className="text-xs text-slate-600 leading-relaxed">
-                Aggregates sub-county public health indicators and reconciles DHIS2 / MoH coverage metrics.
+            <div className="p-5 rounded-lg bg-[#084D63] border border-[#0A5C77] space-y-3">
+              <div className="w-8 h-8 rounded bg-[#063B4C] text-[#159A9C] flex items-center justify-center font-bold text-xs">
+                04
+              </div>
+              <h3 className="text-sm font-bold text-white">Super Admin Portal</h3>
+              <p className="text-xs text-[#C4E2EA] leading-relaxed">
+                Central governance console for feature flags, county audits & telemetry.
               </p>
+              <span className="text-[10px] font-mono text-[#159A9C] block pt-1">
+                `apps/super-admin-portal`
+              </span>
             </div>
-
           </div>
         </div>
       </section>
 
-      {/* 3. Real Product Interfaces */}
+      {/* Core Technical Capabilities */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
-        <div className="space-y-2">
-          <span className="text-xs font-bold uppercase tracking-wider text-emerald-800">Authentic Interfaces</span>
-          <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
-            Interfaces designed for actual clinical environments.
-          </h2>
+        <div id="offline-engine" className="bg-white rounded-xl border border-[#D4E7EC] p-8 sm:p-12 space-y-6">
+          <div className="flex items-center gap-3">
+            <WifiOff className="w-6 h-6 text-[#087EA4]" />
+            <h2 className="text-2xl font-bold text-[#063B4C]">Encrypted Offline Sync Engine</h2>
+          </div>
+          <p className="text-sm text-[#5E7078] leading-relaxed max-w-3xl">
+            Built using client-side IndexedDB with cryptographic checksums. Nurses and CHVs can record vitals, register patients, and update care logs without network coverage. Once connected, records synchronize seamlessly using background delta sync.
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-2 text-xs">
+            <div className="p-4 rounded-lg bg-[#F8FAFA] border border-[#D4E7EC]">
+              <strong className="font-bold text-[#063B4C] block mb-1">Local Storage Cache</strong>
+              <span className="text-[#5E7078]">Instant read/write responsiveness in remote clinics.</span>
+            </div>
+            <div className="p-4 rounded-lg bg-[#F8FAFA] border border-[#D4E7EC]">
+              <strong className="font-bold text-[#063B4C] block mb-1">Delta Synchronization</strong>
+              <span className="text-[#5E7078]">Only altered data fields are transmitted to minimize data usage.</span>
+            </div>
+            <div className="p-4 rounded-lg bg-[#F8FAFA] border border-[#D4E7EC]">
+              <strong className="font-bold text-[#063B4C] block mb-1">Conflict Resolution</strong>
+              <span className="text-[#5E7078]">Deterministic timestamp ordering handles simultaneous edits.</span>
+            </div>
+          </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          
-          <div className="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm space-y-4 p-4">
-            <div className="relative aspect-[16/10] rounded-xl overflow-hidden bg-slate-100">
-              <Image
-                src="/nurse_portal_mockup.png"
-                alt="Nurse Clinical Registry Interface"
-                fill
-                className="object-cover object-top"
-              />
-            </div>
-            <div className="p-2 space-y-1">
-              <h3 className="text-base font-bold text-slate-900">Nurse Clinical Registry</h3>
-              <p className="text-xs text-slate-600 leading-relaxed">
-                Tablet and laptop workflow for ANC visits, blood pressure logging, danger sign alerts, and KEPI dose recording.
-              </p>
-            </div>
+        <div id="kepi-engine" className="bg-white rounded-xl border border-[#D4E7EC] p-8 sm:p-12 space-y-6">
+          <div className="flex items-center gap-3">
+            <Syringe className="w-6 h-6 text-[#087EA4]" />
+            <h2 className="text-2xl font-bold text-[#063B4C]">KEPI Immunization Scheduler</h2>
           </div>
-
-          <div className="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm space-y-4 p-4">
-            <div className="relative aspect-[16/10] rounded-xl overflow-hidden bg-slate-100">
-              <Image
-                src="/admin_telemetry_trust.png"
-                alt="Facility Telemetry Dashboard"
-                fill
-                className="object-cover object-top"
-              />
-            </div>
-            <div className="p-2 space-y-1">
-              <h3 className="text-base font-bold text-slate-900">Facility Telemetry Desktop App</h3>
-              <p className="text-xs text-slate-600 leading-relaxed">
-                Tauri desktop application for facility managers to review missed appointments and generate CSV register exports.
-              </p>
-            </div>
-          </div>
-
+          <p className="text-sm text-[#5E7078] leading-relaxed max-w-3xl">
+            Automates compliance with the Kenya Expanded Programme on Immunization (KEPI). Calculates precise vaccination due dates from birth through 24 months for BCG, Oral Polio (OPV), Pentavalent (DPT-HepB-Hib), Rotavirus, Pneumococcal (PCV10), and Measles-Rubella (MR).
+          </p>
         </div>
       </section>
 
-      {/* 4. Capabilities Explained Through Outcomes */}
-      <section className="bg-slate-950 text-white py-20 border-y border-slate-900">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
-          
-          <div className="max-w-3xl space-y-2">
-            <span className="text-xs font-bold uppercase tracking-wider text-emerald-400">Core Capabilities</span>
-            <h2 className="text-3xl font-extrabold text-white">
-              Capabilities built for real-world healthcare.
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            
-            <div className="space-y-3 bg-slate-900 p-6 rounded-xl border border-slate-800">
-              <Database className="w-6 h-6 text-emerald-400" />
-              <h3 className="text-base font-bold text-white">Care doesn&apos;t stop when connectivity does.</h3>
-              <p className="text-xs text-slate-400 leading-relaxed">
-                Client-side IndexedDB engine allows clinical staff to register mothers and log vitals without active internet. Transactions sync automatically upon reconnection.
-              </p>
-            </div>
-
-            <div className="space-y-3 bg-slate-900 p-6 rounded-xl border border-slate-800">
-              <Syringe className="w-6 h-6 text-emerald-400" />
-              <h3 className="text-base font-bold text-white">Immunization schedules follow national KEPI timetables.</h3>
-              <p className="text-xs text-slate-400 leading-relaxed">
-                Calculates exact milestone target dates from birth (BCG, OPV) through 24 months (Measles-Rubella, Vitamin A) per Ministry of Health guidelines.
-              </p>
-            </div>
-
-            <div className="space-y-3 bg-slate-900 p-6 rounded-xl border border-slate-800">
-              <Activity className="w-6 h-6 text-emerald-400" />
-              <h3 className="text-base font-bold text-white">Growth staging flags malnutrition early.</h3>
-              <p className="text-xs text-slate-400 leading-relaxed">
-                Evaluates Weight-for-Age, Height-for-Age, and MUAC measurements against WHO growth standards to alert nurses to MAM or SAM risk.
-              </p>
-            </div>
-
-            <div className="space-y-3 bg-slate-900 p-6 rounded-xl border border-slate-800">
-              <Lock className="w-6 h-6 text-emerald-400" />
-              <h3 className="text-base font-bold text-white">Patient privacy & role security by default.</h3>
-              <p className="text-xs text-slate-400 leading-relaxed">
-                Access controls enforce role boundaries so health workers only access data for their assigned facility in alignment with Data Protection Act 2019 principles.
-              </p>
-            </div>
-
-            <div className="space-y-3 bg-slate-900 p-6 rounded-xl border border-slate-800">
-              <FileSpreadsheet className="w-6 h-6 text-emerald-400" />
-              <h3 className="text-base font-bold text-white">Statutory reporting in one click.</h3>
-              <p className="text-xs text-slate-400 leading-relaxed">
-                Generates structured CSV and Excel files formatted to match Ministry of Health monthly reporting registers for rapid submission.
-              </p>
-            </div>
-
-            <div className="space-y-3 bg-slate-900 p-6 rounded-xl border border-slate-800">
-              <CheckCircle2 className="w-6 h-6 text-emerald-400" />
-              <h3 className="text-base font-bold text-white">Automated SMS patient engagement.</h3>
-              <p className="text-xs text-slate-400 leading-relaxed">
-                Sends automated SMS reminders to mothers in Swahili and English before upcoming clinic visits to reduce vaccine dropouts.
-              </p>
-            </div>
-
-          </div>
-
-        </div>
-      </section>
-
-      {/* 5. CTA */}
+      {/* CTA */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-white rounded-2xl border border-slate-200 p-8 sm:p-12 flex flex-col sm:flex-row items-center justify-between gap-6 shadow-sm">
-          <div className="space-y-2">
-            <h3 className="text-xl font-bold text-slate-900">Want to evaluate TotoAfya Digital at your facility?</h3>
-            <p className="text-xs text-slate-600">Discuss pilot deployment options with our technical team.</p>
+        <div className="bg-[#063B4C] text-white rounded-xl p-8 text-center space-y-4">
+          <h2 className="text-2xl font-bold text-white">Need detailed architecture documentation?</h2>
+          <p className="text-sm text-[#EAF6F9]">
+            Talk to our engineering team to review security, API endpoints, and cloud data protection compliance.
+          </p>
+          <div className="pt-2">
+            <Link
+              href="/contact?type=tech"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-md bg-[#087EA4] text-white font-semibold text-xs hover:bg-[#066989] transition-all"
+            >
+              <span>Contact Tech Team</span>
+              <ArrowRight className="w-4 h-4" />
+            </Link>
           </div>
-          <Link
-            href="/contact"
-            className="inline-flex items-center gap-2 px-6 py-3.5 rounded-lg bg-emerald-800 hover:bg-emerald-900 text-white font-bold text-xs shadow-sm shrink-0"
-          >
-            <span>Request a demo</span>
-            <ArrowRight className="w-4 h-4" />
-          </Link>
         </div>
       </section>
-
     </div>
   );
 }
