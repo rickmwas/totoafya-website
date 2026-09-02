@@ -11,6 +11,12 @@ export const SITE_CONFIG = {
   partnershipsEmail: 'partnerships@totoafya.co.ke',
   phone: '+254 113 242 983',
   address: 'Kisii Town, Kisii County, Kenya',
+  portals: {
+    marketing: 'https://totoafya.co.ke',
+    mother: 'https://mother.totoafya.co.ke',
+    nurse: 'https://nurse.totoafya.co.ke',
+    facility: 'https://facility.totoafya.co.ke',
+  },
   governance: {
     incubator: 'Kisii University Innovation Hub',
     recognition: 'Best Project — Digital Healthcare (Kisii Innovation Week)',
@@ -61,6 +67,7 @@ export const ECOSYSTEM_PILLARS = [
     id: 'caregivers',
     title: 'Mothers & Caregivers',
     badge: 'Mother Web & PWA Portal',
+    portalUrl: 'https://mother.totoafya.co.ke',
     summary: 'Mobile-first PWA providing continuous pregnancy tracking, automated vaccine SMS reminders, ANC book synchronization, and bilingual supportive health education.',
     capabilities: [
       'Digital ANC booklet & pregnancy milestone log',
@@ -74,6 +81,7 @@ export const ECOSYSTEM_PILLARS = [
     id: 'clinicians',
     title: 'Clinical Nurses & CHVs',
     badge: 'Nurse Clinical Web Portal',
+    portalUrl: 'https://nurse.totoafya.co.ke',
     summary: 'Tablet and laptop-optimized clinical workflow registry designed to digitize ANC visits, record vitals & dangerous signs, and track child growth.',
     capabilities: [
       'Under-2-minute mother & child registration workflow',
@@ -87,6 +95,7 @@ export const ECOSYSTEM_PILLARS = [
     id: 'facilities',
     title: 'Facility Administrators',
     badge: 'Facility PC App (Tauri)',
+    portalUrl: 'https://facility.totoafya.co.ke',
     summary: 'Desktop application for hospital managers and facility leads to monitor patient volume, appointment attendance, and staff account management.',
     capabilities: [
       'Facility-level MNCH performance telemetry',
@@ -100,6 +109,7 @@ export const ECOSYSTEM_PILLARS = [
     id: 'counties',
     title: 'County & Health Partners',
     badge: 'Centralized Governance Portal',
+    portalUrl: 'https://facility.totoafya.co.ke',
     summary: 'Multi-facility aggregated analytics for county health departments and development partners to evaluate immunization coverage and maternal health indicators.',
     capabilities: [
       'County-wide public health indicator monitoring',

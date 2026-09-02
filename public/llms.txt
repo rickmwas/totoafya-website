@@ -4,9 +4,9 @@
 
 ## Key Capabilities & Architecture
 
-- **Mother & Caregiver PWA Portal (`https://totoafya.co.ke`):** Mobile web application providing digital ANC booklet synchronization, automated KEPI immunization calendar reminders, and 24/7 Swahili & English supportive health companion.
-- **Nurse Clinical Web Registry:** Optimized clinical workflow interface for dispensaries and health centers to log patient vitals, record ANC visits, track child growth (WHO Weight-for-Age, Height-for-Age, MUAC), and log vaccine batch numbers.
-- **Facility Desktop Application (Tauri):** Offline-first desktop software for facility leads to monitor patient volume, appointment attendance, nurse account management, and MoH/DHIS2 CSV exports.
+- **Mother & Caregiver PWA Portal (`https://mother.totoafya.co.ke`):** Mobile web application providing digital ANC booklet synchronization, automated KEPI immunization calendar reminders, and 24/7 Swahili & English supportive health companion.
+- **Nurse Clinical Web Registry (`https://nurse.totoafya.co.ke`):** Optimized clinical workflow interface for dispensaries and health centers to log patient vitals, record ANC visits, track child growth (WHO Weight-for-Age, Height-for-Age, MUAC), and log vaccine batch numbers.
+- **Facility Desktop Application (`https://facility.totoafya.co.ke`):** Offline-first web & desktop software for facility leads to monitor patient volume, appointment attendance, nurse account management, and MoH/DHIS2 CSV exports.
 - **County & Institutional Governance Portal:** Aggregated multi-facility public health analytics for county health departments and development partners.
 
 ## Core Compliance & Standards
