@@ -2,19 +2,30 @@
 
 @layer base {
   :root {
-    --background: #F8FAFA;
-    --foreground: #102027;
-    --primary-blue: #087EA4;
-    --primary-blue-hover: #066989;
-    --deep-navy: #063B4C;
-    --secondary-teal: #159A9C;
-    --soft-clinical-blue: #EAF6F9;
-    --muted-text: #5E7078;
-    --border-clinical: #D4E7EC;
-    --border-subtle: #E2E8F0;
-    --success-green: #0E8345;
-    --warning-amber: #D97706;
-    --danger-red: #DC2626;
+    --background: #F7F5F0;
+    --foreground: #0A0A0A;
+    
+    /* Official TotoAfya Design System Tokens (from @totoafya/design-system) */
+    --toto-primary: #006B5F;        /* TotoAfya Teal */
+    --toto-primary-dark: #00574D;
+    --toto-primary-light: #E6F4F1;
+    
+    --toto-accent: #E68A00;         /* Savannah Sunrise / Ochre */
+    --toto-accent-hover: #CC7A00;
+    --toto-accent-light: #FFFBEB;
+    
+    --toto-green: #107C41;          /* Success Green */
+    --toto-green-light: #F0FAF5;
+    
+    --toto-critical: #D13438;       /* Critical Red */
+    --toto-critical-light: #FFF5F5;
+    
+    --canvas-surface: #FFFFFF;
+    --border-subtle: #E5E5E5;
+    --text-primary: #0A0A0A;
+    --text-secondary: #555555;
+    --text-clinical: #374151;
+    --text-muted: #A0A0A0;
   }
 
   body {
@@ -27,82 +38,103 @@
   }
 }
 
-/* Custom Editorial & Institutional Utility Classes */
-.bg-health-navy {
-  background-color: #063B4C;
+/* TotoAfya Official Design System Utilities */
+.bg-toto-teal {
+  background-color: #006B5F;
 }
 
-.text-health-navy {
-  color: #063B4C;
+.bg-toto-teal-hover:hover {
+  background-color: #00574D;
 }
 
-.bg-health-blue {
-  background-color: #087EA4;
+.text-toto-teal {
+  color: #006B5F;
 }
 
-.text-health-blue {
-  color: #087EA4;
+.bg-toto-accent {
+  background-color: #E68A00;
 }
 
-.bg-clinical-soft {
-  background-color: #EAF6F9;
+.text-toto-accent {
+  color: #E68A00;
 }
 
-.border-clinical {
-  border-color: #D4E7EC;
+.bg-toto-warm {
+  background-color: #F7F5F0;
 }
 
-.text-muted-clinical {
-  color: #5E7078;
-}
-
-.badge-clinical {
+/* Institutional Badge Styles (Sky Blue & Emerald Green) */
+.badge-sky {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 0.375rem 0.875rem;
-  border-radius: 6px;
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.04em;
+  padding: 0.35rem 0.85rem;
+  border-radius: 9999px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
-  background-color: #EAF6F9;
-  color: #063B4C;
-  border: 1px solid #C4E2EA;
+  background-color: #E0F2FE;
+  color: #0284C7;
+  border: 1px solid #BAE6FD;
 }
 
-.badge-clinical-navy {
+.badge-green {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 0.375rem 0.875rem;
-  border-radius: 6px;
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.04em;
+  padding: 0.35rem 0.85rem;
+  border-radius: 9999px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
-  background-color: rgba(255, 255, 255, 0.1);
-  color: #EAF6F9;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  background-color: #ECFDF5;
+  color: #059669;
+  border: 1px solid #A7F3D0;
 }
 
-/* Restrained Focus States for Institutional Accessibility */
+.badge-navy {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 0.85rem;
+  border-radius: 9999px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  background-color: rgba(15, 23, 42, 0.06);
+  color: #0F172A;
+  border: 1px solid #CBD5E1;
+}
+
+/* Clean Frame Glow */
+.glow-sky {
+  box-shadow: 0 10px 30px -5px rgba(2, 132, 199, 0.15);
+}
+
+.glow-green {
+  box-shadow: 0 10px 30px -5px rgba(16, 185, 129, 0.15);
+}
+
+/* Restrained Focus States */
 a:focus-visible,
 button:focus-visible,
 input:focus-visible,
 select:focus-visible,
 textarea:focus-visible {
-  outline: 2px solid #087EA4;
+  outline: 2px solid #0284C7;
   outline-offset: 2px;
 }
 
-/* Custom Scrollbar for registries and UI showcases */
+/* Custom Scrollbar */
 ::-webkit-scrollbar {
   width: 6px;
   height: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #F1F5F9;
+  background: #F8FAFC;
 }
 ::-webkit-scrollbar-thumb {
   background: #CBD5E1;
