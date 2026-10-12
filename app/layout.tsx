@@ -25,17 +25,17 @@ export const metadata: Metadata = {
     default: `${SITE_CONFIG.name} — Connected Maternal & Child Healthcare Kenya`,
     template: `%s | ${SITE_CONFIG.name}`,
   },
-  description: SITE_CONFIG.description,
+  description:
+    'A connected maternal, newborn and child healthcare platform supporting pregnancy, antenatal care, immunisation and early childhood care in Kenya.',
   keywords: [
     'TotoAfya Digital',
     'Maternal healthcare Kenya',
-    'KEPI immunization schedule',
-    'WHO child growth tracking',
-    'Offline health app Kenya',
-    'Kisii University innovation',
-    'TerraSept Solutions Ltd',
-    'Community health worker PWA',
-    'Dispensary digital health registry',
+    'Digital maternal health',
+    'ANC tracking',
+    'Child immunisation tracking',
+    'Maternal and child health platform',
+    'Child growth monitoring',
+    'Digital clinic records',
   ],
   authors: [{ name: SITE_CONFIG.legalName }],
   creator: SITE_CONFIG.legalName,
@@ -88,7 +88,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(appSchema) }}
         />
       </head>
-      <body className="min-h-full flex flex-col font-sans bg-slate-50 text-slate-900 selection:bg-sky-100 selection:text-sky-900">
+      <body className="min-h-full flex flex-col font-sans bg-[#fbfaf7] text-[#17221f]">
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />

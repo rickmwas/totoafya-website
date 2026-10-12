@@ -1,155 +1,93 @@
-import React from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
 import type { Metadata } from 'next';
-import { Syringe, WifiOff, ArrowRight } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Product Architecture & Technical Capabilities',
+  title: 'Features — Pregnancy, Immunisation and Growth',
   description:
-    'Deep dive into TotoAfya Digital platform architecture: Mother PWA, Nurse Clinical Portal, Tauri Facility App, Offline Sync Engine, and KEPI Vaccine Logic.',
+    'Explore TotoAfya features for pregnancy and antenatal care, child immunisation, growth monitoring, facility workflows and offline care.',
 };
+
+const features = [
+  {
+    id: 'mother-portal',
+    eyebrow: 'For families',
+    title: 'Pregnancy and antenatal care',
+    copy: 'Keep pregnancy details, antenatal visits and next steps together across the journey.',
+    image: '/mother_portal_realistic.jpg',
+    alt: 'TotoAfya maternal care interface',
+  },
+  {
+    id: 'kepi-engine',
+    eyebrow: 'For child health',
+    title: 'Immunisation visits',
+    copy: 'Keep a child’s immunisation record and upcoming visits easy to follow.',
+    image: '/baby.jpg',
+    alt: 'A baby being cared for',
+  },
+  {
+    id: 'growth-tracking',
+    eyebrow: 'For growing children',
+    title: 'Growth monitoring',
+    copy: 'Bring child growth measurements together across visits for a clearer view over time.',
+    image: '/nurse_clinical_realistic.jpg',
+    alt: 'A healthcare worker supporting child care',
+  },
+  {
+    id: 'nurse-portal',
+    eyebrow: 'For care teams',
+    title: 'Clinical workflows',
+    copy: 'Support maternal and child health records, visit documentation and follow-up in the clinic.',
+    image: '/nurse_portal_mockup.png',
+    alt: 'TotoAfya healthcare worker interface',
+  },
+  {
+    id: 'facility-pc',
+    eyebrow: 'For facilities',
+    title: 'A connected facility view',
+    copy: 'Give facility teams a shared view of maternal and child care workflows and records.',
+    image: '/facility_pc_realistic.jpg',
+    alt: 'TotoAfya facility dashboard',
+  },
+  {
+    id: 'offline-engine',
+    eyebrow: 'For changing connections',
+    title: 'Care when connectivity is unreliable',
+    copy: 'TotoAfya is designed to support care teams when a stable internet connection is not always available.',
+    image: '/hero_clinic_bg.jpg',
+    alt: 'A healthcare clinic setting',
+  },
+];
 
 export default function ProductPage() {
   return (
-    <div className="space-y-20 py-12 bg-[#F8FAFA] text-[#102027]">
-      {/* Page Header */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="max-w-3xl space-y-4">
-          <div className="badge-clinical">Technical Platform Architecture</div>
-          <h1 className="text-4xl sm:text-5xl font-bold text-[#063B4C] tracking-tight">
-            Production-grade health registry <span className="text-[#087EA4]">built for offline resilience.</span>
-          </h1>
-          <p className="text-base text-[#5E7078] leading-relaxed">
-            TotoAfya Digital combines mobile Progressive Web Apps, tablet clinical registries, and desktop management tools linked through an encrypted offline synchronization engine.
-          </p>
-        </div>
+    <div className="feature-page">
+      <section className="section-shell how-hero">
+        <span className="section-kicker">TotoAfya features</span>
+        <h1>Care information that stays <em>connected.</em></h1>
+        <p>Explore the tools that support mothers, healthcare workers and facilities across the maternal and child health journey.</p>
       </section>
-
-      {/* Architectural Overview Diagram / Pillars */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="rounded-xl bg-[#063B4C] text-white p-8 sm:p-12 border border-[#084D63] space-y-8">
-          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pb-6 border-b border-[#084D63]">
-            <div>
-              <span className="text-xs font-bold uppercase tracking-wider text-[#159A9C]">
-                Multi-Portal Architecture
-              </span>
-              <h2 className="text-2xl font-bold text-white mt-1">Four Integrated Portals</h2>
+      <div className="section-shell feature-list">
+        {features.map((feature, index) => (
+          <section key={feature.id} id={feature.id} className={`feature-row ${index % 2 ? 'feature-row-reverse' : ''}`}>
+            <div className="feature-row-copy">
+              <span className="section-kicker">{feature.eyebrow}</span>
+              <h2>{feature.title}</h2>
+              <p>{feature.copy}</p>
+              {feature.id === 'offline-engine' && (
+                <Link href="/technology#offline-care" className="text-link">How offline care works <ArrowRight size={16} /></Link>
+              )}
             </div>
-            <span className="text-xs text-[#C4E2EA] font-mono">
-              Partitioned by Facility UUID (`facility_id`)
-            </span>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div className="p-5 rounded-lg bg-[#084D63] border border-[#0A5C77] space-y-3">
-              <div className="w-8 h-8 rounded bg-[#063B4C] text-[#159A9C] flex items-center justify-center font-bold text-xs">
-                01
-              </div>
-              <h3 className="text-sm font-bold text-white">Mother PWA Portal</h3>
-              <p className="text-xs text-[#C4E2EA] leading-relaxed">
-                Mobile-first PWA for pregnancy logs, vaccine schedules, and AI health chat.
-              </p>
-              <span className="text-[10px] font-mono text-[#159A9C] block pt-1">
-                `apps/mother-portal`
-              </span>
+            <div className="feature-row-image">
+              <Image src={feature.image} alt={feature.alt} fill sizes="(max-width: 760px) 100vw, 50vw" />
             </div>
-
-            <div className="p-5 rounded-lg bg-[#084D63] border border-[#0A5C77] space-y-3">
-              <div className="w-8 h-8 rounded bg-[#063B4C] text-[#159A9C] flex items-center justify-center font-bold text-xs">
-                02
-              </div>
-              <h3 className="text-sm font-bold text-white">Nurse Clinical Portal</h3>
-              <p className="text-xs text-[#C4E2EA] leading-relaxed">
-                Tablet/laptop registry for ANC vitals, WHO growth staging, and vaccine entry.
-              </p>
-              <span className="text-[10px] font-mono text-[#159A9C] block pt-1">
-                `apps/nurse-portal`
-              </span>
-            </div>
-
-            <div className="p-5 rounded-lg bg-[#084D63] border border-[#0A5C77] space-y-3">
-              <div className="w-8 h-8 rounded bg-[#063B4C] text-[#159A9C] flex items-center justify-center font-bold text-xs">
-                03
-              </div>
-              <h3 className="text-sm font-bold text-white">Facility PC Desktop App</h3>
-              <p className="text-xs text-[#C4E2EA] leading-relaxed">
-                Tauri-wrapped desktop app for facility managers to view analytics & alerts.
-              </p>
-              <span className="text-[10px] font-mono text-[#159A9C] block pt-1">
-                `apps/facility-pc`
-              </span>
-            </div>
-
-            <div className="p-5 rounded-lg bg-[#084D63] border border-[#0A5C77] space-y-3">
-              <div className="w-8 h-8 rounded bg-[#063B4C] text-[#159A9C] flex items-center justify-center font-bold text-xs">
-                04
-              </div>
-              <h3 className="text-sm font-bold text-white">Super Admin Portal</h3>
-              <p className="text-xs text-[#C4E2EA] leading-relaxed">
-                Central governance console for feature flags, county audits & telemetry.
-              </p>
-              <span className="text-[10px] font-mono text-[#159A9C] block pt-1">
-                `apps/super-admin-portal`
-              </span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Core Technical Capabilities */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
-        <div id="offline-engine" className="bg-white rounded-xl border border-[#D4E7EC] p-8 sm:p-12 space-y-6">
-          <div className="flex items-center gap-3">
-            <WifiOff className="w-6 h-6 text-[#087EA4]" />
-            <h2 className="text-2xl font-bold text-[#063B4C]">Encrypted Offline Sync Engine</h2>
-          </div>
-          <p className="text-sm text-[#5E7078] leading-relaxed max-w-3xl">
-            Built using client-side IndexedDB with cryptographic checksums. Nurses and CHVs can record vitals, register patients, and update care logs without network coverage. Once connected, records synchronize seamlessly using background delta sync.
-          </p>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-2 text-xs">
-            <div className="p-4 rounded-lg bg-[#F8FAFA] border border-[#D4E7EC]">
-              <strong className="font-bold text-[#063B4C] block mb-1">Local Storage Cache</strong>
-              <span className="text-[#5E7078]">Instant read/write responsiveness in remote clinics.</span>
-            </div>
-            <div className="p-4 rounded-lg bg-[#F8FAFA] border border-[#D4E7EC]">
-              <strong className="font-bold text-[#063B4C] block mb-1">Delta Synchronization</strong>
-              <span className="text-[#5E7078]">Only altered data fields are transmitted to minimize data usage.</span>
-            </div>
-            <div className="p-4 rounded-lg bg-[#F8FAFA] border border-[#D4E7EC]">
-              <strong className="font-bold text-[#063B4C] block mb-1">Conflict Resolution</strong>
-              <span className="text-[#5E7078]">Deterministic timestamp ordering handles simultaneous edits.</span>
-            </div>
-          </div>
-        </div>
-
-        <div id="kepi-engine" className="bg-white rounded-xl border border-[#D4E7EC] p-8 sm:p-12 space-y-6">
-          <div className="flex items-center gap-3">
-            <Syringe className="w-6 h-6 text-[#087EA4]" />
-            <h2 className="text-2xl font-bold text-[#063B4C]">KEPI Immunization Scheduler</h2>
-          </div>
-          <p className="text-sm text-[#5E7078] leading-relaxed max-w-3xl">
-            Automates compliance with the Kenya Expanded Programme on Immunization (KEPI). Calculates precise vaccination due dates from birth through 24 months for BCG, Oral Polio (OPV), Pentavalent (DPT-HepB-Hib), Rotavirus, Pneumococcal (PCV10), and Measles-Rubella (MR).
-          </p>
-        </div>
-      </section>
-
-      {/* CTA */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-[#063B4C] text-white rounded-xl p-8 text-center space-y-4">
-          <h2 className="text-2xl font-bold text-white">Need detailed architecture documentation?</h2>
-          <p className="text-sm text-[#EAF6F9]">
-            Talk to our engineering team to review security, API endpoints, and cloud data protection compliance.
-          </p>
-          <div className="pt-2">
-            <Link
-              href="/contact?type=tech"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-md bg-[#087EA4] text-white font-semibold text-xs hover:bg-[#066989] transition-all"
-            >
-              <span>Contact Tech Team</span>
-              <ArrowRight className="w-4 h-4" />
-            </Link>
-          </div>
-        </div>
+          </section>
+        ))}
+      </div>
+      <section className="section-shell product-cta">
+        <h2>See how TotoAfya could support your care setting.</h2>
+        <Link className="button button-primary" href="/contact">Talk to our team <ArrowRight size={16} /></Link>
       </section>
     </div>
   );

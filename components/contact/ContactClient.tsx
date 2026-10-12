@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
-import { MapPin, Mail, Phone, Clock, CheckCircle2, ArrowRight, Building2, HelpCircle } from 'lucide-react';
+import { MapPin, Mail, Phone, Clock, CheckCircle2, ArrowRight, Building2 } from 'lucide-react';
 import { SITE_CONFIG } from '@/lib/constants';
 
 const contactSchema = z.object({
@@ -22,40 +22,43 @@ type ContactFormInput = z.infer<typeof contactSchema>;
 
 export default function ContactClient() {
   const [submitted, setSubmitted] = useState(false);
-  const [loading, setLoading] = useState(false);
-
   const {
     register,
     handleSubmit,
-    reset,
     formState: { errors },
   } = useForm<ContactFormInput>({
     resolver: zodResolver(contactSchema),
   });
 
-  const onSubmit = async (data: ContactFormInput) => {
-    setLoading(true);
-    console.log('Institutional Contact payload:', data);
-    await new Promise((res) => setTimeout(res, 800));
-    setLoading(false);
+  const onSubmit = (data: ContactFormInput) => {
+    const subject = encodeURIComponent(`TotoAfya inquiry from ${data.organization}`);
+    const body = encodeURIComponent([
+      `Name: ${data.fullName}`,
+      `Email: ${data.email}`,
+      `Phone: ${data.phone}`,
+      `Organization: ${data.organization}`,
+      `Role: ${data.role}`,
+      '',
+      data.message,
+    ].join('\n'));
+    window.location.href = `mailto:${SITE_CONFIG.email}?subject=${subject}&body=${body}`;
     setSubmitted(true);
-    reset();
   };
 
   return (
-    <div className="space-y-16 py-12 bg-[#FAF9F6]">
+    <div className="contact-page space-y-16 py-12 bg-[#FAF9F6]">
       
       {/* Header */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl space-y-4">
           <span className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-emerald-50 text-emerald-800 text-xs font-bold uppercase tracking-wider border border-emerald-200">
-            Institutional Contact & Inquiries
+            Contact TotoAfya
           </span>
           <h1 className="text-4xl sm:text-5xl font-extrabold text-slate-900 tracking-tight">
             Connect with the TerraSept Solutions team.
           </h1>
           <p className="text-base text-slate-600 leading-relaxed font-normal">
-            Whether representing a dispensary, maternity hospital, county health department, development partner, or caregiver family — our team is ready to assist with your pilot evaluation.
+            Tell us a little about what you need. We’ll prepare an email draft addressed to the TotoAfya team.
           </p>
         </div>
       </section>
@@ -140,15 +143,16 @@ export default function ContactClient() {
                   <div className="w-12 h-12 rounded-full bg-emerald-100 text-emerald-800 flex items-center justify-center mx-auto">
                     <CheckCircle2 className="w-6 h-6" />
                   </div>
-                  <h3 className="text-2xl font-bold text-slate-900">Inquiry Received</h3>
+                  <h3 className="text-2xl font-bold text-slate-900">Your email draft is ready</h3>
                   <p className="text-xs sm:text-sm text-slate-600 max-w-md mx-auto leading-relaxed">
-                    Thank you for reaching out to TerraSept Solutions. A member of our technical deployment team will respond within 24 business hours.
+                    Your email app should open with your inquiry details. Please send the message there to complete your request. If it does not open, email{' '}
+                    <a href={`mailto:${SITE_CONFIG.email}`} className="text-emerald-800 underline">{SITE_CONFIG.email}</a>.
                   </p>
                   <button
                     onClick={() => setSubmitted(false)}
                     className="inline-flex items-center gap-2 px-6 py-2.5 rounded-lg border border-slate-300 text-xs font-bold text-slate-800 hover:bg-slate-50 transition-all"
                   >
-                    Submit Another Inquiry
+                    Return to the form
                   </button>
                 </div>
               ) : (
@@ -258,50 +262,16 @@ export default function ContactClient() {
 
                   <button
                     type="submit"
-                    disabled={loading}
                     className="w-full py-3.5 rounded-lg bg-emerald-800 text-white font-bold text-xs hover:bg-emerald-900 transition-all flex items-center justify-center gap-2 shadow-sm disabled:opacity-50"
                   >
-                    {loading ? (
-                      <span>Sending Message...</span>
-                    ) : (
-                      <>
-                        <span>Submit Inquiry</span>
-                        <ArrowRight className="w-4 h-4" />
-                      </>
-                    )}
+                    <span>Prepare email inquiry</span>
+                    <ArrowRight className="w-4 h-4" />
                   </button>
                 </form>
               )}
             </div>
           </div>
 
-        </div>
-      </section>
-
-      {/* FAQ */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 border-t border-slate-200 pt-16 space-y-8">
-        <div className="max-w-3xl space-y-2">
-          <div className="flex items-center gap-2 text-emerald-800 font-bold text-xs uppercase tracking-wider">
-            <HelpCircle className="w-4 h-4" />
-            <span>Pilot Onboarding & Consultation</span>
-          </div>
-          <h2 className="text-2xl font-bold text-slate-900">Frequently Asked Contact Questions</h2>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div className="p-6 rounded-xl bg-white border border-slate-200 space-y-2">
-            <h3 className="text-sm font-bold text-slate-900">What is the response timeframe for pilot inquiries?</h3>
-            <p className="text-xs text-slate-600 leading-relaxed">
-              Our technical deployment team reviews all facility and county inquiries within 24 business hours. Formal pilot consultations include hardware assessment and staff onboarding timetables.
-            </p>
-          </div>
-
-          <div className="p-6 rounded-xl bg-white border border-slate-200 space-y-2">
-            <h3 className="text-sm font-bold text-slate-900">Can dispensaries request onsite staff training?</h3>
-            <p className="text-xs text-slate-600 leading-relaxed">
-              Yes. TerraSept Solutions conducts onsite clinical nurse and Community Health Volunteer (CHV) training sessions tailored to local facility workflows.
-            </p>
-          </div>
         </div>
       </section>
 

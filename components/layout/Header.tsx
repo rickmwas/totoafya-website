@@ -1,140 +1,164 @@
 'use client';
 
-import React, { useState } from 'react';
-import Link from 'next/link';
+import { useState } from 'react';
 import Image from 'next/image';
-import { usePathname } from 'next/navigation';
-import { Menu, X, ArrowRight, PhoneCall } from 'lucide-react';
-import { SITE_CONFIG } from '@/lib/constants';
+import Link from 'next/link';
+import { ArrowRight, ChevronDown, Menu, X } from 'lucide-react';
 
-const NAV_ITEMS = [
-  { name: 'Our Story', href: '/#our-story' },
-  { name: 'Infrastructure', href: '/product' },
-  { name: 'Solutions', href: '/solutions' },
-  { name: 'Audited Impact', href: '/#impact' },
-  { name: 'County Pilots', href: '/#pilot-program' },
-  { name: 'About Us', href: '/about' },
-];
+const menus = {
+  Products: [
+    { label: 'Pregnancy & antenatal care', href: '/mothers' },
+    { label: 'Child immunisation', href: '/product#kepi-engine' },
+    { label: 'Growth monitoring', href: '/product#growth-tracking' },
+    { label: 'Facility workflows', href: '/facilities' },
+    { label: 'Care when offline', href: '/technology#offline-care' },
+  ],
+  Solutions: [
+    { label: 'For mothers and families', href: '/mothers' },
+    { label: 'For healthcare workers', href: '/solutions#nurses' },
+    { label: 'For health facilities', href: '/facilities' },
+    { label: 'For health programmes', href: '/solutions#counties' },
+  ],
+  'Sign in': [
+    { label: 'Mother and family portal', href: 'https://mother.totoafya.co.ke' },
+    { label: 'Healthcare worker portal', href: 'https://nurse.totoafya.co.ke' },
+    { label: 'Facility portal', href: 'https://facility.totoafya.co.ke' },
+  ],
+};
+const primaryMenus = ['Products', 'Solutions'] as const;
 
 export default function Header() {
+  const [openMenu, setOpenMenu] = useState<keyof typeof menus | null>(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const pathname = usePathname();
 
   return (
-    <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-[#E5E5E5] transition-all">
-      {/* Top Clinical Strip */}
-      <div className="bg-[#006B5F] text-white text-xs py-1.5 px-4 sm:px-6 lg:px-8 border-b border-[#00574D]">
-        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2">
-          <div className="flex items-center gap-2 text-[11px] sm:text-xs">
-            <span className="w-2 h-2 rounded-full bg-[#107C41] animate-pulse shrink-0 ring-2 ring-white/30" />
-            <span className="font-semibold">Kenya MoH KEPI Protocols Aligned</span>
-            <span className="hidden md:inline text-teal-200">|</span>
-            <span className="hidden md:inline text-teal-100">
-              Incubated at {SITE_CONFIG.governance.incubator}
-            </span>
-          </div>
-          <div className="flex items-center gap-4 text-[11px] sm:text-xs">
-            <span className="text-[#FFD580] font-medium hidden sm:inline">KDPA 2019 Data Compliant</span>
-            <a
-              href={`tel:${SITE_CONFIG.phone}`}
-              className="flex items-center gap-1.5 text-teal-100 hover:text-white transition-colors"
-            >
-              <PhoneCall className="w-3 h-3 text-[#FFD580]" />
-              <span>{SITE_CONFIG.phone}</span>
-            </a>
-          </div>
-        </div>
-      </div>
+    <header className="site-header">
+      <div className="site-header-inner">
+        <Link href="/" className="brand-link" aria-label="TotoAfya home">
+          <Image src="/logo.png" alt="TotoAfya" width={210} height={82} priority />
+        </Link>
 
-      {/* Main Navigation Bar */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-18 sm:h-20">
-          {/* Uncontainered, Big, Direct Logo */}
-          <Link href="/" className="flex items-center py-2 focus:outline-none group">
-            <Image
-              src="/logo.png"
-              alt="TotoAfya Digital"
-              width={220}
-              height={64}
-              className="h-11 sm:h-13 w-auto object-contain transition-transform group-hover:scale-[1.02]"
-              priority
-            />
-          </Link>
-
-          {/* Desktop Navigation Links */}
-          <nav className="hidden lg:flex items-center gap-1 xl:gap-2">
-            {NAV_ITEMS.map((link) => {
-              const isActive = pathname === link.href;
-              return (
-                <Link
-                  key={link.name}
-                  href={link.href}
-                  className={`px-3.5 py-2 rounded-lg text-xs font-semibold tracking-wide transition-colors ${
-                    isActive
-                      ? 'text-[#006B5F] bg-[#E6F4F1] font-bold'
-                      : 'text-[#555555] hover:text-[#006B5F] hover:bg-[#F7F5F0]'
-                  }`}
-                >
-                  {link.name}
-                </Link>
-              );
-            })}
-          </nav>
-
-          {/* Primary Action Button (TotoAfya Teal with Savannah Accent) */}
-          <div className="hidden lg:flex items-center gap-3">
-            <Link
-              href="/contact?type=pilot"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-[#006B5F] text-white font-semibold text-xs hover:bg-[#00574D] active:scale-[0.98] transition-all shadow-md shadow-[#006B5F]/20"
-            >
-              <span>Request Pilot Deployment</span>
-              <ArrowRight className="w-3.5 h-3.5 text-[#E68A00]" />
-            </Link>
-          </div>
-
-          {/* Mobile Menu Trigger */}
-          <div className="flex lg:hidden">
-            <button
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 rounded-lg text-slate-700 hover:text-[#006B5F] hover:bg-[#F7F5F0] transition-colors focus:outline-none"
-              aria-label="Toggle navigation menu"
-            >
-              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-            </button>
-          </div>
-        </div>
-      </div>
-
-      {/* Mobile Navigation Drawer */}
-      {mobileMenuOpen && (
-        <div className="lg:hidden border-t border-[#E5E5E5] bg-white px-4 pt-4 pb-6 space-y-4 shadow-lg">
-          <div className="space-y-1">
-            {NAV_ITEMS.map((link) => (
-              <Link
-                key={link.name}
-                href={link.href}
-                onClick={() => setMobileMenuOpen(false)}
-                className="block px-3.5 py-2.5 rounded-lg text-sm font-semibold text-[#0A0A0A] hover:text-[#006B5F] hover:bg-[#E6F4F1]"
+        <nav className="desktop-nav" aria-label="Main navigation">
+          {primaryMenus.map((name) => (
+            <div className="nav-menu-wrap" key={name}>
+              <button
+                type="button"
+                className={`nav-trigger ${openMenu === name ? 'nav-trigger-open' : ''}`}
+                aria-expanded={openMenu === name}
+                aria-controls={`menu-${name.toLowerCase()}`}
+                onClick={() => setOpenMenu(openMenu === name ? null : name)}
               >
-                {link.name}
+                {name}<ChevronDown size={15} />
+              </button>
+              {openMenu === name && (
+                <div className="nav-popover" id={`menu-${name.toLowerCase()}`}>
+                  <span className="nav-popover-label">Explore {name.toLowerCase()}</span>
+                  {menus[name].map((item) => (
+                    <Link href={item.href} key={item.href} onClick={() => setOpenMenu(null)} target={item.href.startsWith('https:') ? '_blank' : undefined} rel={item.href.startsWith('https:') ? 'noreferrer' : undefined}>
+                      {item.label}<ArrowRight size={15} />
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
+          ))}
+          <Link href="/how-it-works" className="nav-link">How it works</Link>
+          <Link href="/resources" className="nav-link">Resources</Link>
+          <Link href="/about" className="nav-link">About</Link>
+        </nav>
+
+        <div className="header-actions">
+          <div className="nav-menu-wrap desktop-signin">
+            <button
+              type="button"
+              className={`nav-trigger ${openMenu === 'Sign in' ? 'nav-trigger-open' : ''}`}
+              aria-expanded={openMenu === 'Sign in'}
+              aria-controls="menu-sign-in"
+              onClick={() => setOpenMenu(openMenu === 'Sign in' ? null : 'Sign in')}
+            >
+              Sign in<ChevronDown size={15} />
+            </button>
+            {openMenu === 'Sign in' && (
+              <div className="nav-popover nav-popover-right" id="menu-sign-in">
+                <span className="nav-popover-label">Choose your TotoAfya portal</span>
+                {menus['Sign in'].map((item) => (
+                  <Link href={item.href} key={item.href} target="_blank" rel="noreferrer" onClick={() => setOpenMenu(null)}>
+                    {item.label}<ArrowRight size={15} />
+                  </Link>
+                ))}
+              </div>
+            )}
+          </div>
+          <Link href="/contact" className="header-cta">Request a demo <ArrowRight size={16} /></Link>
+          <button
+            type="button"
+            className="mobile-menu-button"
+            aria-label={mobileMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
+            aria-expanded={mobileMenuOpen}
+            aria-controls="mobile-navigation"
+            onClick={() => {
+              setOpenMenu(null);
+              setMobileMenuOpen((open) => !open);
+            }}
+          >
+            {mobileMenuOpen ? <X size={23} /> : <Menu size={23} />}
+          </button>
+        </div>
+      </div>
+
+      {mobileMenuOpen && (
+        <nav className="mobile-nav" id="mobile-navigation" aria-label="Mobile navigation">
+          {primaryMenus.map((name) => (
+            <div className="mobile-nav-group" key={name}>
+              <button
+                type="button"
+                className="mobile-nav-toggle"
+                aria-expanded={openMenu === name}
+                onClick={() => setOpenMenu(openMenu === name ? null : name)}
+              >
+                {name}<ChevronDown size={16} />
+              </button>
+              {openMenu === name && menus[name].map((item) => (
+                <Link
+                  href={item.href}
+                  key={item.href}
+                  className="mobile-nav-sub-link"
+                  target={item.href.startsWith('https:') ? '_blank' : undefined}
+                  rel={item.href.startsWith('https:') ? 'noreferrer' : undefined}
+                  onClick={() => { setMobileMenuOpen(false); setOpenMenu(null); }}
+                >
+                  {item.label}
+                </Link>
+              ))}
+            </div>
+          ))}
+          <Link href="/how-it-works" className="mobile-nav-link" onClick={() => setMobileMenuOpen(false)}>How it works</Link>
+          <Link href="/resources" className="mobile-nav-link" onClick={() => setMobileMenuOpen(false)}>Resources</Link>
+          <Link href="/about" className="mobile-nav-link" onClick={() => setMobileMenuOpen(false)}>About</Link>
+          <div className="mobile-nav-group">
+            <button
+              type="button"
+              className="mobile-nav-toggle"
+              aria-expanded={openMenu === 'Sign in'}
+              onClick={() => setOpenMenu(openMenu === 'Sign in' ? null : 'Sign in')}
+            >
+              Sign in<ChevronDown size={16} />
+            </button>
+            {openMenu === 'Sign in' && menus['Sign in'].map((item) => (
+              <Link
+                href={item.href}
+                key={item.href}
+                className="mobile-nav-sub-link"
+                target="_blank"
+                rel="noreferrer"
+                onClick={() => { setMobileMenuOpen(false); setOpenMenu(null); }}
+              >
+                {item.label}
               </Link>
             ))}
           </div>
-
-          <div className="pt-4 border-t border-[#E5E5E5] space-y-3">
-            <Link
-              href="/contact?type=pilot"
-              onClick={() => setMobileMenuOpen(false)}
-              className="w-full flex items-center justify-center gap-2 px-4 py-3 rounded-lg bg-[#006B5F] text-white font-semibold text-sm shadow-md"
-            >
-              <span>Request Pilot Deployment</span>
-              <ArrowRight className="w-4 h-4 text-[#E68A00]" />
-            </Link>
-            <div className="text-center text-xs text-[#555555] pt-1">
-              <span>{SITE_CONFIG.governance.incubator} • {SITE_CONFIG.address}</span>
-            </div>
-          </div>
-        </div>
+          <Link href="/contact" className="mobile-nav-demo" onClick={() => setMobileMenuOpen(false)}>Request a demo <ArrowRight size={17} /></Link>
+        </nav>
       )}
     </header>
   );

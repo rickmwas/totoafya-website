@@ -36,13 +36,7 @@ export function getSoftwareApplicationSchema() {
     '@context': 'https://schema.org',
     '@type': 'SoftwareApplication',
     name: 'TotoAfya Digital Platform',
-    operatingSystem: 'Web, Android PWA, Windows/macOS Desktop (Tauri)',
     applicationCategory: 'HealthApplication',
-    offers: {
-      '@type': 'Offer',
-      price: '0',
-      priceCurrency: 'KES',
-    },
     description: SITE_CONFIG.description,
   };
 }
