@@ -239,24 +239,14 @@ button {
   padding: 18px 0 28px;
 }
 
-.section-kicker {
-  display: inline-flex;
-  align-items: center;
-  gap: 9px;
-  color: var(--green);
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: .1em;
-  line-height: 1.5;
-  text-transform: uppercase;
+.section-kicker,
+.facility-image-caption,
+.badge-clinical {
+  display: none !important;
 }
 
 .kicker-dot {
-  width: 7px;
-  height: 7px;
-  flex: 0 0 auto;
-  border-radius: 50%;
-  background: var(--ochre);
+  display: none;
 }
 
 .home-hero h1 {
